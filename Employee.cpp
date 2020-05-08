@@ -106,4 +106,5 @@ Employee& operator >>(istringstream& tokenStream, Employee& employee)
 		num_word++;
 
 	}
+	return employee;
 }
