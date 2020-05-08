@@ -1,18 +1,23 @@
-#include "CrewMemenber.h"
+#include "CrewMember.h"
 
-void CrewMember::set_name(string n)
+void CrewMember::set_name(string ename)
 {
-	name = n;
+	name = ename;
 }
 
-void CrewMember::set_surname(string s)
+void CrewMember::set_surname(string esurname)
 {
-	surname = s;
+	surname = esurname;
 }
 
-void CrewMember::set_ID(string i)
+void CrewMember::set_ID(string id)
 {
-	ID = i;
+	ID = id;
+}
+
+void CrewMember::set_company(string ecompany)
+{
+	company = ecompany;
 }
 
 string CrewMember::get_name()
@@ -35,12 +40,12 @@ string CrewMember::get_company()
 	return company;
 }
 
-CrewMember::CrewMember(string n, string s, string i, string c)
+CrewMember::CrewMember(string ename, string esurname, string id, string ecompany)
 {
-	set_name(n);
-	set_surname(s);
-	set_ID(i);
-	set_company(c);
+	set_name(ename);
+	set_surname(esurname);
+	set_ID(id);
+	set_company(ecompany);
 }
 
 CrewMember::CrewMember()
