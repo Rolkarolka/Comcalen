@@ -12,8 +12,8 @@ class Employee : public CrewMember
 	double salary = 0;
 	int hours_limit = 0;
 
-	void set_salary(int s);
-	void set_hours_limit(int h);
+	void set_salary(int esalary);
+	void set_hours_limit(int ehlimit);
 public:
 	vector <string> reserved_hours;
 
@@ -25,9 +25,9 @@ public:
 	void show_news();
 	void present() override;
 
-	Employee(string n, string s, string i, string c, double sal, int hl);
+	Employee(string ename, string esurname, string id, string ecompany, double esalary, int ehlimit);
 	Employee();
-	~Employee();
+	~Employee() override;
 	Employee(const Employee& empl);
 
 
