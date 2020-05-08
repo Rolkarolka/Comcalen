@@ -21,10 +21,10 @@ protected:
 	string ID = "";
 	string company = "";
 
-	void set_name(string n);
-	void set_surname(string s);
-	void set_ID(string i);
-	void set_company(string c);
+	void set_name(string ename);
+	void set_surname(string esurname);
+	void set_ID(string id);
+	void set_company(string ecompany);
 
 public:
 	string get_name();
@@ -33,14 +33,14 @@ public:
 	string get_company();
 	virtual void present() = 0; //! shows string representation of obcject
 
-	CrewMember(string n, string s, string i, string c);
+	CrewMember(string ename, string esurname, string id, string ecompany);
 	CrewMember();
 	virtual ~CrewMember();
 	CrewMember(const CrewMember& crewM);
 
 	CrewMember& operator =(const CrewMember&);
-	friend fstream& operator <<(fstream& file, CrewMember& crewM); //! saves attributes (name, author) to fstream
-	friend CrewMember& operator >>(istringstream& tokenStream, CrewMember& crewM); //! sets attributes (name, author) from file
+	friend fstream& operator <<(fstream& file, CrewMember& crewM); //! saves attributes (name, surname, ID, company) to fstream
+	friend CrewMember& operator >>(istringstream& tokenStream, CrewMember& crewM); //! sets attributes (name, surname, ID, company) from file
 
 
 
