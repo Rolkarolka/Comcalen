@@ -48,8 +48,8 @@ void Employer::present()
 	cout << name << " " << surname << "\nID:" << ID;
 }
 
-Employer::Employer(string n, string s, string id, string c)
-	: CrewMember(n, s, id, c)
+Employer::Employer(string ename, string esurname, string id, string ecompany)
+	: CrewMember(ename, esurname, id, ecompany)
 {
 
 }
