@@ -16,7 +16,7 @@ public:
 	void set_hours_limit();
 	void present() override;
 
-	Employer(string n, string s, string id, string c);
+	Employer(string ename, string esurname, string id, string ecompany);
 	Employer();
 	Employer(const Employer& empl);
 	~Employer() override;
