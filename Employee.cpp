@@ -1,13 +1,13 @@
 #include "Employee.h"
 
-void Employee::set_salary(int s)
+void Employee::set_salary(int esalary)
 {
-	salary = s;
+	salary = esalary;
 }
 
-void Employee::set_hours_limit(int h)
+void Employee::set_hours_limit(int ehlimit)
 {
-	hours_limit = h;
+	hours_limit = ehlimit;
 }
 
 void Employee::set_reserved_hours()
@@ -46,11 +46,11 @@ void Employee::present()
 	cout << name << " " << surname << "\nID: " << ID << "\nSalary:" << salary << "\nHours limit: " << hours_limit;
 }
 
-Employee::Employee(string n, string s, string i, string c, double sal, int hl)
-	: CrewMember(n, s, i, c)
+Employee::Employee(string ename, string esurname, string id, string ecompany, double esalary, int hlimit)
+	: CrewMember(ename, esurname, id, ecompany)
 {
-	set_salary(sal);
-	set_hours_limit(hl);
+	set_salary(esalary);
+	set_hours_limit(hlmit);
 }
 
 Employee::Employee()
