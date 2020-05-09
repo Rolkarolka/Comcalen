@@ -50,7 +50,7 @@ Employee::Employee(string ename, string esurname, string id, string ecompany, do
 	: CrewMember(ename, esurname, id, ecompany)
 {
 	set_salary(esalary);
-	set_hours_limit(hlmit);
+	set_hours_limit(hlimit);
 }
 
 Employee::Employee()
@@ -64,11 +64,6 @@ Employee::~Employee()
 }
 
 Employee::Employee(const Employee& empl)
-{
-	cout << "Copying employees is not allowed.";
-}
-
-Employee& Employee::operator =(const Employee&)
 {
 	cout << "Copying employees is not allowed.";
 }

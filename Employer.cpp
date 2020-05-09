@@ -7,7 +7,7 @@ void Employer::add_employee()
 	cin >> id;
 }
 
-void Employer::romove_employee()
+void Employer::remove_employee()
 {
 	string id;
 	cout << "Enter employee's ID: ";
@@ -69,10 +69,6 @@ Employer::~Employer()
 
 }
 
-Employer& Employer::operator =(const Employer&)
-{
-	cout << "Copying employers is not allowed.";
-}
 
 fstream& operator <<(fstream& file, Employer& employer)
 {
