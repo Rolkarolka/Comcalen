@@ -1,3 +1,8 @@
+#ifndef company_h
+#define company_h
+#include <iostream>
+#include <map>
+#include <iterator>
 #include <vector>
 #include "Employee.h"
 #include "Employer.h"
