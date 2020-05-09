@@ -30,7 +30,7 @@ public:
 	void add_employee(string name,string surname, double salary, int hours_limit);
 	void delete_employee(string ID);
 	void set_payday();
-	void get_payday();
+	int get_payday();
 	void add_employer();
 	void delete_employer();
 	void set_shift_table();

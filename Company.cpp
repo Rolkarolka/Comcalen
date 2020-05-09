@@ -49,9 +49,9 @@ void Company::set_payday()
 
 }
 
-void Company::get_payday()
+int Company::get_payday()
 {
-
+	return payday;
 }
 
 void Company::add_employer()
@@ -172,9 +172,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 		}
 
 		if (num_word >= start_news)
-		{
 			company.news.push_back(token.c_str());
-		}
 
 	}
 	return company;
