@@ -54,14 +54,16 @@ int Company::get_payday()
 	return payday;
 }
 
-void Company::add_employer()
+void Company::add_employer(string name, string surname)
 {
-
+	string ID = set_ID();
+	Employer* employer = new Employer(name, surname, ID, company_name);
+	employers.insert(pair<string, Employer>(ID, *employer));
 }
 
-void Company::delete_employer()
+void Company::delete_employer(string ID)
 {
-
+	employers.erase(string(ID));
 }
 
 void Company::set_shift_table()
@@ -77,9 +79,9 @@ void Company::change_employee_attri()
 
 }
 
-void Company::add_news()
+void Company::add_news(string new_news)
 {
-
+	news.push_back(new_news);
 }
 
 void Company::delete_news()
