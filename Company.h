@@ -24,20 +24,22 @@ private:
 	void set_company_ID(string ID);
 	Company(const Company& company) {};
 public:
+	friend void Employer::add_employee();
+	friend void Employer::remove_employee();
+	friend void Employer::set_shift_hours();
 	Company(string cname, string cID);
 	~Company();
 	void change_name();
 	void add_employee(string name,string surname, double salary, int hours_limit);
 	void delete_employee(string ID);
 	void set_payday();
-	void get_payday();
-	void add_employer();
-	void delete_employer();
+	int get_payday();
+	void add_employer(string name, string surname);
+	void delete_employer(string ID);
 	void set_shift_table();
 	void change_employee_attri();
-	void add_news();
+	void add_news(string new_news);
 	void delete_news();
-	void show_news();
 
 	friend fstream& operator <<(fstream& file, Company& company);
 	friend Company& operator >>(istringstream& tokenStream, Company& company);
