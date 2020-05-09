@@ -8,7 +8,7 @@ class Employer : public CrewMember
 
 public:
 	void add_employee();
-	void romove_employee();
+	void remove_employee();
 	void show_calendar();
 	void show_news();
 	void set_shift_hours();
