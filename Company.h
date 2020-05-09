@@ -1,8 +1,3 @@
-#ifndef company_h
-#define company_h
-#include <iostream>
-#include <map>
-#include <iterator>
 #include <vector>
 #include "Employee.h"
 #include "Employer.h"
@@ -21,8 +16,7 @@ private:
 	string* shift_table = nullptr;
 	void set_name(string name);
 	string set_ID();
-	string set_company_ID(string ID);
-	void set_shift_table();
+	void set_company_ID(string ID);
 	Company(const Company& company) {};
 public:
 	Company(string cname, string cID);
