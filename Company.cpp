@@ -89,10 +89,6 @@ void Company::delete_news()
 
 }
 
-void Company::show_news()
-{
-
-}
 
 fstream& operator <<(fstream& file, Company& company)
 {
