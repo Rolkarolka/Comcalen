@@ -18,6 +18,7 @@ string Company::set_ID()
 	string ID = company_ID;
 	ID += employees.size();
 	ID += employers.size();
+	return ID;
 }
 
 void Company::delete_employee(string ID)
@@ -67,15 +68,10 @@ void Company::set_shift_table()
 {
 
 }
-string Company::set_company_ID(string ID)
+void Company::set_company_ID(string ID)
 {
 
 }
-void Company::set_shift_table()
-{
-
-}
-
 void Company::change_employee_attri()
 {
 
@@ -133,7 +129,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 	int news_size, employees_size, employers_size;
 	int start_news = 7, start_employers = 7, start_shift_table = 7;
 	char delimiter = '\t';
-	int num_word = 1;
+	int num_word = 1, counter_shift = 0;
 	while (getline(tokenStream, token, delimiter))
 	{
 		switch (num_word)
@@ -143,7 +139,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 		case 3: company.payday = stoi(token.c_str()); break;
 		case 4: employees_size = stoi(token.c_str()) * 2; start_employers += employees_size; start_news += employees_size; start_shift_table += employees_size;  break;
 		case 5: employers_size = stoi(token.c_str()) * 2; start_news += employers_size; start_shift_table += employers_size; break;
-		case 6: company.size_shift_table = stoi(token.c_str()); start_news += company.size_shift_table; break;
+		case 6: company.size_shift_table = stoi(token.c_str()); company.shift_table = new string[company.size_shift_table]; start_news += company.size_shift_table; break;
 		case 7: news_size = stoi(token.c_str()); break;
 		}
 		if (num_word > 7 && num_word < start_employers)
@@ -171,15 +167,17 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 		}
 		if (num_word >= start_shift_table && num_word < start_news)
 		{
-
+			company.shift_table[counter_shift] = token.c_str();
+			counter_shift++;
 		}
 
 		if (num_word >= start_news)
 		{
-
+			company.news.push_back(token.c_str());
 		}
 
 	}
+	return company;
 
 }
 
