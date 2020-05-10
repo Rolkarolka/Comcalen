@@ -78,6 +78,6 @@ fstream& operator <<(fstream& file, Employer& employer)
 
 Employer& operator >>(istringstream& tokenStream, Employer& employer)
 {
-	tokenStream >> reinterpret_cast<CrewMember&>(employer);
+	tokenStream >> reinterpret_cast<CrewMember&>(employer);		// jesli bedziesz to cos zmieniac to daj mi znac
 	return employer;
 }

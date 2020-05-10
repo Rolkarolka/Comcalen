@@ -1,29 +1,85 @@
 #include "Company.h"
 using namespace std;
 
+void Company::set_payday(int day)
+{
+	payday = day;
+}
+
+string Company::get_company_ID()
+{
+	return company_ID;
+}
+
+void Company::set_shift_table()
+{
+
+}
+void Company::change_employee_attri()
+{
+
+}
+
+string Company::get_ID_having_name_and_surname(string name, string surname)
+{
+	string names = surname + " " + name;
+	for (const auto& i : database_of_ID)
+	{
+		if (get<0>(i) == names)
+			return get<1>(i);
+	}
+	return "";
+}
+
 void Company::set_name(string name)
 {
 	company_name = name;
 }
 
-void Company::add_employee(string name,string surname, double salary, int hours_limit)
+string Company::add_employee(string name, string surname, double salary, int hours_limit)
 {
-	string ID = set_ID();
+	string ID = set_employee_ID();
+	string names = surname + " " + name;
+	database_of_ID.push_back({ names, ID });
 	Employee* employee = new Employee(name, surname, ID, company_name, salary, hours_limit);
-	employees.insert(pair<string, Employee>(ID, *employee));
-}
-
-string Company::set_ID()
-{
-	string ID = company_ID;
-	ID += employees.size();
-	ID += employers.size();
+	employees.insert(pair<string, Employee*>(ID, employee));
 	return ID;
 }
 
-void Company::delete_employee(string ID)
+string Company::set_employee_ID()
 {
-	employees.erase(string(ID));
+	string ID = company_ID;
+	do
+	{
+		int ID_i = rand() % 1000;
+		ID += to_string(ID_i);
+	} while (employees.count(ID) != 0);
+	return ID;
+}
+
+int Company::get_number_of_news()
+{
+	return news.size();
+}
+int Company::get_number_of_managment()
+{
+	return employers.size();
+}
+
+bool Company::delete_employee(string ID)
+{
+	int index = 0;
+	for (const auto& i : database_of_ID)
+	{
+		if (get<1>(i) == ID)
+		{
+			news.erase(news.begin() + index);
+			employees.erase(string(ID));
+			return true;
+		}
+		index++;
+	}
+	return false;
 }
 
 Company::Company(string cname, string cID)
@@ -36,17 +92,8 @@ Company::~Company()
 {
 	if (shift_table != nullptr)
 		delete[] this->shift_table;
-
-}
-
-void Company::change_name()
-{
-
-}
-
-void Company::set_payday()
-{
-
+	employees.clear();
+	employers.clear();
 }
 
 int Company::get_payday()
@@ -54,11 +101,14 @@ int Company::get_payday()
 	return payday;
 }
 
-void Company::add_employer(string name, string surname)
+string Company::add_employer(string name, string surname)
 {
-	string ID = set_ID();
+	string ID = set_employer_ID();
+	string names = surname + " " + name;
+	database_of_ID.push_back({ names, ID });
 	Employer* employer = new Employer(name, surname, ID, company_name);
-	employers.insert(pair<string, Employer>(ID, *employer));
+	employers.insert(pair<string, Employer*>(ID, employer));
+	return ID;
 }
 
 void Company::delete_employer(string ID)
@@ -66,17 +116,17 @@ void Company::delete_employer(string ID)
 	employers.erase(string(ID));
 }
 
-void Company::set_shift_table()
+string Company::set_employer_ID()
 {
+	string ID = company_ID;
+	do
+	{
+		int ID_i = rand() % 1000;
+		ID += "//";
+		ID += to_string(ID_i);
+	} while (employers.count(ID) != 0);
 
-}
-void Company::set_company_ID(string ID)
-{
-
-}
-void Company::change_employee_attri()
-{
-
+	return ID;
 }
 
 void Company::add_news(string new_news)
@@ -84,16 +134,29 @@ void Company::add_news(string new_news)
 	news.push_back(new_news);
 }
 
-void Company::delete_news()
+bool Company::delete_news(string old_news)
 {
-
+	int found_index = -1;
+	for (int i = 0; i < news.size(); i++)
+	{
+		if (news[i] == old_news)
+			found_index = i;
+			
+	}
+	if (found_index == -1)
+		return false;
+	else
+	{
+		news.erase(news.begin() + found_index);
+		return true;
+	}
 }
 
 
 fstream& operator <<(fstream& file, Company& company)
 {
-	file << company.company_name << "\t" << company.company_ID << "\t" << company.payday << "\t";
-	map <string, Employee>::iterator itr1;
+	file << company.company_ID  << "\t" << company.company_name << "\t" << company.payday << "\t";
+	map <string, Employee*>::iterator itr1;
 	file << company.employees.size() << "\t";
 	file << company.employers.size() << "\t";
 	file << company.size_shift_table << "\t";
@@ -102,15 +165,15 @@ fstream& operator <<(fstream& file, Company& company)
 	for (itr1 = company.employees.begin(); itr1 != company.employees.end(); ++itr1)
 	{
 		file << itr1->first << "\t";
-		file << itr1->second << "\t";
+		file << *itr1->second << "\t";
 	}
 
-	map <string, Employer>::iterator itr2;
+	map <string, Employer*>::iterator itr2;
 
 	for (itr2 = company.employers.begin(); itr2 != company.employers.end(); ++itr2)
 	{
 		file << itr2->first << "\t";
-		file << itr2->second << "\t";
+		file << *itr2->second << "\t";
 	}
 
 	for (int i = 0; i < company.size_shift_table; i++)
@@ -127,74 +190,73 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 	int news_size, employees_size, employers_size;
 	int start_news = 7, start_employers = 7, start_shift_table = 7;
 	char delimiter = '\t';
-	int num_word = 1, counter_shift = 0;
+	int num_word = 0, counter_shift = 0;
 	while (getline(tokenStream, token, delimiter))
 	{
 		switch (num_word)
 		{
+		case 0: company.company_ID = (token.c_str()); break;
 		case 1: company.company_name = (token.c_str()); break;
-		case 2: company.company_ID = (token.c_str()); break;
-		case 3: company.payday = stoi(token.c_str()); break;
-		case 4: employees_size = stoi(token.c_str()) * 2; start_employers += employees_size; start_news += employees_size; start_shift_table += employees_size;  break;
-		case 5: employers_size = stoi(token.c_str()) * 2; start_news += employers_size; start_shift_table += employers_size; break;
-		case 6: company.size_shift_table = stoi(token.c_str()); company.shift_table = new string[company.size_shift_table]; start_news += company.size_shift_table; break;
-		case 7: news_size = stoi(token.c_str()); break;
+		case 2: company.payday = stoi(token.c_str()); break;
+		case 3: employees_size = stoi(token.c_str()); start_employers += employees_size; start_news += employees_size; start_shift_table += employees_size;  break;
+		case 4: employers_size = stoi(token.c_str()); start_news += employers_size; start_shift_table += employers_size; break;
+		case 5: company.size_shift_table = stoi(token.c_str()); company.shift_table = new string[company.size_shift_table]; start_news += company.size_shift_table; break;
+		case 6: news_size = stoi(token.c_str()); break;
 		}
-		if (num_word > 7 && num_word < start_employers)
+		if (num_word > 6 && num_word < start_employers)
 		{
-			if (num_word % 2 == 0)
-				ID = token.c_str();
-			else
-			{
-				Employee* employee = new Employee();
-				tokenStream >> *employee;
-				company.employees.insert(pair<string, Employee>(ID, *employee));
-			}
-
+			ID = token.c_str();
+			Employee* employee = new Employee();
+			tokenStream >> *employee;
+			string names = employee->get_surname() + employee->get_name();
+			company.database_of_ID.push_back({ names, ID });
+			company.employees.insert(pair<string, Employee*>(ID, employee));
 		}
-		if (num_word >= start_employers && num_word < start_news)
+		if (num_word >= start_employers && num_word < start_shift_table)
 		{
-			if (num_word % 2 == 0)
-				ID = token.c_str();
-			else
-			{
-				Employer* employer = new Employer();
-				tokenStream >> *employer;
-				company.employers.insert(pair<string, Employer>(ID, *employer));
-			}
+			ID = token.c_str();
+			Employer* employer = new Employer();
+			tokenStream >> *employer;
+			string names = employer->get_surname() + employer->get_name();
+			company.database_of_ID.push_back({ names, ID });
+			company.employers.insert(pair<string, Employer*>(ID, employer));
 		}
 		if (num_word >= start_shift_table && num_word < start_news)
 		{
 			company.shift_table[counter_shift] = token.c_str();
 			counter_shift++;
 		}
-
 		if (num_word >= start_news)
 			company.news.push_back(token.c_str());
-
+		num_word++;
 	}
 	return company;
 
 }
 
-void Company::operator +=(Employee* employee)
-{
-	string ID = set_ID();
-	employees.insert(pair<string, Employee>(ID, *employee));
-}
+//void Company::operator +=(Employee* employee)
+//{
+//	string ID = set_employee_ID();
+//	employees.insert(pair<string, Employee>(ID, *employee));
+//}
+//
+//void Company::operator -=(Employee* employee)
+//{
+//	employees.erase(string(employee->get_ID()));
+//}
+//
+//void Company::operator +=(Employer* employer)
+//{
+//	string ID = set_employer_ID();
+//	employers.insert(pair<string, Employer>(ID, *employer));
+//}
+//
+//void Company::operator -=(Employer* employer)
+//{
+//	employers.erase(string(employer->get_ID()));
+//}
 
-void Company::operator -=(Employee* employee)
+int Company::get_number_of_staff()
 {
-	employees.erase(string(employee->get_ID()));
-}
-
-void Company::operator +=(Employer* employer)
-{
-	string ID = set_ID();
-	employers.insert(pair<string, Employer>(ID, *employer));
-}
-
-void Company::operator -=(Employer* employer)
-{
-	employers.erase(string(employer->get_ID()));
+	return employees.size();
 }
