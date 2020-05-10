@@ -69,10 +69,6 @@ Employer::~Employer()
 
 }
 
-Employer& Employer::operator =(const Employer&)
-{
-	cout << "Copying employers is not allowed.";
-}
 
 fstream& operator <<(fstream& file, Employer& employer)
 {
@@ -82,6 +78,6 @@ fstream& operator <<(fstream& file, Employer& employer)
 
 Employer& operator >>(istringstream& tokenStream, Employer& employer)
 {
-	tokenStream >> reinterpret_cast<CrewMember&>(employer);
+	tokenStream >> reinterpret_cast<CrewMember&>(employer);		// jesli bedziesz to cos zmieniac to daj mi znac
 	return employer;
 }

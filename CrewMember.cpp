@@ -63,34 +63,29 @@ CrewMember::CrewMember(const CrewMember& crewM)
 	cout << "Copying crew members is not allowed.";
 }
 
-CrewMember& CrewMember::operator =(const CrewMember&)
-{
-	cout << "Copying crew members is not allowed.";
-}
-
 fstream& operator <<(fstream& file, CrewMember& crewM)
 {
-	file << crewM.name << '\t' << crewM.surname << '\t' << crewM.ID << '\t' << crewM.company;
+	file << crewM.name << '\t' << crewM.surname << '\t' << crewM.ID << '\t' << crewM.company << "\t";
 	return file;
 }
 
 CrewMember& operator >>(istringstream& tokenStream, CrewMember& crewM)
 {
-	string token;
+	string token;									// jak tu cos zmienisz to daj mi znac
 	char delimiter = '\t';
 	int num_word = 1;
+	 int i = 0;
 	while (getline(tokenStream, token, delimiter))
 	{
-
 		switch (num_word)
 		{
-		case 1: crewM.name = token; break;
-		case 2: crewM.surname = token; break;
-		case 3: crewM.ID = token; break;
-		case 4: crewM.company = token; break;
+		case 1: crewM.name = token.c_str(); break;
+		case 2: crewM.surname = token.c_str(); break;
+		case 3: crewM.ID = token.c_str(); break;
+		case 4: crewM.company = token.c_str(); break;
 		}
+		if (num_word == 4)
+			return crewM;
 		num_word++;
-
 	}
-	return crewM;
 }

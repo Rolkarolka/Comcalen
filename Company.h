@@ -6,49 +6,63 @@
 #include <vector>
 #include "Employee.h"
 #include "Employer.h"
+
 using namespace std;
 
 class Company
 {
 private:
 	string company_name;
-	string company_ID;
+	string company_ID = "000";
 	int payday = 10;
-	map <string, Employee> employees;
-	map <string, Employer> employers;
+	map <string, Employee*> employees;
+	map <string, Employer*> employers;
+	vector<tuple<string, string>> database_of_ID; // 1) name + surname 2) ID
 	vector<string> news;
 	int size_shift_table = 0;
 	string* shift_table = nullptr;
 	void set_name(string name);
-	string set_ID();
-	void set_company_ID(string ID);
+	string set_employee_ID();
+	string set_employer_ID();
 	Company(const Company& company) {};
 public:
+
+	Company() {};
+	Company(string cname, string cID);
+	~Company();
+
 	friend void Employer::add_employee();
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
-	Company(string cname, string cID);
-	~Company();
-	void change_name();
-	void add_employee(string name,string surname, double salary, int hours_limit);
-	void delete_employee(string ID);
-	void set_payday();
+
+	void change_employee_attri();  //potrzeba?
+
+	string add_employee(string name,string surname, double salary, int hours_limit);
+	bool delete_employee(string ID);
+	void set_payday(int day);
 	int get_payday();
-	void add_employer(string name, string surname);
+	string get_company_ID();
+	string add_employer(string name, string surname);			// return ID
 	void delete_employer(string ID);
-	void set_shift_table();
-	void change_employee_attri();
 	void add_news(string new_news);
-	void delete_news();
+	bool delete_news(string old_news);
+	string get_ID_having_name_and_surname(string name, string surname);	// do testow employees
+
+	void set_shift_table();
+
+	int get_number_of_news();
+	int get_number_of_managment();
+	int get_number_of_staff();
+	//string get_ID_having_name(string name);	// do testow employees
 
 	friend fstream& operator <<(fstream& file, Company& company);
 	friend Company& operator >>(istringstream& tokenStream, Company& company);
 
-	void operator +=(Employee* employee);
-	void operator -=(Employee* employee);
+	//void operator +=(Employee* employee);
+	//void operator -=(Employee* employee);
 
-	void operator +=(Employer* employer);
-	void operator -=(Employer* employer);
+	//void operator +=(Employer* employer);
+	//void operator -=(Employer* employer);
 
 };
 #endif

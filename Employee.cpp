@@ -50,7 +50,7 @@ Employee::Employee(string ename, string esurname, string id, string ecompany, do
 	: CrewMember(ename, esurname, id, ecompany)
 {
 	set_salary(esalary);
-	set_hours_limit(hlmit);
+	set_hours_limit(hlimit);
 }
 
 Employee::Employee()
@@ -68,19 +68,15 @@ Employee::Employee(const Employee& empl)
 	cout << "Copying employees is not allowed.";
 }
 
-Employee& Employee::operator =(const Employee&)
-{
-	cout << "Copying employees is not allowed.";
-}
-
 fstream& operator <<(fstream& file, Employee& employee)
-{
+{																		// jak tu cos zmienisz to daj mi znac
 	file << reinterpret_cast<CrewMember&>(employee);
-	file << employee.salary << '\t' << employee.hours_limit << '\t';
+	file << employee.salary << '\t' << employee.hours_limit << "\t[\t";
 	for (int i = 0; i < size(employee.reserved_hours); i++)
 	{
-		file << employee.reserved_hours[i] << '\t';
+		file << employee.reserved_hours[i] << "\t";
 	}
+	file << "]";
 	return file;
 }
 
@@ -92,19 +88,18 @@ Employee& operator >>(istringstream& tokenStream, Employee& employee)
 	int num_word = 1;
 	while (getline(tokenStream, token, delimiter))
 	{
-
 		switch (num_word)
 		{
 		case 1: employee.salary = stod(token); break;
 		case 2: employee.hours_limit = stoi(token); break;
-
 		}
-		if (num_word >= 3)
+		if (num_word >= 4 && token != "]")
 		{
 			employee.reserved_hours.push_back(token);
 		}
+		if (token == "]")
+			return employee;
 		num_word++;
 
 	}
-	return employee;
 }
