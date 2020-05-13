@@ -24,9 +24,11 @@ int main()
 	//cout << "Employees: " << company->get_number_of_staff() << endl;
 	tdatabase.save_file();
 	CompanyDatabase tclass("database.txt");
-
+	cout << endl << endl;
 	tclass.open_file();
-	cout << tclass.get_size_of_database();
+	Company* new_company = tclass.get_company_with_name("Cookie");
+	
+	new_company->present_company();
 	tdatabase.save_file();
 	return 0;
 }
