@@ -25,7 +25,7 @@ void CompanyDatabase::open_file()
         string ID = companyy->get_company_ID();
         database.insert(pair <string, Company*> (ID, companyy));
         num_line++;
-    }
+    } 
     file.close();
 }
 
@@ -93,8 +93,14 @@ Company* CompanyDatabase::get_company_with_name(string name)
 
 string CompanyDatabase::add_company(string name)
 {
+    string namee, surname;
+    cout << "Your name: ";
+    cin >> namee;
+    cout << "\nYour surname: ";
+    cin >> surname;
     string ID = set_ID();
     Company* company = new Company(name, ID);
+    company->add_employer(namee, surname);
     database.insert(pair<string, Company*>(ID, company));
     return ID;
 }

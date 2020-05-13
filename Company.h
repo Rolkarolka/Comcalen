@@ -6,6 +6,7 @@
 #include <vector>
 #include "Employee.h"
 #include "Employer.h"
+#include <memory>
 
 using namespace std;
 
@@ -42,7 +43,7 @@ public:
 	void set_payday(int day);
 	int get_payday();
 	string get_company_ID();
-	string add_employer(string name, string surname);			// return ID
+	string add_employer(string name, string surnam);			// return ID
 	void delete_employer(string ID);
 	void add_news(string new_news);
 	bool delete_news(string old_news);

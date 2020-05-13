@@ -1,10 +1,32 @@
 #include "Employer.h"
+#include "Company.h"
 
 void Employer::add_employee()
 {
-	string id = "";
-	cout << "Enter employee's ID: ";
-	cin >> id;
+	string name = "";
+	string surname = "";
+	double salary = 0;
+	int hours_limit = 0;
+	cout << "Name: ";
+	cin >> name;
+	cout << "\nSurname: ";
+	cin >> surname;
+	cout << "Salary: ";
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> salary;
+		if (cin.fail()) cout << "Wrong value.Try again.";
+	} while (cin.fail());
+	cout << "Hours limit: ";
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> hours_limit;
+		if (cin.fail()) cout << "Wrong value.Try again.";
+	} while (cin.fail());
+	string id = company->add_employee(name, surname, salary, hours_limit);
+	cout << "New employee's ID is " << id;
 }
 
 void Employer::remove_employee()
@@ -12,6 +34,7 @@ void Employer::remove_employee()
 	string id;
 	cout << "Enter employee's ID: ";
 	cin >> id;
+
 }
 
 void Employer::show_calendar()
@@ -48,10 +71,10 @@ void Employer::present()
 	cout << name << " " << surname << "\nID:" << ID;
 }
 
-Employer::Employer(string ename, string esurname, string id, string ecompany)
+Employer::Employer(string ename, string esurname, string id, string ecompany, Company* compan)
 	: CrewMember(ename, esurname, id, ecompany)
 {
-
+	company = compan;
 }
 
 Employer::Employer()

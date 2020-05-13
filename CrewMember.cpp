@@ -63,6 +63,8 @@ CrewMember::CrewMember(const CrewMember& crewM)
 	cout << "Copying crew members is not allowed.";
 }
 
+
+
 fstream& operator <<(fstream& file, CrewMember& crewM)
 {
 	file << crewM.name << '\t' << crewM.surname << '\t' << crewM.ID << '\t' << crewM.company << "\t";

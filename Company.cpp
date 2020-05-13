@@ -106,7 +106,7 @@ string Company::add_employer(string name, string surname)
 	string ID = set_employer_ID();
 	string names = surname + " " + name;
 	database_of_ID.push_back({ names, ID });
-	Employer* employer = new Employer(name, surname, ID, company_name);
+	Employer* employer = new Employer(name, surname, ID, company_name, this);
 	employers.insert(pair<string, Employer*>(ID, employer));
 	return ID;
 }
