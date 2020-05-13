@@ -68,7 +68,7 @@ void Employer::set_hours_limit()
 
 void Employer::present()
 {
-	cout << name << " " << surname << "\nID:" << ID;
+	cout << name << " " << surname << "\nID:" << ID << endl;
 }
 
 Employer::Employer(string ename, string esurname, string id, string ecompany, Company* compan)

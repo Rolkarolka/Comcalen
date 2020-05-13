@@ -14,7 +14,7 @@ int main()
 	employer_id = company->add_employer("Marianna", "Gromadzka");
 	employer = company->get_employer(employer_id);
 	employer->add_employee();
-	cout << "Employees" << company->get_number_of_staff() << endl;
+	cout << "Employees: " << company->get_number_of_staff() << endl;
 	company->add_news("Zrob ladne ciasteczko");
 	cout << "Employers: " << company->get_number_of_managment() << endl;
 	company->delete_employer(company->get_ID_having_name_and_surname("Marianna", "Gromadzka"));
