@@ -111,6 +111,11 @@ string Company::add_employer(string name, string surname)
 	return ID;
 }
 
+Employer* Company::get_employer(string ID)
+{ 
+	return employers[ID];
+}
+
 void Company::delete_employer(string ID)
 {
 	employers.erase(string(ID));

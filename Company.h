@@ -42,6 +42,7 @@ public:
 	bool delete_employee(string ID);
 	void set_payday(int day);
 	int get_payday();
+	Employer* get_employer(string ID);
 	string get_company_ID();
 	string add_employer(string name, string surnam);			// return ID
 	void delete_employer(string ID);
@@ -54,7 +55,7 @@ public:
 	int get_number_of_news();
 	int get_number_of_managment();
 	int get_number_of_staff();
-	//string get_ID_having_name(string name);	// do testow employees
+	string get_ID_having_name(string name);	// do testow employees
 
 	friend fstream& operator <<(fstream& file, Company& company);
 	friend Company& operator >>(istringstream& tokenStream, Company& company);
