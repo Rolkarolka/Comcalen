@@ -26,7 +26,7 @@ void Employer::add_employee()
 		if (cin.fail()) cout << "Wrong value.Try again.";
 	} while (cin.fail());
 	string id = company->add_employee(name, surname, salary, hours_limit);
-	cout << "New employee's ID is " << id;
+	cout << "New employee's ID is " << id << endl;
 }
 
 void Employer::remove_employee()
