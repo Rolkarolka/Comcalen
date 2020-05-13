@@ -24,7 +24,7 @@ public:
 	void save_file();
 	string set_ID();
 	string add_company(string name);
-	void delete_company(string ID);
+	bool delete_company(string ID);
 	Company* get_company_with_ID(string ID);
 	Company* get_company_with_name(string name);
 	string get_ID_having_name_company(string name);

@@ -36,6 +36,8 @@ public:
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
 
+	string get_company_name();
+
 	void change_employee_attri();  //potrzeba?
 
 	string add_employee(string name,string surname, double salary, int hours_limit);

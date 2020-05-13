@@ -26,8 +26,12 @@ int main()
 	CompanyDatabase tclass("database.txt");
 	cout << endl << endl;
 	tclass.open_file();
+	cout << endl << endl;
+	cout << tclass.get_size_of_database();
+
+	cout << endl;
+
 	Company* new_company = tclass.get_company_with_name("Cookie");
-	
 	new_company->present_company();
 	tdatabase.save_file();
 	return 0;

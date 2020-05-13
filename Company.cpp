@@ -20,6 +20,11 @@ void Company::change_employee_attri()
 
 }
 
+string Company::get_company_name()
+{
+	return company_name;
+}
+
 string Company::get_ID_having_name_and_surname(string name, string surname)
 {
 	string names = surname + " " + name;
@@ -229,7 +234,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			ID = token.c_str();
 			Employee* employee = new Employee();
 			tokenStream >> *employee;
-			string names = employee->get_surname() + employee->get_name();
+			string names = employee->get_surname() + " " + employee->get_name();
 			company.database_of_ID.push_back({ names, ID });
 			company.employees.insert(pair<string, Employee*>(ID, employee));
 		}
@@ -238,7 +243,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			ID = token.c_str();
 			Employer* employer = new Employer();
 			tokenStream >> *employer;
-			string names = employer->get_surname() + employer->get_name();
+			string names = employer->get_surname() + " " + employer->get_name();
 			company.database_of_ID.push_back({ names, ID });
 			company.employers.insert(pair<string, Employer*>(ID, employer));
 		}

@@ -23,7 +23,9 @@ void CompanyDatabase::open_file()
         Company* companyy = new Company();
         tokenStream >> *companyy;
         string ID = companyy->get_company_ID();
+        string name = companyy->get_company_name();
         database.insert(pair <string, Company*> (ID, companyy));
+        database_of_company_ID.push_back(make_tuple(name, ID));
         num_line++;
     } 
     file.close();
@@ -75,7 +77,7 @@ string CompanyDatabase::get_ID_having_name_company(string name)
         if (get<0>(i) == name)
             return get<1>(i);
     }
-    return NULL;
+    return "";
 }
 
 Company* CompanyDatabase::get_company_with_ID(string ID)
@@ -102,12 +104,27 @@ string CompanyDatabase::add_company(string name)
     Company* company = new Company(name, ID);
     company->add_employer(namee, surname);
     database.insert(pair<string, Company*>(ID, company));
+    database_of_company_ID.push_back(make_tuple(name, ID));
     return ID;
 }
 
-void CompanyDatabase::delete_company(string ID)
+bool CompanyDatabase::delete_company(string ID)
 {
     database.erase(string(ID));
+    int found_index = -1;
+    for (int i = 0; i < database_of_company_ID.size(); i++)
+    {
+        if (get<0>(database_of_company_ID[i]) == ID)
+            found_index = i;
+
+    }
+    if (found_index == -1)
+        return false;
+    else
+    {
+        database_of_company_ID.erase(database_of_company_ID.begin() + found_index);
+        return true;
+    }
 }
 
 void CompanyDatabase::set_filename(string name)
