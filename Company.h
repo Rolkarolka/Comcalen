@@ -48,6 +48,8 @@ public:
 	void delete_employer(string ID);
 	void add_news(string new_news);
 	bool delete_news(string old_news);
+
+	void present_company();
 	string get_ID_having_name_and_surname(string name, string surname);	// do testow employees
 
 	void set_shift_table();

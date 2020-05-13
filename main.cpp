@@ -14,6 +14,7 @@ int main()
 	cout << "Employers: " << company->get_number_of_managment() << endl;
 	company->delete_employer(company->get_ID_having_name_and_surname("Marianna", "Gromadzka"));
 	cout << "Employers: " << company->get_number_of_managment() << endl;
+	company->present_company();
 	//company->delete_employee(ID_1);
 	//cout << "Employees: " << company->get_number_of_staff() << endl;
 	tdatabase.save_file();

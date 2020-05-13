@@ -1,1 +1,1 @@
-41	Cookie	10	1	1	0	1	41334	Karolina	Romanowska	41334	Cookie	1	1	[	]	41//467	ala	4	41//467	Cookie		Zrob ladne ciasteczko	
+41	Cookie	10	1	1	0	1	41334	Karolina	Romanowska	41334	Cookie	1	1	[	]	41//467	ala	mala	41//467	Cookie		Zrob ladne ciasteczko	

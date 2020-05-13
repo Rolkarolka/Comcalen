@@ -121,6 +121,22 @@ void Company::delete_employer(string ID)
 	employers.erase(string(ID));
 }
 
+void Company::present_company()
+{
+	map <string, Employee*>::iterator itr1;
+	for (itr1 = employees.begin(); itr1 != employees.end(); ++itr1)
+	{
+		itr1->second->present();
+	}
+
+	map <string, Employer*>::iterator itr2;
+
+	for (itr2 = employers.begin(); itr2 != employers.end(); ++itr2)
+	{
+		itr2->second->present();
+	}
+}
+
 string Company::set_employer_ID()
 {
 	string ID = company_ID;
