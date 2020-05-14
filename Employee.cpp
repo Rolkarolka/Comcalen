@@ -1,4 +1,5 @@
 #include "Employee.h"
+#include "Company.h"
 
 void Employee::set_salary(int esalary)
 {
@@ -12,7 +13,8 @@ void Employee::set_hours_limit(int ehlimit)
 
 void Employee::set_reserved_hours()
 {
-
+	string news = "Wiadomosc ktora tu kiedys bedzie";
+	company->add_news(news);
 }
 
 double Employee::get_salary()
@@ -46,11 +48,12 @@ void Employee::present()
 	cout << name << " " << surname << "\nID: " << ID << "\nSalary:" << salary << "\nHours limit: " << hours_limit << endl;
 }
 
-Employee::Employee(string ename, string esurname, string id, string ecompany, double esalary, int hlimit)
+Employee::Employee(string ename, string esurname, string id, string ecompany, double esalary, int hlimit, Company* compan)
 	: CrewMember(ename, esurname, id, ecompany)
 {
 	set_salary(esalary);
 	set_hours_limit(hlimit);
+	company = compan;
 }
 
 Employee::Employee()
