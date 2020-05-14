@@ -18,7 +18,7 @@ class CrewMember
 protected:
 	string name = "";
 	string surname = "";
-	string ID = "";
+	string ID = ""; /// unique ID given by company 
 	string company = "";
 
 	void set_name(string ename);

@@ -25,7 +25,7 @@ void Employer::add_employee()
 		cin >> hours_limit;
 		if (cin.fail()) cout << "Wrong value.Try again.";
 	} while (cin.fail());
-	string id = company->add_employee(name, surname, salary, hours_limit);
+	string id = company->add_employee(name, surname, salary, hours_limit, company);
 	cout << "New employee's ID is " << id << endl;
 }
 
@@ -34,7 +34,7 @@ void Employer::remove_employee()
 	string id;
 	cout << "Enter employee's ID: ";
 	cin >> id;
-
+	company->delete_employee(id);
 }
 
 void Employer::show_calendar()
@@ -44,7 +44,8 @@ void Employer::show_calendar()
 
 void Employer::show_news()
 {
-
+	for (int i = 0; i < size(company->news); i++)
+		cout << company->news[i] << endl;
 }
 
 void Employer::set_shift_hours()
@@ -54,16 +55,33 @@ void Employer::set_shift_hours()
 void Employer::change_salary()
 {
 	string id;
+	double salary;
 	cout << "Enter employee's ID: ";
 	cin >> id;
-
+	cout << "Enter new salary:";
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> salary;
+		if (cin.fail()) cout << "Wrong value.Try again.";
+	} while (cin.fail());
+	company->get_employee(id)->set_salary(salary);
 }
 
-void Employer::set_hours_limit()
+void Employer::change_hours_limit()
 {
 	string id;
+	int hours;
 	cout << "Enter employee's ID: ";
 	cin >> id;
+	cout << "Enter new hours limit:";
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> hours;
+		if (cin.fail()) cout << "Wrong value.Try again.";
+	} while (cin.fail());
+	company->get_employee(id)->set_hours_limit(hours);
 }
 
 void Employer::present()

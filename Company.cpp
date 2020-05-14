@@ -41,12 +41,12 @@ void Company::set_name(string name)
 	company_name = name;
 }
 
-string Company::add_employee(string name, string surname, double salary, int hours_limit)
+string Company::add_employee(string name, string surname, double salary, int hours_limit, Company* company)
 {
 	string ID = set_employee_ID();
 	string names = surname + " " + name;
 	database_of_ID.push_back({ names, ID });
-	Employee* employee = new Employee(name, surname, ID, company_name, salary, hours_limit);
+	Employee* employee = new Employee(name, surname, ID, company_name, salary, hours_limit, company);
 	employees.insert(pair<string, Employee*>(ID, employee));
 	return ID;
 }
@@ -120,6 +120,13 @@ Employer* Company::get_employer(string ID)
 { 
 	return employers[ID];
 }
+
+Employee* Company::get_employee(string ID)
+{
+	return employees[ID];
+
+}
+
 
 void Company::delete_employer(string ID)
 {

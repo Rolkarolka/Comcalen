@@ -35,16 +35,19 @@ public:
 	friend void Employer::add_employee();
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
+	friend void Employer::show_news();
+
 
 	string get_company_name();
 
 	void change_employee_attri();  //potrzeba?
 
-	string add_employee(string name,string surname, double salary, int hours_limit);
+	string add_employee(string name,string surname, double salary, int hours_limit, Company* compan);
 	bool delete_employee(string ID);
 	void set_payday(int day);
 	int get_payday();
 	Employer* get_employer(string ID);
+	Employee* get_employee(string ID);
 	string get_company_ID();
 	string add_employer(string name, string surnam);			// return ID
 	void delete_employer(string ID);
