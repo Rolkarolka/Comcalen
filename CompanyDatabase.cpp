@@ -17,14 +17,17 @@ void CompanyDatabase::open_file()
 
     while (getline(file, line))
     {
-        string type;
+        string ID;
         const string cline = line;
         istringstream tokenStream(cline);
-        Company* companyy = new Company();
+        if (getline(tokenStream, token, delimiter))
+        {
+            ID = token;
+        }
+        Company* companyy = new Company(ID);
         tokenStream >> *companyy;
-        string ID = companyy->get_company_ID();
         string name = companyy->get_company_name();
-        database.insert(pair <string, Company*> (ID, companyy));
+        database.insert(pair <string, Company*>(ID, companyy));
         database_of_company_ID.push_back(make_tuple(name, ID));
         num_line++;
     } 
@@ -65,6 +68,7 @@ void CompanyDatabase::save_file()
     for (itr = database.begin(); itr != database.end(); ++ itr)
     {
          //v = dynamic_cast<Company*>();
+        file << itr->second->get_company_ID();
         file << *itr->second << endl;
     }
     file.close();

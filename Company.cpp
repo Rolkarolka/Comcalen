@@ -200,7 +200,7 @@ bool Company::delete_news(string old_news)
 
 fstream& operator <<(fstream& file, Company& company)
 {
-	file << company.company_ID  << "\t" << company.company_name << "\t" << company.payday << "\t";
+	file << "\t" << company.company_name << "\t" << company.payday << "\t";
 	map <string, Employee*>::iterator itr1;
 	file << company.employees.size() << "\t";
 	file << company.employers.size() << "\t";
@@ -235,12 +235,11 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 	int news_size, employees_size, employers_size;
 	int start_news = 7, start_employers = 7, start_shift_table = 7;
 	char delimiter = '\t';
-	int num_word = 0, counter_shift = 0;
+	int num_word = 1, counter_shift = 0;
 	while (getline(tokenStream, token, delimiter))
 	{
 		switch (num_word)
 		{
-		case 0: company.company_ID = (token.c_str()); break;
 		case 1: company.company_name = (token.c_str()); break;
 		case 2: company.payday = stoi(token.c_str()); break;
 		case 3: employees_size = stoi(token.c_str()); start_employers += employees_size; start_news += employees_size; start_shift_table += employees_size;  break;
