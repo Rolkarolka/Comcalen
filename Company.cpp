@@ -78,7 +78,7 @@ bool Company::delete_employee(string ID)
 	{
 		if (get<1>(i) == ID)
 		{
-			news.erase(news.begin() + index);
+			database_of_ID.erase(database_of_ID.begin() + index);
 			employees.erase(string(ID));
 			return true;
 		}
@@ -128,9 +128,21 @@ Employee* Company::get_employee(string ID)
 }
 
 
-void Company::delete_employer(string ID)
+bool Company::delete_employer(string ID)
 {
-	employers.erase(string(ID));
+	int index = 0;
+	for (const auto& i : database_of_ID)
+	{
+		if (get<1>(i) == ID)
+		{
+			database_of_ID.erase(database_of_ID.begin() + index);
+			employers.erase(string(ID));
+			return true;
+		}
+		index++;
+	}
+	return false;
+
 }
 
 void Company::present_company()
