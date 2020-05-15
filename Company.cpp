@@ -116,15 +116,30 @@ string Company::add_employer(string name, string surname)
 	return ID;
 }
 
+bool Company::CrewMember_exist(string ID)
+{
+	for (const auto& i : database_of_ID)
+	{
+		if (get<1>(i) == ID)
+			return true;
+	}
+	return false;
+}
+
 Employer* Company::get_employer(string ID)
 { 
-	return employers[ID];
+	if (CrewMember_exist(ID) == true)
+		return employers[ID];
+	else
+		return nullptr;
 }
 
 Employee* Company::get_employee(string ID)
 {
-	return employees[ID];
-
+	if (CrewMember_exist(ID) == true)
+		return employees[ID];
+	else
+		return nullptr;
 }
 
 

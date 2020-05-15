@@ -49,6 +49,8 @@ public:
 	Employee* get_employee(string ID);
 	string get_company_ID();
 
+	bool CrewMember_exist(string ID);
+
 	void change_employee_attri();					// potrzeba?
 
 	string add_employee(string name,string surname, double salary, int hours_limit, Company* compan);  //! add employees to company and return ID for login

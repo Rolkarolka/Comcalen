@@ -33,7 +33,12 @@ void Employer::remove_employee()
 {
 	string id;
 	cout << "Enter employee's ID: ";
-	cin >> id;
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> id;
+		if (company->get_employee(id) == nullptr) cout << "Invalid ID. Try again.";
+	} while (company->get_employee(id) == nullptr);
 	company->delete_employee(id);
 }
 
@@ -57,7 +62,13 @@ void Employer::change_salary()
 	string id;
 	double salary;
 	cout << "Enter employee's ID: ";
-	cin >> id;
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> id;
+		if (company->get_employee(id) == nullptr) cout << "Invalid ID. Try again.";
+	} while (company->get_employee(id) == nullptr);
+
 	cout << "Enter new salary:";
 	do {
 		cin.clear();
@@ -73,7 +84,12 @@ void Employer::change_hours_limit()
 	string id;
 	int hours;
 	cout << "Enter employee's ID: ";
-	cin >> id;
+	do {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cin >> id;
+		if (company->get_employee(id) == nullptr) cout << "Invalid ID. Try again." <<  endl;
+	} while (company->get_employee(id) == nullptr);
 	cout << "Enter new hours limit:";
 	do {
 		cin.clear();
