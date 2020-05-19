@@ -57,6 +57,7 @@ string Company::set_employee_ID()
 	do
 	{
 		int ID_i = rand() % 1000;
+		ID += "\\\\";
 		ID += to_string(ID_i);
 	} while (employees.count(ID) != 0);
 	return ID;

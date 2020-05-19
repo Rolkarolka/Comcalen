@@ -1,2 +1,5 @@
-﻿  Comcalen.cpp
-  Comcalen.vcxproj -> C:\Users\rokar\source\repos\Comcalen\x64\Debug\Comcalen.exe
+﻿  moc Comcalen.h
+  Comcalen.cpp
+  main.cpp
+  moc_Comcalen.cpp
+  Comcalen.vcxproj -> C:\Users\rokar\Desktop\Comcalen\x64\Debug\Comcalen.exe

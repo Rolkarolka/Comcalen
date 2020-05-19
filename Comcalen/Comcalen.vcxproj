@@ -81,6 +81,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Comcalen.cpp" />
+    <ClCompile Include="Company.cpp" />
+    <ClCompile Include="CompanyDatabase.cpp" />
+    <ClCompile Include="CrewMember.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="EmployeeWelcome.cpp" />
+    <ClCompile Include="Employer.cpp" />
     <ClCompile Include="EmployerWelcome.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -89,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Comcalen.ui" />
+    <QtUic Include="EmployeeWelcome.ui" />
     <QtUic Include="EmployerWelcome.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +103,17 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="EmployerWelcome.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Company.h" />
+    <ClInclude Include="CompanyDatabase.h" />
+    <ClInclude Include="CrewMember.h" />
+    <ClInclude Include="Employee.h" />
+    <QtMoc Include="EmployeeWelcome.h" />
+    <ClInclude Include="Employer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="database.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

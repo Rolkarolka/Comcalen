@@ -37,6 +37,7 @@ void CompanyDatabase::open_file()
 CompanyDatabase::CompanyDatabase(string name)
 {
     set_filename(name);
+    open_file();
 }
 CompanyDatabase::~CompanyDatabase()
 {
