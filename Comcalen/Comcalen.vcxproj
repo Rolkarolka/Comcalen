@@ -85,9 +85,9 @@
     <ClCompile Include="CompanyDatabase.cpp" />
     <ClCompile Include="CrewMember.cpp" />
     <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="EmployeeWelcome.cpp" />
+    <ClCompile Include="EmployeeCalendar.cpp" />
     <ClCompile Include="Employer.cpp" />
-    <ClCompile Include="EmployerWelcome.cpp" />
+    <ClCompile Include="EmployerCalendar.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -95,21 +95,19 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Comcalen.ui" />
-    <QtUic Include="EmployeeWelcome.ui" />
-    <QtUic Include="EmployerWelcome.ui" />
+    <QtUic Include="EmployeeCalendar.ui" />
+    <QtUic Include="EmployerCalendar.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Comcalen.qrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="EmployerWelcome.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Company.h" />
     <ClInclude Include="CompanyDatabase.h" />
     <ClInclude Include="CrewMember.h" />
     <ClInclude Include="Employee.h" />
-    <QtMoc Include="EmployeeWelcome.h" />
+    <QtMoc Include="EmployerCalendar.h" />
+    <QtMoc Include="EmployeeCalendar.h" />
     <ClInclude Include="Employer.h" />
   </ItemGroup>
   <ItemGroup>

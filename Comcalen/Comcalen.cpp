@@ -6,7 +6,12 @@ Comcalen::Comcalen(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+
 	connect(ui.login_button , SIGNAL(released()), this, SLOT(login_pressed()));
+	connect(ui.employee_calendar_button, SIGNAL(released()), this, SLOT(employee_calendar_pressed()));
+	connect(ui.employer_calendar_button, SIGNAL(released()), this, SLOT(employer_calendar_pressed()));
+	ui.employee_menu->setVisible(false);
+	ui.employer_menu->setVisible(false);
 }
 
 Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
@@ -15,7 +20,28 @@ Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
 	database = cdatabase;
 	ui.setupUi(this);
 	connect(ui.login_button, SIGNAL(released()), this, SLOT(login_pressed()));
+	connect(ui.employee_calendar_button, SIGNAL(released()), this, SLOT(employee_calendar_pressed()));
+	connect(ui.employer_calendar_button, SIGNAL(released()), this, SLOT(employer_calendar_pressed()));
+	ui.employee_menu->setVisible(false);
+	ui.employer_menu->setVisible(false);
 }
+
+void Comcalen::employee_calendar_pressed()
+{
+	hide();
+	employeecalendar = new EmployeeCalendar();
+	employeecalendar->show();
+}
+
+
+void Comcalen::employer_calendar_pressed()
+{
+	hide();
+	employercalendar = new EmployerCalendar();
+	employercalendar->show();
+}
+
+
 
 int Comcalen::part_ID(string ID)
 {
@@ -66,16 +92,15 @@ void Comcalen::login_pressed()
 		if (disparity == '\\')
 		{
 			Employee* employee = find_employee(company, ID, part+2);
-			hide();
-			employeewelcome = new EmployeeWelcome();
-			employeewelcome->show();
+			ui.sibox->setVisible(false);
+			ui.employee_menu->setVisible(true);
+
 		}
-		else if (disparity == '//')
+		else if (disparity == '/')
 		{
 			Employer* employer = find_employer(company, ID, part+2);
-			hide();
-			employerwelcome = new EmployerWelcome();
-			employerwelcome->show();
+			ui.sibox->setVisible(false);
+			ui.employer_menu->setVisible(true);
 		}
 	}
 	else

@@ -31,9 +31,6 @@
     <ClCompile Include="Comcalen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EmployerWelcome.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Company.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,7 +46,10 @@
     <ClCompile Include="Employer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EmployeeWelcome.cpp">
+    <ClCompile Include="EmployeeCalendar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployerCalendar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,10 +57,10 @@
     <QtMoc Include="Comcalen.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="EmployerWelcome.h">
+    <QtMoc Include="EmployeeCalendar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="EmployeeWelcome.h">
+    <QtMoc Include="EmployerCalendar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -68,10 +68,10 @@
     <QtUic Include="Comcalen.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="EmployerWelcome.ui">
+    <QtUic Include="EmployeeCalendar.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="EmployeeWelcome.ui">
+    <QtUic Include="EmployerCalendar.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

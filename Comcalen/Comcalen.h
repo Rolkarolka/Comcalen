@@ -2,8 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_Comcalen.h"
-#include "EmployerWelcome.h"
-#include "EmployeeWelcome.h"
+#include "EmployeeCalendar.h"
+#include "EmployerCalendar.h"
 #include "CompanyDatabase.h"
 #include "CrewMember.h"
 #include <iostream>
@@ -23,8 +23,8 @@ public:
 
 private:
 	Ui::ComcalenClass ui;
-	EmployerWelcome *employerwelcome;
-	EmployeeWelcome* employeewelcome;
+	EmployeeCalendar* employeecalendar;
+	EmployerCalendar* employercalendar;
 	int part_ID(string ID);
 	Employee* find_employee(Company* company, string ID, int second_part); //! return user object
 	Employer* find_employer(Company* company, string ID, int second_part); //! return user object
@@ -34,5 +34,7 @@ private:
 private slots:
 	void login_pressed();
 	void signup_pressed();
+	void employee_calendar_pressed();
+	void employer_calendar_pressed();
 
 };

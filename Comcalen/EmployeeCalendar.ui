@@ -1,8 +1,8 @@
 <UI version="4.0" >
- <class>EmployeeWelcome</class>
- <widget class="QWidget" name="EmployeeWelcome" >
+ <class>EmployeeCalendar</class>
+ <widget class="QWidget" name="EmployeeCalendar" >
   <property name="objectName" >
-   <string notr="true">EmployeeWelcome</string>
+   <string notr="true">EmployeeCalendar</string>
   </property>
   <property name="geometry" >
    <rect>
@@ -13,7 +13,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>EmployeeWelcome</string>
+   <string>EmployeeCalendar</string>
   </property>
  </widget>
  <layoutDefault spacing="6" margin="11" />

@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>495</width>
-    <height>364</height>
+    <width>515</width>
+    <height>385</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Comcalen</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="sibox">
     <property name="geometry">
      <rect>
       <x>140</x>
       <y>60</y>
-      <width>331</width>
-      <height>121</height>
+      <width>341</width>
+      <height>231</height>
      </rect>
     </property>
     <property name="title">
@@ -62,33 +62,157 @@
       <string>ID:</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="signin_button">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>180</y>
+       <width>231</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sign Up</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>You are new here?</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QPushButton" name="signin_button">
+   <widget class="QFrame" name="employee_menu">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>230</y>
-      <width>221</width>
-      <height>28</height>
+      <x>90</x>
+      <y>40</y>
+      <width>341</width>
+      <height>271</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Sign Up</string>
+    <property name="acceptDrops">
+     <bool>false</bool>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="employee_new_shift_button">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>180</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Take shift</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="employee_calendar_button">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>60</y>
+       <width>261</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>My calendar</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QFrame" name="employer_menu">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>190</y>
-      <width>241</width>
-      <height>31</height>
+      <x>10</x>
+      <y>-10</y>
+      <width>481</width>
+      <height>381</height>
      </rect>
     </property>
-    <property name="text">
-     <string>You are new here?</string>
+    <property name="acceptDrops">
+     <bool>false</bool>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="employer_news_button">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>190</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>News</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="employer_calendar_button">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>70</y>
+       <width>321</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>My calendar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="manage_database">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>280</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Manage database</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="manage_shifts">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>280</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Manage shifts</string>
+     </property>
+    </widget>
    </widget>
+   <zorder>employee_menu</zorder>
+   <zorder>sibox</zorder>
+   <zorder>employer_menu</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
