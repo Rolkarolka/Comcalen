@@ -1,2 +1,4 @@
-﻿  Comcalen.cpp
-  Comcalen.vcxproj -> C:\Users\rokar\Desktop\Comcalen\projektproi\x64\Debug\Comcalen.exe
+﻿  Employee.cpp
+C:\Users\margr\projektproi\Comcalen\Employee.cpp(107): warning C4715: "operator>>”: niewszystkie ścieżki kodu zwracają wartość
+  moc_Comcalen.cpp
+  Comcalen.vcxproj -> C:\Users\margr\projektproi\x64\Debug\Comcalen.exe

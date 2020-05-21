@@ -13,4 +13,8 @@ public:
 
 private:
 	Ui::EmployerCalendar ui;
+
+private slots:
+	void show_label();
+	void day_start();
 };

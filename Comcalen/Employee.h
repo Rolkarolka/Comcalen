@@ -28,7 +28,7 @@ public:
 	double get_salary();
 	int get_hours_limit();
 	vector <string> get_reserved_hours();
-	void set_reserved_hours(); // employee eneters shifts in which he want to work next week, they are added to callendar and his vector of reserved hours
+	void set_reserved_hours(); // employee eneters shifts in which he want to work next month, they are added to callendar and his vector of reserved hours
 	void show_calendar();
 	void show_news(); // prints news
 	void present() override; // pronts informations about employee
