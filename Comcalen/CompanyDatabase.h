@@ -25,7 +25,7 @@ public:
 	void open_file();
 	void save_file();
 
-	string add_company(string name);					//! add company to database
+	string add_company(string name, string employer_name, string employer_surname);					//! add company to database
 	string add_company(Company& company);		
 	bool delete_company(string ID);
 

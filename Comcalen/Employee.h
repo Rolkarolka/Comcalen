@@ -25,6 +25,7 @@ public:
 	vector <string> reserved_hours;
 
 	double get_salary();
+	void set_company(Company* employee_company);
 	int get_hours_limit();
 	vector <string> get_reserved_hours();
 	void set_reserved_hours(string date); // employee eneters shifts in which he want to work next week, they are added to callendar and his vector of reserved hours

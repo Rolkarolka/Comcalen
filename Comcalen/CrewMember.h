@@ -21,12 +21,12 @@ protected:
 	string ID = ""; /// unique ID given by company 
 	string company = "";
 
-	void set_name(string ename);
-	void set_surname(string esurname);
+public:
+
 	void set_ID(string id);
 	void set_company(string ecompany);
-
-public:
+	void set_name(string ename);
+	void set_surname(string esurname);
 	string get_name();
 	string get_surname();
 	string get_ID();

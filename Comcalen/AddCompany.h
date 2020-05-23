@@ -15,7 +15,8 @@ public:
 
 private:
 	CompanyDatabase* cdatabase;
-	Company* new_company;
+	Company* new_company = nullptr;
+	Employer* employer = nullptr;
 	Ui::AddCompany ui;
 	string company_name;
 	string employer_name;

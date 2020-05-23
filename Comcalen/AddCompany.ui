@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>594</width>
-    <height>507</height>
+    <width>568</width>
+    <height>490</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,9 @@
      <width>561</width>
      <height>461</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox{background:url(:/Comcalen/background.jpg)}</string>
    </property>
    <property name="title">
     <string>Add Company</string>
@@ -137,11 +140,14 @@
   <widget class="QGroupBox" name="adding_employee">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>0</y>
      <width>571</width>
      <height>491</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox{background:url(:/Comcalen/background.jpg)}</string>
    </property>
    <property name="title">
     <string>Add Employee</string>
@@ -267,6 +273,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Comcalen.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -47,7 +47,7 @@ public:
 	Company() {};
 	Company(string cname, string cID);
 	~Company();
-
+	Company(string cname, string employer_name, string employer_surname);
 	string get_company_name();
 	int get_payday();
 	Employer* get_employer(string ID);
@@ -63,6 +63,7 @@ public:
 	bool delete_employee(string ID);
 	bool delete_employee(string name, string surname);
 
+	string add_employer(Employer& employer);
 	string add_employer(string name, string surnam);			//! add employers to company and return ID for login
 	bool delete_employer(string ID);
 	bool delete_employer(string name, string surname);
