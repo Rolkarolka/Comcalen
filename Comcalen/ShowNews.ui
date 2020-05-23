@@ -6,51 +6,75 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
-    <height>460</height>
+    <width>605</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ShowNews</string>
   </property>
-  <widget class="QPushButton" name="return_mw">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>44</x>
-     <y>410</y>
-     <width>491</width>
-     <height>23</height>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>471</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Return</string>
+   <property name="styleSheet">
+    <string notr="true">QFrame{background:url(:/Comcalen/background.jpg)}</string>
    </property>
-  </widget>
-  <widget class="QScrollArea" name="scroll_news">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>30</y>
-     <width>491</width>
-     <height>361</height>
-    </rect>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
-   <property name="widgetResizable">
-    <bool>true</bool>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="scrollContents">
+   <widget class="QScrollArea" name="scroll_news">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>489</width>
-      <height>359</height>
+      <x>50</x>
+      <y>20</y>
+      <width>491</width>
+      <height>361</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget{url(:/Comcalen/background.jpg)}</string>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>489</width>
+       <height>359</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="return_mw">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>400</y>
+      <width>491</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Return</string>
     </property>
    </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Comcalen.qrc"/>
+ </resources>
  <connections/>
 </ui>

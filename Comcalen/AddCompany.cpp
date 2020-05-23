@@ -48,9 +48,20 @@ void AddCompany::add_employee_pressed()
 	set_lines();
 	if (company_name != "" && employer_name != "" && employer_surname != "")
 	{
-		new_company = new Company();
-		new_company->set_company_name(company_name);
-		new_company->add_employer(employer_name, employer_surname);
+		if (new_company == nullptr)
+		{
+			employer = new Employer();
+			employer->set_name(employer_name);
+			employer->set_surname(employer_surname);
+			new_company = new Company(company_name);
+			new_company->add_employer(*employer);
+		}
+		else
+		{
+			if (new_company->get_company_name() != company_name)
+				new_company->set_company_name(company_name);
+
+		}
 		ui.add_company_box->setVisible(false);
 		ui.adding_employee->setVisible(true);
 	}

@@ -137,6 +137,18 @@ bool Company::CrewMember_exist(string ID)
 	return false;
 }
 
+string Company::add_employer(Employer& employer)
+{
+	string ID = set_employer_ID();
+	string names = employer.get_surname() + " " + employer.get_name();
+	employer.set_ID(ID);
+	employer.CrewMember::set_company(company_name);
+	employer.set_company(this);
+	database_of_ID.push_back({ names, ID });
+	employers.insert(pair<string, Employer*>(ID, &employer));
+	return ID;
+}
+
 Employer* Company::get_employer(string ID)
 { 
 	if (CrewMember_exist(ID) == true)
@@ -173,6 +185,12 @@ bool Company::delete_employer(string ID)
 	}
 	return false;
 
+}
+
+Company::Company(string cname, string employer_name, string employer_surname)
+{
+	company_name = cname;
+	add_employer(employer_name, employer_surname);
 }
 
 bool Company::delete_employer(string name, string surname)
@@ -302,6 +320,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			ID = token.c_str();
 			Employee* employee = new Employee();
 			tokenStream >> *employee;
+			employee->set_company(&company);
 			string names = employee->get_surname() + " " + employee->get_name();
 			company.database_of_ID.push_back({ names, ID });
 			company.employees.insert(pair<string, Employee*>(ID, employee));

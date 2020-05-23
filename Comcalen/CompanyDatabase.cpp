@@ -107,16 +107,10 @@ Company* CompanyDatabase::get_company_with_name(string name)
     return NULL;
 }
 
-string CompanyDatabase::add_company(string name)
+string CompanyDatabase::add_company(string name, string employer_name, string employer_surname)
 {
-    string namee, surname;
-    cout << "Your name: ";
-    cin >> namee;
-    cout << "\nYour surname: ";
-    cin >> surname;
     string ID = set_ID();
-    Company* company = new Company(name, ID);
-    company->add_employer(namee, surname);
+    Company* company = new Company(name, employer_name, employer_surname);
     database.insert(pair<string, Company*>(ID, company));
     database_of_company_ID.push_back(make_tuple(name, ID));
     return ID;

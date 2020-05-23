@@ -106,3 +106,8 @@ Employee& operator >>(istringstream& tokenStream, Employee& employee)
 
 	}
 }
+
+void Employee::set_company(Company* employee_company)
+{
+	company = employee_company;
+}
