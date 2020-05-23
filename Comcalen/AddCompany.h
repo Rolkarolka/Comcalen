@@ -12,6 +12,8 @@ class AddCompany : public QDialog
 public:
 	AddCompany(CompanyDatabase* company_database, QDialog* parent = Q_NULLPTR);
 	~AddCompany();
+	Employer* get_employer();
+	Company* get_company();
 
 private:
 	CompanyDatabase* cdatabase;
@@ -28,5 +30,4 @@ private slots:
 	void add_employee_to_company();
 	void create_company_pressed();
 	void return_to_creating();
-
 };

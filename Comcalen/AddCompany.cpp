@@ -69,6 +69,16 @@ void AddCompany::add_employee_pressed()
 		QMessageBox::warning(this, "Warning!", "You need to enter all information.");
 }
 
+Employer* AddCompany::get_employer()
+{
+	return employer;
+}
+
+Company* AddCompany::get_company()
+{
+	return new_company;
+}
+
 void AddCompany::add_employee_to_company()
 {
 	bool ok_1, ok_2;
@@ -95,8 +105,6 @@ void AddCompany::add_employee_to_company()
 	else
 		QMessageBox::warning(this, "Warning!", "You need to enter all information. to add employee");
 }
-
-
 
 void AddCompany::set_lines()
 {

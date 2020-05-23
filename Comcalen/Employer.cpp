@@ -49,7 +49,7 @@ void Employer::show_calendar()
 
 string Employer::show_news(int index)
 {
-	if (index < size(company->news))
+	if (index < company->news.size())
 		return company->news[index];
 	else
 		return "";

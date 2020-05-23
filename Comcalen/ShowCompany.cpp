@@ -7,7 +7,8 @@ ShowCompany::ShowCompany(Company* company, QDialog *parent)
     connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
     QVBoxLayout* layout = new QVBoxLayout(this);
     vector<tuple<string, string>> log_info = company->get_log_info();
-    if (company->get_number_of_staff() != 0)
+    int company_members = company->get_number_of_staff() + company->get_number_of_managment();
+    if (company_members != 0)
     {
         for (const auto& i : log_info)
         {

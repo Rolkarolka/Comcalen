@@ -52,7 +52,12 @@ void Comcalen::signup_pressed()
 	connect(&add_company_window, SIGNAL(accepted()), this, SLOT(on_add_company_accepted()));
 	connect(&add_company_window, SIGNAL(rejected()), this, SLOT(show()));
 	hide();
-	add_company_window.exec();
+	int accepted = add_company_window.exec();
+	if (accepted == 1)
+	{
+		user_company = add_company_window.get_company();
+		crew_member = add_company_window.get_employer();
+	}
 }
 
 void Comcalen::employer_calendar_pressed()
@@ -87,9 +92,6 @@ void Comcalen::manage_database_pressed()
 	connect(&mc_window, SIGNAL(rejected()), this, SLOT(show()));
 	mc_window.exec();
 }
-
-
-
 
 int Comcalen::part_ID(string ID)
 {
@@ -157,6 +159,7 @@ void Comcalen::login_pressed()
 	}
 	else
 		QMessageBox::warning(this, "Login", "Incorrect ID");
+	
 }
 
 void Comcalen::on_add_company_accepted()
