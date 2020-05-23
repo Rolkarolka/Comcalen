@@ -102,28 +102,12 @@ QFrame{background:url(:/Comcalen/background.jpg)}</string>
    <slot>calendar_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>206</x>
-     <y>289</y>
+     <x>138</x>
+     <y>302</y>
     </hint>
     <hint type="destinationlabel">
-     <x>210</x>
-     <y>353</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ok_button</sender>
-   <signal>clicked()</signal>
-   <receiver>ShiftTable</receiver>
-   <slot>OK_clicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>318</x>
-     <y>337</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>318</x>
-     <y>363</y>
+     <x>139</x>
+     <y>326</y>
     </hint>
    </hints>
   </connection>

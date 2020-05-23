@@ -41,6 +41,7 @@ CompanyDatabase::CompanyDatabase(string name)
 }
 CompanyDatabase::~CompanyDatabase()
 {
+    save_file();
     database.clear();
 }
 

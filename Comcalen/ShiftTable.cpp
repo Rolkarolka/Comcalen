@@ -18,14 +18,12 @@ ShiftTable::~ShiftTable()
 
 void ShiftTable::calendar_clicked()
 {
-	date = ui.calendar_employee->selectedDate();
-
-	ui.label_day->setText(date.toString("dd.MM.yyyy"));
+	ui.label_day->setText(ui.calendar_employee->selectedDate().toString("dd.MM.yyyy"));
 }
 
 void ShiftTable::OK_clicked()
 {
-	QString dat = date.toString();
+	QString dat = ui.calendar_employee->selectedDate().toString();
 	employee->set_reserved_hours(dat.toStdString());
-	ui.label_day->setText(ui.calendar_employee->selectedDate().toString("dd.MM.yyyy\nSaved!"));
+	ui.label_day->setText(ui.calendar_employee->selectedDate().toString("Saved!"));
 }

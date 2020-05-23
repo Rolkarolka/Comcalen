@@ -16,7 +16,6 @@ public:
 
 private:
 	Employee* employee;
-	QDate date;
 	Ui::ShiftTable ui;
 
 private slots:
