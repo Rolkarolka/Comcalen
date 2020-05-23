@@ -16,7 +16,6 @@ class Employee : public CrewMember
 	* Methods starting with the word "get" allow to retrive the attribute value
 	* Methods starting with the word "set" allow to set the attribute value
 	*/
-
 	double salary = 0; 
 	int hours_limit = 0; /// number of hours that employee can reserve in next month
 	Company* company;
@@ -28,7 +27,7 @@ public:
 	double get_salary();
 	int get_hours_limit();
 	vector <string> get_reserved_hours();
-	void set_reserved_hours(); // employee eneters shifts in which he want to work next week, they are added to callendar and his vector of reserved hours
+	void set_reserved_hours(string date); // employee eneters shifts in which he want to work next week, they are added to callendar and his vector of reserved hours
 	void show_calendar();
 	void show_news(); // prints news
 	void present() override; // pronts informations about employee

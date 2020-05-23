@@ -11,10 +11,13 @@ void Employee::set_hours_limit(int ehlimit)
 	hours_limit = ehlimit;
 }
 
-void Employee::set_reserved_hours()
+void Employee::set_reserved_hours(string date)
 {
-	string news = "Wiadomosc ktora tu kiedys bedzie";
-	company->add_news(news);
+	//string names = name + " " + surname;
+	reserved_hours.push_back(date);
+	company->calendar[date] = "DOBRY PRZERYWNIK";
+	//string news = names + "took shift on " + date;
+	//company->add_news(news);
 }
 
 double Employee::get_salary()
