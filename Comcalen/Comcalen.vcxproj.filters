@@ -52,6 +52,24 @@
     <ClCompile Include="EmployerCalendar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddCompany.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiftTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowNews.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageShift.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowCompany.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Comcalen.h">
@@ -63,6 +81,24 @@
     <QtMoc Include="EmployerCalendar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="AddCompany.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ShiftTable.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ManageDatabase.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ShowNews.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ManageShift.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ShowCompany.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Comcalen.ui">
@@ -72,6 +108,24 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="EmployerCalendar.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="AddCompany.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ShiftTable.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ManageDatabase.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ShowNews.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ManageShift.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ShowCompany.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

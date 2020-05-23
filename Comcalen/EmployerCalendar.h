@@ -1,20 +1,16 @@
 #pragma once
 
-#include <QWidget>
+#include <QDialog>
 #include "ui_EmployerCalendar.h"
 
-class EmployerCalendar : public QWidget
+class EmployerCalendar : public QDialog
 {
 	Q_OBJECT
 
 public:
-	EmployerCalendar(QWidget *parent = Q_NULLPTR);
+	EmployerCalendar(QDialog *parent = Q_NULLPTR);
 	~EmployerCalendar();
 
 private:
 	Ui::EmployerCalendar ui;
-
-private slots:
-	void show_label();
-	void day_start();
 };

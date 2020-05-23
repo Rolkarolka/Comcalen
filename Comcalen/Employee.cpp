@@ -13,11 +13,8 @@ void Employee::set_hours_limit(int ehlimit)
 
 void Employee::set_reserved_hours()
 {
-	string date;
-	string names = name + surname;
-	cout << "Enter date (dd.mm.yyyy): ";
-	cin >> date;
-	company->calendar.insert(pair<string, string>(date, names));
+	string news = "Wiadomosc ktora tu kiedys bedzie";
+	company->add_news(news);
 }
 
 double Employee::get_salary()

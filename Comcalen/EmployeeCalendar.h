@@ -1,14 +1,14 @@
 #pragma once
 
-#include <QWidget>
+#include <QDialog>
 #include "ui_EmployeeCalendar.h"
 
-class EmployeeCalendar : public QWidget
+class EmployeeCalendar : public QDialog
 {
 	Q_OBJECT
 
 public:
-	EmployeeCalendar(QWidget *parent = Q_NULLPTR);
+	EmployeeCalendar(QDialog *parent = Q_NULLPTR);
 	~EmployeeCalendar();
 
 private:

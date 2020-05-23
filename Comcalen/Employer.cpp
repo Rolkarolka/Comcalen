@@ -47,10 +47,12 @@ void Employer::show_calendar()
 
 }
 
-void Employer::show_news()
+string Employer::show_news(int index)
 {
-	for (int i = 0; i < size(company->news); i++)
-		cout << company->news[i] << endl;
+	if (index < size(company->news))
+		return company->news[index];
+	else
+		return "";
 }
 
 void Employer::set_shift_hours()
@@ -131,6 +133,11 @@ fstream& operator <<(fstream& file, Employer& employer)
 {
 	file << reinterpret_cast<CrewMember&>(employer);
 	return file;
+}
+
+void Employer::set_company(Company* employer_company)
+{
+	company = employer_company;
 }
 
 Employer& operator >>(istringstream& tokenStream, Employer& employer)

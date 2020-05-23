@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddCompany.cpp" />
     <ClCompile Include="Comcalen.cpp" />
     <ClCompile Include="Company.cpp" />
     <ClCompile Include="CompanyDatabase.cpp" />
@@ -89,19 +90,36 @@
     <ClCompile Include="Employer.cpp" />
     <ClCompile Include="EmployerCalendar.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ManageDatabase.cpp" />
+    <ClCompile Include="ManageShift.cpp" />
+    <ClCompile Include="ShiftTable.cpp" />
+    <ClCompile Include="ShowCompany.cpp" />
+    <ClCompile Include="ShowNews.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Comcalen.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="AddCompany.ui" />
     <QtUic Include="Comcalen.ui" />
     <QtUic Include="EmployeeCalendar.ui" />
     <QtUic Include="EmployerCalendar.ui" />
+    <QtUic Include="ManageDatabase.ui" />
+    <QtUic Include="ManageShift.ui" />
+    <QtUic Include="ShiftTable.ui" />
+    <QtUic Include="ShowCompany.ui" />
+    <QtUic Include="ShowNews.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Comcalen.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ShowCompany.h" />
+    <QtMoc Include="ManageShift.h" />
+    <QtMoc Include="ShowNews.h" />
+    <QtMoc Include="ManageDatabase.h" />
+    <QtMoc Include="ShiftTable.h" />
+    <QtMoc Include="AddCompany.h" />
     <ClInclude Include="Company.h" />
     <ClInclude Include="CompanyDatabase.h" />
     <ClInclude Include="CrewMember.h" />

@@ -13,69 +13,21 @@
   <property name="windowTitle">
    <string>EmployerCalendar</string>
   </property>
-  <widget class="QCalendarWidget" name="calendar_employer">
+  <widget class="QPushButton" name="return_employer_c">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>341</width>
-     <height>371</height>
+     <x>400</x>
+     <y>350</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
-   </property>
-   <property name="gridVisible">
-    <bool>true</bool>
-   </property>
-   <property name="verticalHeaderFormat">
-    <enum>QCalendarWidget::NoVerticalHeader</enum>
-   </property>
-   <property name="navigationBarVisible">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="day_label">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>43</y>
-     <width>91</width>
-     <height>281</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Old English Text MT</family>
-     <pointsize>13</pointsize>
-    </font>
    </property>
    <property name="text">
-    <string>Choose day</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    <string>Return</string>
    </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>calendar_employer</sender>
-   <signal>clicked(QDate)</signal>
-   <receiver>EmployerCalendar</receiver>
-   <slot>show_label()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>181</x>
-     <y>368</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>180</x>
-     <y>381</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
- <slots>
-  <slot>show_label()</slot>
- </slots>
+ <connections/>
 </ui>

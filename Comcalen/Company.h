@@ -32,11 +32,13 @@ private:
 	
 	map <string, Employee*> employees;				/// contains all employees of company
 	map <string, Employer*> employers;				/// contains all employers of company
-	map <string, string> calendar;					/// contains NIE UMIEM ANGIELSKIEGO POPRAWIE TO POTEM
 
 	int payday = 10;								/// information about payday, to remind employer about this
 	void set_name(string name);
 	Company(const Company& company) {};				/// lock operator
+
+
+
 public:
 
 	Company(string cID) { company_ID = cID; };
@@ -49,22 +51,27 @@ public:
 	Employer* get_employer(string ID);
 	Employee* get_employee(string ID);
 	string get_company_ID();
+	vector<tuple<string, string>> get_log_info();
 
 	bool CrewMember_exist(string ID);
 
-	void change_employee_attri();					// potrzeba? -chyba niezbyt, ale dziêks
+	void change_employee_attri();					// potrzeba?
 
 	string add_employee(string name,string surname, double salary, int hours_limit, Company* compan);  //! add employees to company and return ID for login
 	bool delete_employee(string ID);
+	bool delete_employee(string name, string surname);
 
 	string add_employer(string name, string surnam);			//! add employers to company and return ID for login
 	bool delete_employer(string ID);
+	bool delete_employer(string name, string surname);
 
 	void add_news(string new_news);						//! called if there are changes in the company
 	bool delete_news(string old_news);
 
+	void set_ID(string new_ID);
 	void set_payday(int day);
 	void set_shift_table();
+	void set_company_name(string name);
 
 	friend fstream& operator <<(fstream& file, Company& company);
 	friend Company& operator >>(istringstream& tokenStream, Company& company);
@@ -72,9 +79,7 @@ public:
 	friend void Employer::add_employee();
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
-	friend void Employer::show_news();
-	friend void Employee::set_reserved_hours();
-
+	friend string Employer::show_news(int index);
 
 	void present_company();										// for tests
 	string get_ID_having_name_and_surname(string name, string surname);

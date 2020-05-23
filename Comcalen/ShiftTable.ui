@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EmployeeCalendar</class>
- <widget class="QWidget" name="EmployeeCalendar">
+ <class>ShiftTable</class>
+ <widget class="QWidget" name="ShiftTable">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
-    <height>507</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>EmployeeCalendar</string>
+   <string>ShiftTable</string>
   </property>
-  <widget class="QPushButton" name="return_from_ec">
+  <widget class="QPushButton" name="return_menu">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>480</y>
-     <width>131</width>
-     <height>21</height>
+     <x>300</x>
+     <y>260</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>return</string>
+    <string>Return</string>
    </property>
   </widget>
  </widget>

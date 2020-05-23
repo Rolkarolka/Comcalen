@@ -26,6 +26,7 @@ public:
 	void save_file();
 
 	string add_company(string name);					//! add company to database
+	string add_company(Company& company);		
 	bool delete_company(string ID);
 
 	Company* get_company_with_ID(string ID);			//! get pointer on wanted company

@@ -1,18 +1,6 @@
 #include "Comcalen.h"
 #include <QMessageBox>
-//#include <QDebug>
 
-Comcalen::Comcalen(QWidget *parent)
-	: QMainWindow(parent)
-{
-	ui.setupUi(this);
-
-	connect(ui.login_button , SIGNAL(released()), this, SLOT(login_pressed()));
-	connect(ui.employee_calendar_button, SIGNAL(released()), this, SLOT(employee_calendar_pressed()));
-	connect(ui.employer_calendar_button, SIGNAL(released()), this, SLOT(employer_calendar_pressed()));
-	ui.employee_menu->setVisible(false);
-	ui.employer_menu->setVisible(false);
-}
 
 Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
 	: QMainWindow(parent)
@@ -20,26 +8,86 @@ Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
 	database = cdatabase;
 	ui.setupUi(this);
 	connect(ui.login_button, SIGNAL(released()), this, SLOT(login_pressed()));
+	connect(ui.signin_button, SIGNAL(released()), this, SLOT(signup_pressed()));
 	connect(ui.employee_calendar_button, SIGNAL(released()), this, SLOT(employee_calendar_pressed()));
 	connect(ui.employer_calendar_button, SIGNAL(released()), this, SLOT(employer_calendar_pressed()));
+	connect(ui.employee_new_shift_button, SIGNAL(released()), this, SLOT(employee_add_shift_pressed()));
+
+	connect(ui.show_company, SIGNAL(released()), this, SLOT(show_company_pressed()));
+
+	connect(ui.manage_database, SIGNAL(released()), this, SLOT(manage_database_pressed()));
+	connect(ui.manage_shifts, SIGNAL(released()), this, SLOT(manage_shift_pressed()));
+	connect(ui.employer_news_button, SIGNAL(released()), this, SLOT(show_news_pressed()));
+
 	ui.employee_menu->setVisible(false);
 	ui.employer_menu->setVisible(false);
 }
 
-void Comcalen::employee_calendar_pressed()
+void Comcalen::show_company_pressed()
 {
+	ShowCompany sc_window(user_company);
 	hide();
-	employeecalendar = new EmployeeCalendar();
-	employeecalendar->show();
+	connect(&sc_window, SIGNAL(rejected()), this, SLOT(show()));
+	sc_window.exec();
 }
 
+void Comcalen::employee_add_shift_pressed()
+{
+	ShiftTable ec_window;
+	hide();
+	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
+	ec_window.exec();
+}
+void Comcalen::employee_calendar_pressed()
+{
+	EmployeeCalendar ec_window;
+	hide();
+	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
+	ec_window.exec();
+}
+
+void Comcalen::signup_pressed()
+{
+	AddCompany add_company_window(database);
+	connect(&add_company_window, SIGNAL(accepted()), this, SLOT(on_add_company_accepted()));
+	connect(&add_company_window, SIGNAL(rejected()), this, SLOT(show()));
+	hide();
+	add_company_window.exec();
+}
 
 void Comcalen::employer_calendar_pressed()
 {
+	EmployerCalendar ec_window;
 	hide();
-	employercalendar = new EmployerCalendar();
-	employercalendar->show();
+	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
+	ec_window.exec();
 }
+
+
+void Comcalen::show_news_pressed()
+{
+	ShowNews sn_window(dynamic_cast<Employer*>(crew_member), user_company->get_number_of_news());
+	hide();
+	connect(&sn_window, SIGNAL(rejected()), this, SLOT(show()));
+	sn_window.exec();
+}
+
+void Comcalen::manage_shift_pressed()
+{
+	ManageShift ec_window;
+	hide();
+	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
+	ec_window.exec();
+}
+
+void Comcalen::manage_database_pressed()
+{
+	ManageDatabase mc_window(user_company);
+	hide();
+	connect(&mc_window, SIGNAL(rejected()), this, SLOT(show()));
+	mc_window.exec();
+}
+
 
 
 
@@ -65,7 +113,7 @@ Company* Comcalen::find_company_by_ID(string ID)
 	return company;
 }
 
-Employee* Comcalen::find_employee(Company* company, string ID,int second_part)
+Employee* Comcalen::find_employee(Company* company, string ID, int second_part)
 {
 	string CrewMember_ID = ID.substr(second_part, ID.length());
 	Employee* employee = company->get_employee(CrewMember_ID);
@@ -74,9 +122,7 @@ Employee* Comcalen::find_employee(Company* company, string ID,int second_part)
 
 Employer* Comcalen::find_employer(Company* company, string ID, int second_part)
 {
-	string CrewMember_ID = ID.substr(second_part, ID.length());
-	Employer* employer = company->get_employer(CrewMember_ID);
-	return employer;
+	return company->get_employer(ID);
 }
 
 void Comcalen::login_pressed()
@@ -84,30 +130,58 @@ void Comcalen::login_pressed()
 	//qDebug() << "test";
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
-	Company* company = find_company_by_ID(ID);
-	if (company)
+	user_company = find_company_by_ID(ID);
+	if (user_company)
 	{
 		int part = part_ID(ID);
 		char disparity = ID.substr(part, part)[0];
 		if (disparity == '\\')
 		{
-			Employee* employee = find_employee(company, ID, part+2);
-			ui.sibox->setVisible(false);
-			ui.employee_menu->setVisible(true);
+			crew_member = find_employee(user_company, ID, part + 2);
+			if (!crew_member)
+				QMessageBox::warning(this, "Login", "Incorrect ID");
+			else
+			{
+				ui.sibox->setVisible(false);
+				ui.employee_menu->setVisible(true);
+			}
+
 
 		}
 		else if (disparity == '/')
 		{
-			Employer* employer = find_employer(company, ID, part+2);
-			ui.sibox->setVisible(false);
-			ui.employer_menu->setVisible(true);
+			crew_member = find_employer(user_company, ID, part + 2);
+			if (!crew_member)
+				QMessageBox::warning(this, "Login", "Incorrect ID");
+			else
+			{
+				ui.sibox->setVisible(false);
+				ui.employer_menu->setVisible(true);
+			}
+
 		}
 	}
 	else
 		QMessageBox::warning(this, "Login", "Incorrect ID");
 }
 
-void Comcalen::signup_pressed()
+void Comcalen::on_add_company_accepted()
 {
+	show();
+	ui.employee_menu->setVisible(false);
+	ui.sibox->setVisible(false);
+	ui.employer_menu->setVisible(true);
+}
 
+Comcalen::Comcalen(QWidget* parent)
+	: QMainWindow(parent)
+{
+	ui.setupUi(this);
+
+	connect(ui.login_button, SIGNAL(released()), this, SLOT(login_pressed()));
+	connect(ui.signin_button, SIGNAL(released()), this, SLOT(signup_pressed()));
+	connect(ui.employee_calendar_button, SIGNAL(released()), this, SLOT(employee_calendar_pressed()));
+	connect(ui.employer_calendar_button, SIGNAL(released()), this, SLOT(employer_calendar_pressed()));
+	ui.employee_menu->setVisible(false);
+	ui.employer_menu->setVisible(false);
 }

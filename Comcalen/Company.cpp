@@ -20,9 +20,19 @@ void Company::change_employee_attri()
 
 }
 
+void Company::set_ID(string ID)
+{
+	company_ID = ID;
+}
+
 string Company::get_company_name()
 {
 	return company_name;
+}
+
+void Company::set_company_name(string cname)
+{
+	company_name = cname;
 }
 
 string Company::get_ID_having_name_and_surname(string name, string surname)
@@ -130,7 +140,11 @@ bool Company::CrewMember_exist(string ID)
 Employer* Company::get_employer(string ID)
 { 
 	if (CrewMember_exist(ID) == true)
-		return employers[ID];
+	{
+		map<string, Employer*>::iterator itr;
+		itr = employers.find(ID);
+		return itr->second;
+	}
 	else
 		return nullptr;
 }
@@ -161,6 +175,22 @@ bool Company::delete_employer(string ID)
 
 }
 
+bool Company::delete_employer(string name, string surname)
+{
+	string ID = get_ID_having_name_and_surname(name, surname);
+	bool done = delete_employer(ID);
+	return done;
+}
+
+
+bool Company::delete_employee(string name, string surname)
+{
+	string ID = get_ID_having_name_and_surname(name, surname);
+	bool done = delete_employee(ID);
+	return done;
+}
+
+
 void Company::present_company()
 {
 	map <string, Employee*>::iterator itr1;
@@ -176,6 +206,12 @@ void Company::present_company()
 		itr2->second->present();
 	}
 }
+
+vector<tuple<string, string>> Company::get_log_info()
+{
+	return database_of_ID;
+}
+
 
 string Company::set_employer_ID()
 {
@@ -212,7 +248,6 @@ bool Company::delete_news(string old_news)
 		return true;
 	}
 }
-
 
 fstream& operator <<(fstream& file, Company& company)
 {
@@ -277,6 +312,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			ID = token.c_str();
 			Employer* employer = new Employer();
 			tokenStream >> *employer;
+			employer->set_company(&company);
 			string names = employer->get_surname() + " " + employer->get_name();
 			company.database_of_ID.push_back({ names, ID });
 			company.employers.insert(pair<string, Employer*>(ID, employer));
@@ -286,8 +322,12 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			company.shift_table[counter_shift] = token.c_str();
 			counter_shift++;
 		}
-		if (num_word >= start_news)
-			company.news.push_back(token.c_str());
+		if (num_word >= start_news && token != "")
+		{
+			string news = token.c_str();
+			if (news != "")
+				company.news.push_back(news);
+		}
 		num_word++;
 	}
 	return company;

@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="Comcalen">
-    </qresource>
+  <qresource prefix="Comcalen">
+    <file>background.jpg</file>
+  </qresource>
 </RCC>

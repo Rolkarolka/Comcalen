@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>515</width>
-    <height>385</height>
+    <width>608</width>
+    <height>492</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,14 @@
    <widget class="QGroupBox" name="sibox">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>60</y>
-      <width>341</width>
-      <height>231</height>
+      <x>0</x>
+      <y>0</y>
+      <width>611</width>
+      <height>491</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox{background:url(:/Comcalen/background.jpg)}</string>
     </property>
     <property name="title">
      <string>Sign In</string>
@@ -29,11 +32,17 @@
     <widget class="QPushButton" name="login_button">
      <property name="geometry">
       <rect>
-       <x>82</x>
-       <y>79</y>
+       <x>210</x>
+       <y>150</y>
        <width>231</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Sign In</string>
@@ -42,8 +51,8 @@
     <widget class="QLineEdit" name="ID_line">
      <property name="geometry">
       <rect>
-       <x>82</x>
-       <y>38</y>
+       <x>210</x>
+       <y>110</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -52,11 +61,17 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>32</x>
-       <y>34</y>
+       <x>170</x>
+       <y>110</y>
        <width>31</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>14</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>ID:</string>
@@ -65,11 +80,17 @@
     <widget class="QPushButton" name="signin_button">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>180</y>
+       <x>210</x>
+       <y>220</y>
        <width>231</width>
-       <height>28</height>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Sign Up</string>
@@ -78,11 +99,16 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>150</y>
-       <width>241</width>
+       <x>140</x>
+       <y>190</y>
+       <width>141</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+      </font>
      </property>
      <property name="text">
       <string>You are new here?</string>
@@ -92,14 +118,17 @@
    <widget class="QFrame" name="employee_menu">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>40</y>
-      <width>341</width>
-      <height>271</height>
+      <x>0</x>
+      <y>0</y>
+      <width>611</width>
+      <height>491</height>
      </rect>
     </property>
     <property name="acceptDrops">
      <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{background:url(:/Comcalen/background.jpg)}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -110,11 +139,17 @@
     <widget class="QPushButton" name="employee_new_shift_button">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>180</y>
-       <width>261</width>
-       <height>61</height>
+       <x>120</x>
+       <y>210</y>
+       <width>371</width>
+       <height>71</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>20</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Take shift</string>
@@ -123,11 +158,17 @@
     <widget class="QPushButton" name="employee_calendar_button">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>60</y>
-       <width>261</width>
-       <height>81</height>
+       <x>120</x>
+       <y>70</y>
+       <width>371</width>
+       <height>101</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>26</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>My calendar</string>
@@ -137,14 +178,17 @@
    <widget class="QFrame" name="employer_menu">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>-10</y>
-      <width>481</width>
-      <height>381</height>
+      <x>0</x>
+      <y>0</y>
+      <width>611</width>
+      <height>491</height>
      </rect>
     </property>
     <property name="acceptDrops">
      <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{background:url(:/Comcalen/background.jpg)}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -155,11 +199,17 @@
     <widget class="QPushButton" name="employer_news_button">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>190</y>
-       <width>321</width>
-       <height>61</height>
+       <x>90</x>
+       <y>180</y>
+       <width>411</width>
+       <height>71</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>22</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>News</string>
@@ -168,11 +218,17 @@
     <widget class="QPushButton" name="employer_calendar_button">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>70</y>
-       <width>321</width>
+       <x>90</x>
+       <y>80</y>
+       <width>411</width>
        <height>81</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>22</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>My calendar</string>
@@ -181,15 +237,16 @@
     <widget class="QPushButton" name="manage_database">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>280</y>
-       <width>151</width>
-       <height>41</height>
+       <x>90</x>
+       <y>270</y>
+       <width>191</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>8</pointsize>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
@@ -199,22 +256,46 @@
     <widget class="QPushButton" name="manage_shifts">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>280</y>
-       <width>161</width>
-       <height>41</height>
+       <x>310</x>
+       <y>270</y>
+       <width>191</width>
+       <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Manage shifts</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="show_company">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>350</y>
+       <width>411</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Show Company Database</string>
+     </property>
+    </widget>
    </widget>
-   <zorder>employee_menu</zorder>
    <zorder>sibox</zorder>
    <zorder>employer_menu</zorder>
+   <zorder>employee_menu</zorder>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
