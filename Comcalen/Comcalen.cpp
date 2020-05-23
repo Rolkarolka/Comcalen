@@ -113,31 +113,28 @@ Company* Comcalen::find_company_by_ID(string ID)
 	return company;
 }
 
-Employee* Comcalen::find_employee(Company* company, string ID, int second_part)
+Employee* Comcalen::find_employee(Company* company, string ID)
 {
-	string CrewMember_ID = ID.substr(second_part, ID.length());
-	Employee* employee = company->get_employee(CrewMember_ID);
-	return employee;
+	return company->get_employee(ID);
 }
 
-Employer* Comcalen::find_employer(Company* company, string ID, int second_part)
+Employer* Comcalen::find_employer(Company* company, string ID)
 {
 	return company->get_employer(ID);
 }
 
 void Comcalen::login_pressed()
 {
-	//qDebug() << "test";
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
 	user_company = find_company_by_ID(ID);
 	if (user_company)
 	{
 		int part = part_ID(ID);
-		char disparity = ID.substr(part, part)[0];
-		if (disparity == '\\')
+		string disparity = ID.substr(part, part);
+		if (disparity == "\\\\")
 		{
-			crew_member = find_employee(user_company, ID, part + 2);
+			crew_member = find_employee(user_company, ID);
 			if (!crew_member)
 				QMessageBox::warning(this, "Login", "Incorrect ID");
 			else
@@ -145,12 +142,10 @@ void Comcalen::login_pressed()
 				ui.sibox->setVisible(false);
 				ui.employee_menu->setVisible(true);
 			}
-
-
 		}
-		else if (disparity == '/')
+		else if (disparity == "//")
 		{
-			crew_member = find_employer(user_company, ID, part + 2);
+			crew_member = find_employer(user_company, ID);
 			if (!crew_member)
 				QMessageBox::warning(this, "Login", "Incorrect ID");
 			else
@@ -158,7 +153,6 @@ void Comcalen::login_pressed()
 				ui.sibox->setVisible(false);
 				ui.employer_menu->setVisible(true);
 			}
-
 		}
 	}
 	else

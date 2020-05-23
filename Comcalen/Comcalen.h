@@ -34,8 +34,8 @@ private:
 	Company* user_company;
 
 	int part_ID(string ID);
-	Employee* find_employee(Company* company, string ID, int second_part); //! return user object
-	Employer* find_employer(Company* company, string ID, int second_part); //! return user object
+	Employee* find_employee(Company* company, string ID); //! return user object
+	Employer* find_employer(Company* company, string ID); //! return user object
 	Company* find_company_by_ID(string ID);	//! return company from which user is
 	
 

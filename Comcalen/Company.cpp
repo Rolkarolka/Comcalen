@@ -63,14 +63,14 @@ string Company::add_employee(string name, string surname, double salary, int hou
 
 string Company::set_employee_ID()
 {
-	string ID = company_ID;
+	string temp_ID;
 	do
 	{
-		int ID_i = rand() % 1000;
-		ID += "\\\\";
-		ID += to_string(ID_i);
-	} while (employees.count(ID) != 0);
-	return ID;
+		int ID_i = rand() % 10000;
+		temp_ID = company_ID + "//" + to_string(ID_i);
+	} while (employers.count(temp_ID) != 0);
+
+	return temp_ID;
 }
 
 int Company::get_number_of_news()
@@ -215,15 +215,14 @@ vector<tuple<string, string>> Company::get_log_info()
 
 string Company::set_employer_ID()
 {
-	string ID = company_ID;
+	string temp_ID;
 	do
 	{
-		int ID_i = rand() % 1000;
-		ID += "//";
-		ID += to_string(ID_i);
-	} while (employers.count(ID) != 0);
+		int ID_i = rand() % 10000;
+		temp_ID = company_ID + "//" + to_string(ID_i);
+	} while (employers.count(temp_ID) != 0);
 
-	return ID;
+	return temp_ID;
 }
 
 void Company::add_news(string new_news)
