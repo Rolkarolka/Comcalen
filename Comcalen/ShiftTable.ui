@@ -6,18 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>479</width>
+    <height>397</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ShiftTable</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QFrame{url(:/Comcalen/background.jpg)}</string>
+  </property>
   <widget class="QPushButton" name="return_menu">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>260</y>
+     <x>380</x>
+     <y>330</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -26,8 +29,107 @@
     <string>Return</string>
    </property>
   </widget>
+  <widget class="QCalendarWidget" name="calendar_employee">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>331</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCalendarWidget QAbstractItemView:enabled 
+{
+	font-size:24px;  
+	color: rgb(180, 180, 180);  
+	background-color: green;  // here background-color is changed !!!
+	selection-background-color: rgb(64, 64, 64); 
+	selection-color: rgb(0, 255, 0); 
+}
+QFrame{background:url(:/Comcalen/background.jpg)}</string>
+   </property>
+   <property name="verticalHeaderFormat">
+    <enum>QCalendarWidget::NoVerticalHeader</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_day">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>80</y>
+     <width>101</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Copperplate Gothic Bold</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ok_button">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>330</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>calendar_employee</sender>
+   <signal>clicked(QDate)</signal>
+   <receiver>ShiftTable</receiver>
+   <slot>calendar_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ok_button</sender>
+   <signal>clicked()</signal>
+   <receiver>ShiftTable</receiver>
+   <slot>OK_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>calendar_clicked()</slot>
+  <slot>OK_clicked()</slot>
+ </slots>
 </ui>

@@ -6,6 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+
 	CompanyDatabase database("database.txt");
 	QApplication a(argc, argv);
 	Comcalen w(&database);
