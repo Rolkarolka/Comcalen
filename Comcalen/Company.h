@@ -86,6 +86,7 @@ public:
 	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
 	friend void Employee::set_reserved_hours(string date);
+	friend bool Employee::shift_taken(string date);
 
 
 	void present_company();										// for tests

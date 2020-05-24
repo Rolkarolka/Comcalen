@@ -137,6 +137,7 @@ bool Company::CrewMember_exist(string ID)
 	return false;
 }
 
+
 string Company::add_employer(Employer& employer)
 {
 	string ID = set_employer_ID();

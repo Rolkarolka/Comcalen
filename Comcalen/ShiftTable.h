@@ -11,11 +11,12 @@ class ShiftTable : public QDialog
 	Q_OBJECT
 
 public:
-	ShiftTable(Employee* employee, QDialog *parent = Q_NULLPTR);
+	ShiftTable(Employee* employee, Company* company, QDialog *parent = Q_NULLPTR);
 	~ShiftTable();
 
 private:
 	Employee* employee;
+	Company* company;
 	Ui::ShiftTable ui;
 
 private slots:

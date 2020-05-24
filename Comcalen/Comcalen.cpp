@@ -37,7 +37,7 @@ void Comcalen::employee_add_shift_pressed()
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
 	Employee* employee = user_company->get_employee(ID);
-	ShiftTable ec_window(employee);
+	ShiftTable ec_window(employee, employee->company);
 	hide();
 	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
 	ec_window.exec();

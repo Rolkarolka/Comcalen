@@ -1,6 +1,19 @@
 #include "Employee.h"
 #include "Company.h"
 
+bool Employee::shift_taken(string date)
+{
+
+	for (const auto& i : company->calendar)
+	{
+		if (get<0>(i) == date)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 void Employee::set_salary(int esalary)
 {
 	salary = esalary;

@@ -18,10 +18,10 @@ class Employee : public CrewMember
 	*/
 	double salary = 0; 
 	int hours_limit = 0; /// number of hours that employee can reserve in next month
-	Company* company;
 public:
+	bool shift_taken(string date);
 	vector <string> reserved_hours;
-
+	Company* company;
 	double get_salary();
 	void set_company(Company* employee_company);
 	int get_hours_limit();
