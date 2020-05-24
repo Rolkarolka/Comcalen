@@ -125,7 +125,6 @@ Employer::Employer(const Employer& empl)
 
 Employer::~Employer()
 {
-
 }
 
 

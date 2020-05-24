@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddCompany.cpp" />
+    <ClCompile Include="ChangeEmployee.cpp" />
     <ClCompile Include="Comcalen.cpp" />
     <ClCompile Include="Company.cpp" />
     <ClCompile Include="CompanyDatabase.cpp" />
@@ -101,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="AddCompany.ui" />
+    <QtUic Include="ChangeEmployee.ui" />
     <QtUic Include="Comcalen.ui" />
     <QtUic Include="EmployeeCalendar.ui" />
     <QtUic Include="EmployerCalendar.ui" />
@@ -120,6 +122,7 @@
     <QtMoc Include="ManageDatabase.h" />
     <QtMoc Include="ShiftTable.h" />
     <QtMoc Include="AddCompany.h" />
+    <QtMoc Include="ChangeEmployee.h" />
     <ClInclude Include="Company.h" />
     <ClInclude Include="CompanyDatabase.h" />
     <ClInclude Include="CrewMember.h" />

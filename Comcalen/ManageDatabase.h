@@ -3,6 +3,7 @@
 #include <QDialog>
 #include "ui_ManageDatabase.h"
 #include "Company.h"
+#include "ChangeEmployee.h"
 
 class ManageDatabase : public QDialog
 {
@@ -18,7 +19,7 @@ private:
 
 private slots:
 	void add_employee_pressed();
-	void del_employee_pressed();
+	void del_employee_r_pressed();
 	void add_employer_pressed();
-	void del_employer_pressed();
+	void change_employee_pressed();
 };

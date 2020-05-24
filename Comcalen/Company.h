@@ -27,7 +27,7 @@ private:
 	string set_employee_ID();					    /// generate unique ID of employee which start with company ID
 	string set_employer_ID();						/// generate unique ID of employer which start with company ID, contains special character
 
-	vector<string> news;							/// contain information about changes
+	vector<string> news = {};							/// contain information about changes
 	int size_shift_table = 0;						
 	string* shift_table = nullptr;					/// table containing the shift system
 	

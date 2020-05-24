@@ -19,8 +19,6 @@ class Employee : public CrewMember
 	double salary = 0; 
 	int hours_limit = 0; /// number of hours that employee can reserve in next month
 	Company* company;
-	void set_salary(int esalary);
-	void set_hours_limit(int ehlimit);
 public:
 	vector <string> reserved_hours;
 
@@ -37,7 +35,8 @@ public:
 	Employee();
 	~Employee() override;
 	Employee(const Employee& empl);
-
+	void set_salary(int esalary);
+	void set_hours_limit(int ehlimit);
 
 	Employee& operator =(const Employee&);
 	friend fstream& operator <<(fstream& file, Employee& employee); //! saves attributes (salary, hours limit, reserved hours) to fstream
