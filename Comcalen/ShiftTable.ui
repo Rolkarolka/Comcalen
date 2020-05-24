@@ -100,6 +100,11 @@ QFrame{background:url(:/Comcalen/background.jpg)}</string>
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Copperplate Gothic Bold</family>
+    </font>
+   </property>
    <property name="text">
     <string/>
    </property>

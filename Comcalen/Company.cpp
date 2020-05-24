@@ -11,6 +11,11 @@ string Company::get_company_ID()
 	return company_ID;
 }
 
+map <string, string> Company::get_calendar()
+{
+	return calendar;
+}
+
 void Company::set_shift_table()
 {
 

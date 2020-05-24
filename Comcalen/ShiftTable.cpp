@@ -1,11 +1,10 @@
 #include "ShiftTable.h"
 #include <QMessageBox>
 
-ShiftTable::ShiftTable(Employee* em, Company* co, QDialog *parent)
+ShiftTable::ShiftTable(Employee* em,  QDialog *parent)
 	: QDialog(parent)
 {
 	employee = em;
-	company = co;
 	ui.setupUi(this);
 	connect(ui.return_menu, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.calendar_employee, SIGNAL(released()), this, SLOT(calendar_clicked()));

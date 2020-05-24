@@ -53,6 +53,7 @@ public:
 	Employer* get_employer(string ID);
 	Employee* get_employee(string ID);
 	string get_company_ID();
+	map<string, string> get_calendar();
 	vector<tuple<string, string>> get_log_info();
 
 	bool CrewMember_exist(string ID);
