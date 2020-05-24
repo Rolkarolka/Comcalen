@@ -45,13 +45,16 @@ CompanyDatabase::~CompanyDatabase()
     database.clear();
 }
 
-string CompanyDatabase::add_company(Company& company)
+string CompanyDatabase::add_company(Company& company, string ID)
 {
-    string ID = set_ID();
-    company.set_ID(ID);
     database.insert(pair<string, Company*>(ID, &company));
     database_of_company_ID.push_back(make_tuple(company.get_company_name(), ID));
     return ID;
+}
+
+string CompanyDatabase::get_new_ID()
+{
+    return set_ID();
 }
 
 string CompanyDatabase::set_ID()

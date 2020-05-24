@@ -67,7 +67,7 @@ CrewMember::CrewMember(const CrewMember& crewM)
 
 fstream& operator <<(fstream& file, CrewMember& crewM)
 {
-	file << crewM.name << '\t' << crewM.surname << '\t' << crewM.ID << '\t' << crewM.company << "\t";
+	file << crewM.name << '\t' << crewM.surname << '\t' << crewM.ID << '\t' << crewM.company;
 	return file;
 }
 

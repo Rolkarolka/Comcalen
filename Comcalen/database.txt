@@ -1,4 +1,1 @@
-169	ala	10	0	1	0	0	000//8467	koala	2	000//8467	ala		
-334	Karola	10	1	2	0	1	334//9169	ala	fala	334//9169	Karola	3	3	[	]		334//6500	zosia	samosia	334//6500		000//8467	lola	dola	000//8467	Karola		Karola	
-41	Cookie	10	1	1	0	5	41\\334	Karolina	Romanowska	41\\334	Cookie	20	2	[	Fri May 15 2020	]		41//467	m	g	41//467		Cookie	41//6334	41//8467	Cookie	Zrob ladne ciasteczko	
-500	ala	10	0	1	0	0	000//6334	koala	fala	000//6334	ala		
+41	ciastko	10	1	1	1	0	1	41//6500	Zuzia	Kaplinska	41//6500	ciastko	2	2	[	sob. maj 9 2020	]	41\\6334	Karolina	Romanowska	41\\6334	ciastko	sob. maj 9 2020	Zuzia Kaplinska	Zuzia Kaplinska took shift on sob. maj 9 2020	

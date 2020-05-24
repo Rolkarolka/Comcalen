@@ -59,6 +59,8 @@ public:
 
 	void change_employee_attri();					// potrzeba? Chyba niezbyt
 
+	string get_new_employer_ID();
+	string get_new_employee_ID();
 	string add_employee(string name,string surname, double salary, int hours_limit, Company* compan);  //! add employees to company and return ID for login
 	bool delete_employee(string ID);
 	bool delete_employee(string name, string surname);

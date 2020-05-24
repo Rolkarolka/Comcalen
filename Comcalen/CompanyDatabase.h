@@ -24,9 +24,10 @@ public:
 
 	void open_file();
 	void save_file();
+	string get_new_ID();
 
 	string add_company(string name, string employer_name, string employer_surname);					//! add company to database
-	string add_company(Company& company);		
+	string add_company(Company& company, string company_ID);		
 	bool delete_company(string ID);
 
 	Company* get_company_with_ID(string ID);			//! get pointer on wanted company

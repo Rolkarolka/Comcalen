@@ -61,6 +61,7 @@ void Comcalen::signup_pressed()
 	{
 		user_company = add_company_window.get_company();
 		crew_member = add_company_window.get_employer();
+		database->get_filename();
 	}
 }
 
@@ -137,8 +138,8 @@ void Comcalen::login_pressed()
 	if (user_company)
 	{
 		int part = part_ID(ID);
-		string disparity = ID.substr(part, part);
-		if (disparity == "\\\\")
+		string disparity = ID.substr(part, 1);
+		if (disparity == "/")
 		{
 			crew_member = find_employee(user_company, ID);
 			if (!crew_member)
@@ -149,7 +150,7 @@ void Comcalen::login_pressed()
 				ui.employee_menu->setVisible(true);
 			}
 		}
-		else if (disparity == "//")
+		else if (disparity == "\\")
 		{
 			crew_member = find_employer(user_company, ID);
 			if (!crew_member)

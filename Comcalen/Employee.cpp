@@ -77,7 +77,7 @@ Employee::Employee(const Employee& empl)
 fstream& operator <<(fstream& file, Employee& employee)
 {																		// jak tu cos zmienisz to daj mi znac
 	file << reinterpret_cast<CrewMember&>(employee);
-	file << employee.salary << '\t' << employee.hours_limit << "\t[\t";
+	file << '\t' << employee.salary << '\t' << employee.hours_limit << "\t[\t";
 	for (int i = 0; i < size(employee.reserved_hours); i++)
 	{
 		file << employee.reserved_hours[i] << "\t";
