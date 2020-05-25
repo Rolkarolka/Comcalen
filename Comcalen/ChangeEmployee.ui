@@ -22,6 +22,11 @@
      <height>301</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Copperplate Gothic Bold</family>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true"> QGroupBox { background-image:url(:/Comcalen/background.jpg)}</string>
    </property>
@@ -93,6 +98,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
+    </property>
     <property name="text">
      <string>Name:</string>
     </property>
@@ -150,9 +160,14 @@
      <rect>
       <x>40</x>
       <y>70</y>
-      <width>51</width>
+      <width>81</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
     </property>
     <property name="text">
      <string>Surname:</string>
@@ -163,9 +178,14 @@
      <rect>
       <x>40</x>
       <y>110</y>
-      <width>61</width>
+      <width>81</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
     </property>
     <property name="text">
      <string>Hours limit:</string>
@@ -180,6 +200,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
+    </property>
     <property name="text">
      <string>Salary:</string>
     </property>
@@ -192,6 +217,11 @@
       <width>331</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
     </property>
     <property name="text">
      <string>Save</string>

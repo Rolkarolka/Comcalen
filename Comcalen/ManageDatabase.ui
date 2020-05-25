@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>760</width>
-    <height>584</height>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,11 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
     <widget class="QGroupBox" name="del_employee_r">
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true"> QGroupBox { background-image:url(:/Comcalen/background.jpg)}</string>
      </property>
@@ -51,6 +56,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Delete Employee/Employer</string>
       </property>
@@ -64,6 +74,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Name:</string>
       </property>
@@ -76,6 +91,11 @@
         <width>71</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>Surname:</string>
@@ -98,6 +118,11 @@
    </item>
    <item row="2" column="0" colspan="2">
     <widget class="QPushButton" name="return_mw">
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+      </font>
+     </property>
      <property name="text">
       <string>Return</string>
      </property>
@@ -105,6 +130,11 @@
    </item>
    <item row="1" column="0">
     <widget class="QGroupBox" name="add_employer">
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true"> QGroupBox { background-image:url(:/Comcalen/background.jpg)}</string>
      </property>
@@ -140,6 +170,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Add Employer</string>
       </property>
@@ -152,6 +187,11 @@
         <width>71</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>Name:</string>
@@ -166,6 +206,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Surname:</string>
       </property>
@@ -178,6 +223,11 @@
         <width>61</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>ID:</string>
@@ -203,6 +253,11 @@
    </item>
    <item row="0" column="0">
     <widget class="QGroupBox" name="add_employee_box">
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true"> QGroupBox { background-image:url(:/Comcalen/background.jpg)}</string>
      </property>
@@ -258,6 +313,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Add Employee</string>
       </property>
@@ -271,6 +331,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Name:</string>
       </property>
@@ -280,9 +345,14 @@
        <rect>
         <x>20</x>
         <y>60</y>
-        <width>51</width>
+        <width>71</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>Surname:</string>
@@ -297,6 +367,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Hours limit:</string>
       </property>
@@ -310,6 +385,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Salary:</string>
       </property>
@@ -322,6 +402,11 @@
         <width>81</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>ID:</string>
@@ -347,6 +432,11 @@
    </item>
    <item row="1" column="1">
     <widget class="QGroupBox" name="change_employee">
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true"> QGroupBox { background-image:url(:/Comcalen/background.jpg)}</string>
      </property>
@@ -382,6 +472,11 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
+      </property>
       <property name="text">
        <string>Name:</string>
       </property>
@@ -391,9 +486,14 @@
        <rect>
         <x>30</x>
         <y>100</y>
-        <width>51</width>
+        <width>81</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>Surname:</string>
@@ -407,6 +507,11 @@
         <width>331</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Copperplate Gothic Bold</family>
+       </font>
       </property>
       <property name="text">
        <string>Change</string>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>608</width>
-    <height>492</height>
+    <width>763</width>
+    <height>579</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,9 +19,14 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>611</width>
-      <height>491</height>
+      <width>761</width>
+      <height>581</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QGroupBox{background:url(:/Comcalen/background.jpg)}</string>
@@ -120,8 +125,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>611</width>
-      <height>491</height>
+      <width>761</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="acceptDrops">
@@ -139,8 +144,8 @@
     <widget class="QPushButton" name="employee_new_shift_button">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>210</y>
+       <x>200</x>
+       <y>310</y>
        <width>371</width>
        <height>71</height>
       </rect>
@@ -158,8 +163,8 @@
     <widget class="QPushButton" name="employee_calendar_button">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>70</y>
+       <x>200</x>
+       <y>180</y>
        <width>371</width>
        <height>101</height>
       </rect>
@@ -174,14 +179,30 @@
       <string>My calendar</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>70</y>
+       <width>361</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="employer_menu">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>611</width>
-      <height>491</height>
+      <width>761</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="acceptDrops">
@@ -199,8 +220,8 @@
     <widget class="QPushButton" name="employer_news_button">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>180</y>
+       <x>180</x>
+       <y>260</y>
        <width>411</width>
        <height>71</height>
       </rect>
@@ -218,8 +239,8 @@
     <widget class="QPushButton" name="employer_calendar_button">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>80</y>
+       <x>180</x>
+       <y>170</y>
        <width>411</width>
        <height>81</height>
       </rect>
@@ -237,8 +258,8 @@
     <widget class="QPushButton" name="manage_database">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>270</y>
+       <x>180</x>
+       <y>340</y>
        <width>191</width>
        <height>61</height>
       </rect>
@@ -256,9 +277,9 @@
     <widget class="QPushButton" name="manage_shifts">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>270</y>
-       <width>191</width>
+       <x>390</x>
+       <y>340</y>
+       <width>201</width>
        <height>61</height>
       </rect>
      </property>
@@ -275,8 +296,8 @@
     <widget class="QPushButton" name="show_company">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>350</y>
+       <x>180</x>
+       <y>410</y>
        <width>411</width>
        <height>51</height>
       </rect>
@@ -289,6 +310,19 @@
      </property>
      <property name="text">
       <string>Show Company Database</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>80</y>
+       <width>391</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
