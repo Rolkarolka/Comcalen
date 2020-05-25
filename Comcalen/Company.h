@@ -8,7 +8,6 @@
 #include "Employer.h"
 #include <memory>
 
-
 using namespace std;
 
 class Company
@@ -33,7 +32,7 @@ private:
 	
 	map <string, Employee*> employees;				/// contains all employees of company
 	map <string, Employer*> employers;				/// contains all employers of company
-	map <string, string> calendar;					/// contains informations about calendar
+	map <QDate, string> calendar;					/// contains informations about calendar
 
 	int payday = 10;								/// information about payday, to remind employer about this
 	void set_name(string name);
@@ -53,7 +52,7 @@ public:
 	Employer* get_employer(string ID);
 	Employee* get_employee(string ID);
 	string get_company_ID();
-	map<string, string> get_calendar();
+	map<QDate, string> get_calendar();
 	vector<tuple<string, string>> get_log_info();
 
 	bool CrewMember_exist(string ID);
@@ -86,8 +85,8 @@ public:
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
-	friend void Employee::set_reserved_hours(string date);
-	friend bool Employee::shift_taken(string date);
+	friend void Employee::set_reserved_hours(QDate date);
+	friend bool Employee::shift_taken(QDate date);
 
 
 	void present_company();										// for tests

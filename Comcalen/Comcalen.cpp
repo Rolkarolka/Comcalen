@@ -44,7 +44,10 @@ void Comcalen::employee_add_shift_pressed()
 }
 void Comcalen::employee_calendar_pressed()
 {
-	EmployeeCalendar ec_window;
+	QString all_ID = ui.ID_line->text();
+	string ID = all_ID.toStdString();
+	Employee* employee = user_company->get_employee(ID);
+	EmployeeCalendar ec_window(employee);
 	hide();
 	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
 	ec_window.exec();

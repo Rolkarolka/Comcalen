@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "Employer.h"
+#include <QDate>
 
 using namespace std;
 
@@ -18,15 +19,16 @@ class Employee : public CrewMember
 	*/
 	double salary = 0; 
 	int hours_limit = 0; /// number of hours that employee can reserve in next month
+	vector <QDate> reserved_hours;
+
 public:
-	bool shift_taken(string date);
-	vector <string> reserved_hours;
+	bool shift_taken(QDate date);
 	Company* company;
 	double get_salary();
 	void set_company(Company* employee_company);
 	int get_hours_limit();
-	vector <string> get_reserved_hours();
-	void set_reserved_hours(string date); // employee eneters shifts in which he want to work next week, they are added to callendar and his vector of reserved hours
+	vector <QDate> get_reserved_hours();
+	void set_reserved_hours(QDate date); // employee eneters shifts in which he want to work next week, they are added to callendar and his vector of reserved hours
 	void show_calendar();
 	void show_news(); // prints news
 	void present() override; // pronts informations about employee

@@ -1,7 +1,7 @@
 #include "Employee.h"
 #include "Company.h"
 
-bool Employee::shift_taken(string date)
+bool Employee::shift_taken(QDate date)
 {
 
 	for (const auto& i : company->calendar)
@@ -24,12 +24,13 @@ void Employee::set_hours_limit(int ehlimit)
 	hours_limit = ehlimit;
 }
 
-void Employee::set_reserved_hours(string date)
+void Employee::set_reserved_hours(QDate date)
 {
 	string names = name + " " + surname;
 	reserved_hours.push_back(date);
 	company->calendar[date] = names;
-	string news = names + " took shift on " + date;
+	string sdate = date.toString().toStdString();
+	string news = names + " took shift on " + sdate;
 	company->add_news(news);
 }
 
@@ -42,7 +43,7 @@ int Employee::get_hours_limit()
 {
 	return hours_limit;
 }
-vector <string> Employee::get_reserved_hours()
+vector <QDate> Employee::get_reserved_hours()
 {
 	return reserved_hours;
 }
@@ -93,7 +94,7 @@ fstream& operator <<(fstream& file, Employee& employee)
 	file << '\t' << employee.salary << '\t' << employee.hours_limit << "\t[\t";
 	for (int i = 0; i < size(employee.reserved_hours); i++)
 	{
-		file << employee.reserved_hours[i] << "\t";
+		file << employee.reserved_hours[i].toString().toStdString() << "\t";
 	}
 	file << "]";
 	return file;
@@ -114,7 +115,7 @@ Employee& operator >>(istringstream& tokenStream, Employee& employee)
 		}
 		if (num_word >= 4 && token != "]")
 		{
-			employee.reserved_hours.push_back(token);
+			employee.reserved_hours.push_back(QDate::fromString(QString::fromStdString(token)));
 		}
 		if (token == "]")
 			return employee;

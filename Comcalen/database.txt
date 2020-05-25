@@ -1,2 +1,1 @@
-	Unknown	10	0	0	0	0	0	
-41	Cookie	10	1	1	3	0	3	41//6500	Marianna	Gromadzka	41//6500	Cookie	13	123	[	24.05.2020	23.05.2020	16.05.2020	]	41\\6334	Karolina	Romanowska	41\\6334	Cookie	16.05.2020	Marianna Gromadzka	23.05.2020	Marianna Gromadzka	24.05.2020	Marianna Gromadzka	Marianna Gromadzka took shift on 24.05.2020	Marianna Gromadzka took shift on 23.05.2020	Marianna Gromadzka took shift on 16.05.2020	
+41	Cookie	10	1	1	2	0	2	41//6500	Marianna	Gromadzka	41//6500	Cookie	13	123	[	Thu May 14 2020	Fri May 15 2020	]	41\\6334	Karolina	Romanowska	41\\6334	Cookie	Thu May 14 2020	Marianna Gromadzka	Fri May 15 2020	Marianna Gromadzka	Marianna Gromadzka took shift on Thu May 14 2020	Marianna Gromadzka took shift on Fri May 15 2020	

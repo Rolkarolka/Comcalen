@@ -21,7 +21,7 @@ void ShiftTable::calendar_clicked()
 	QString date = ui.calendar_employee->selectedDate().toString("dd.MM.yyyy");
 	ui.label_day->setText(date);
 	string stdate = date.toStdString();
-	if (employee->shift_taken(stdate))
+	if (employee->shift_taken(ui.calendar_employee->selectedDate()))
 	{
 		ui.label_taken->setText("Shift is taken!");
 	}
@@ -35,15 +35,14 @@ void ShiftTable::calendar_clicked()
 
 void ShiftTable::OK_clicked()
 {
-	QString dat = ui.calendar_employee->selectedDate().toString("dd.MM.yyyy");
-	string sdate = dat.toStdString();
-	if (employee->shift_taken(sdate))
+	QString date = ui.calendar_employee->selectedDate().toString("dd.MM.yyyy");
+	if (employee->shift_taken(ui.calendar_employee->selectedDate()))
 	{
 		QMessageBox::warning(this, "Shift", "This shift is taken!");
 	}
 	else
 	{
-		employee->set_reserved_hours(sdate);
+		employee->set_reserved_hours(ui.calendar_employee->selectedDate());
 		ui.label_taken->setText("Saved!");
 	}
 

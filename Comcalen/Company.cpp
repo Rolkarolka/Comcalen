@@ -11,7 +11,7 @@ string Company::get_company_ID()
 	return company_ID;
 }
 
-map <string, string> Company::get_calendar()
+map <QDate, string> Company::get_calendar()
 {
 	return calendar;
 }
@@ -306,11 +306,11 @@ fstream& operator <<(fstream& file, Company& company)
 		file << *itr2->second << "\t";
 	}
 
-	map <string, string>::iterator itr3;
+	map <QDate, string>::iterator itr3;
 
 	for (itr3 = company.calendar.begin(); itr3 != company.calendar.end(); ++itr3)
 	{
-		file << itr3->first << "\t";
+		file << itr3->first.toString().toStdString() << "\t";
 		file << itr3->second << "\t";
 	}
 
@@ -373,7 +373,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			else
 			{
 				string employee = token.c_str();
-				company.calendar.insert(pair<string, string>(date, employee));
+				company.calendar.insert(pair<QDate, string>(QDate::fromString(QString::fromStdString(date)), employee));
 				date_taken = false;
 			}
 		}
