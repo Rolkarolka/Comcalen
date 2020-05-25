@@ -6,7 +6,7 @@
 #include <QtWidgets/QMainWindow>
 
 
-class EmployeeCalendar : public QDialo
+class EmployeeCalendar : public QDialog
 {
 	Q_OBJECT
 
