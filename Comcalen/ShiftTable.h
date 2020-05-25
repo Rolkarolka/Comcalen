@@ -5,6 +5,8 @@
 #include "ui_ShiftTable.h"
 #include <string>
 #include "Employee.h"
+#include <QDate>
+#include <QTextCharFormat>
 
 class ShiftTable : public QDialog
 {
@@ -16,8 +18,8 @@ public:
 
 private:
 	Employee* employee;
-	Company* company;
 	Ui::ShiftTable ui;
+	void paint_calendar();
 
 private slots:
 	void calendar_clicked();

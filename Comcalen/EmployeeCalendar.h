@@ -3,9 +3,10 @@
 #include "ui_EmployeeCalendar.h"
 #include "Employee.h"
 #include <QTextCharFormat>
+#include <QtWidgets/QMainWindow>
 
 
-class EmployeeCalendar : public QDialog
+class EmployeeCalendar : public QDialo
 {
 	Q_OBJECT
 
