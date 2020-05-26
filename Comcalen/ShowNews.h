@@ -19,7 +19,6 @@ public:
 private:
 	Employer* employer;
 	Ui::ShowNews ui;
-	QTableWidget* table;
-
-	void news_list();
+private slots:
+	void remove_news(int row, int column);
 };

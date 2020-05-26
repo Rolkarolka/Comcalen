@@ -28,6 +28,7 @@ public:
 	void change_hours_limit();
 	void present() override; // prints information about employer
 	void set_company(Company* employer_company);
+	bool delete_news(int index);
 
 	Employer(string ename, string esurname, string id, string ecompany, Company* compan);
 	Employer();

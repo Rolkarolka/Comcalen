@@ -71,7 +71,7 @@ public:
 	bool delete_employer(string name, string surname);
 
 	void add_news(string new_news);						//! called if there are changes in the company
-	bool delete_news(string old_news);
+	bool delete_news(int index);
 
 	void set_ID(string new_ID);
 	void set_payday(int day);
@@ -85,6 +85,7 @@ public:
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
+	friend bool Employer::delete_news(int index);
 	friend void Employee::set_reserved_hours(QDate date);
 	friend bool Employee::shift_taken(QDate date);
 

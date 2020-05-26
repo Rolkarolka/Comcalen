@@ -264,22 +264,14 @@ void Company::add_news(string new_news)
 	news.push_back(new_news);
 }
 
-bool Company::delete_news(string old_news)
+bool Company::delete_news(int index)
 {
-	int found_index = -1;
-	for (int i = 0; i < news.size(); i++)
+	if (index < news.size())
 	{
-		if (news[i] == old_news)
-			found_index = i;
-			
-	}
-	if (found_index == -1)
-		return false;
-	else
-	{
-		news.erase(news.begin() + found_index);
+		news.erase(news.begin() + index);
 		return true;
 	}
+	return false;
 }
 
 fstream& operator <<(fstream& file, Company& company)

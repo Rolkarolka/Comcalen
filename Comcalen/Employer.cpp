@@ -41,6 +41,18 @@ void Employer::remove_employee()
 	} while (company->get_employee(id) == nullptr);
 	company->delete_employee(id);
 }
+bool Employer::delete_news(int index)
+{
+	if (index < company->news.size())
+	{
+		company->delete_news(index);
+		return true;
+	}
+	else
+		return false;
+}
+
+
 
 void Employer::show_calendar()
 {
