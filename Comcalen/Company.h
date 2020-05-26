@@ -54,7 +54,7 @@ public:
 	string get_company_ID();
 	map<QDate, string> get_calendar();
 	vector<tuple<string, string>> get_log_info();
-
+	int no_people_per_shift = 1;
 	bool CrewMember_exist(string ID);
 
 	void change_employee_attri();					// potrzeba? Chyba niezbyt

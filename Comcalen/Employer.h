@@ -17,8 +17,8 @@ class Employer : public CrewMember
 	*/
 
 	
-	Company* company = nullptr;
 public:
+	Company* company = nullptr;
 	void add_employee(); // user enters employee atributes and then calls function add_employee in class Company
 	void remove_employee(); // user enters employee's ID and then calls  function  delete_employee in class Company
 	void show_calendar(); 
