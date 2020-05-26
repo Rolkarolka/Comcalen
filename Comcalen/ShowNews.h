@@ -4,7 +4,7 @@
 #include "ui_ShowNews.h"
 #include <QVBoxLayout>
 #include <QPushButton>
-#include <QList>
+#include <QTableWidget>
 #include <vector>
 #include "Employer.h"
 using namespace std;
@@ -19,5 +19,7 @@ public:
 private:
 	Employer* employer;
 	Ui::ShowNews ui;
+	QTableWidget* table;
+
 	void news_list();
 };

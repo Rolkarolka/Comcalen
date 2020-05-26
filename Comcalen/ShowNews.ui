@@ -25,32 +25,6 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QScrollArea" name="scroll_news">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>20</y>
-        <width>531</width>
-        <height>471</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QWidget{url(:/Comcalen/background.jpg)}</string>
-      </property>
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="scrollContents">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>529</width>
-         <height>469</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
      <widget class="QPushButton" name="return_mw">
       <property name="geometry">
        <rect>
@@ -67,6 +41,16 @@
       </property>
       <property name="text">
        <string>Return</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="table">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>30</y>
+        <width>551</width>
+        <height>461</height>
+       </rect>
       </property>
      </widget>
     </widget>
