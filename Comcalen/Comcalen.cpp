@@ -87,7 +87,10 @@ void Comcalen::show_news_pressed()
 
 void Comcalen::manage_shift_pressed()
 {
-	ManageShift ec_window;
+	QString all_ID = ui.ID_line->text();
+	string ID = all_ID.toStdString();
+	Employer* employer = user_company->get_employer(ID);
+	ManageShift ec_window(employer->company);
 	hide();
 	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
 	ec_window.exec();
