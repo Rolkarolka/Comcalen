@@ -27,6 +27,7 @@ Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
 void Comcalen::show_company_pressed()
 {
 	ShowCompany sc_window(user_company);
+	sc_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&sc_window, SIGNAL(rejected()), this, SLOT(show()));
 	sc_window.exec();
@@ -37,10 +38,11 @@ void Comcalen::employee_add_shift_pressed()
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
 	Employee* employee = user_company->get_employee(ID);
-	ShiftTable ec_window(employee);
+	ShiftTable st_window(employee);
+	st_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
-	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
-	ec_window.exec();
+	connect(&st_window, SIGNAL(rejected()), this, SLOT(show()));
+	st_window.exec();
 }
 void Comcalen::employee_calendar_pressed()
 {
@@ -48,6 +50,7 @@ void Comcalen::employee_calendar_pressed()
 	string ID = all_ID.toStdString();
 	Employee* employee = user_company->get_employee(ID);
 	EmployeeCalendar ec_window(employee);
+	ec_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
 	ec_window.exec();
@@ -56,6 +59,7 @@ void Comcalen::employee_calendar_pressed()
 void Comcalen::signup_pressed()
 {
 	AddCompany add_company_window(database);
+	add_company_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	connect(&add_company_window, SIGNAL(accepted()), this, SLOT(on_add_company_accepted()));
 	connect(&add_company_window, SIGNAL(rejected()), this, SLOT(show()));
 	hide();
@@ -71,6 +75,7 @@ void Comcalen::signup_pressed()
 void Comcalen::employer_calendar_pressed()
 {
 	EmployerCalendar ec_window(user_company);
+	ec_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
 	ec_window.exec();
@@ -80,6 +85,7 @@ void Comcalen::employer_calendar_pressed()
 void Comcalen::show_news_pressed()
 {
 	ShowNews sn_window(dynamic_cast<Employer*>(crew_member), user_company->get_number_of_news());
+	sn_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&sn_window, SIGNAL(rejected()), this, SLOT(show()));
 	sn_window.exec();
@@ -90,18 +96,20 @@ void Comcalen::manage_shift_pressed()
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
 	Employer* employer = user_company->get_employer(ID);
-	ManageShift ec_window(employer->company);
+	ManageShift ms_window(employer->company);
+	ms_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
-	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
-	ec_window.exec();
+	connect(&ms_window, SIGNAL(rejected()), this, SLOT(show()));
+	ms_window.exec();
 }
 
 void Comcalen::manage_database_pressed()
 {
-	ManageDatabase mc_window(user_company);
+	ManageDatabase md_window(user_company);
+	md_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
-	connect(&mc_window, SIGNAL(rejected()), this, SLOT(show()));
-	mc_window.exec();
+	connect(&md_window, SIGNAL(rejected()), this, SLOT(show()));
+	md_window.exec();
 }
 
 int Comcalen::part_ID(string ID)
