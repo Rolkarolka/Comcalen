@@ -131,9 +131,6 @@ Company::Company()
 
 Company::~Company()
 {
-	if (shift_table != nullptr)
-		delete[] this->shift_table;
-
 	map <string, Employer*>::iterator itr;
 
 	for (itr = employers.begin(); itr != employers.end(); ++itr)

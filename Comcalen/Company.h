@@ -43,8 +43,8 @@ private:
 
 public:
 	vector<Shift*> shift_table;					/// table containing the shift system
-	Company(string cID) { company_ID = cID; };
-	Company() {};
+	Company(string cID);
+	Company();
 	Company(string cname, string cID);
 	~Company();
 	Company(string cname, string employer_name, string employer_surname);
