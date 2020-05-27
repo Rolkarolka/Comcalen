@@ -96,6 +96,7 @@
     <ClCompile Include="ShiftTable.cpp" />
     <ClCompile Include="ShowCompany.cpp" />
     <ClCompile Include="ShowNews.cpp" />
+    <ClCompile Include="Shift.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Comcalen.h" />
@@ -116,6 +117,7 @@
     <QtRcc Include="Comcalen.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Shift.h" />
     <QtMoc Include="ShowCompany.h" />
     <QtMoc Include="ManageShift.h" />
     <QtMoc Include="ShowNews.h" />

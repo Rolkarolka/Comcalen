@@ -26,7 +26,7 @@ void ShiftTable::paint_calendar()
 	days_c.setRgb(172, 62, 83);
 	days_qtfc.setBackground(QBrush(days_c));
 
-	int max_year = days.year() + 100;
+	int max_year = days.year() + 1;
 	while (days.year() <= max_year)
 	{
 		if (employee->shift_taken(days))
@@ -70,7 +70,7 @@ void ShiftTable::OK_clicked()
 
 	else
 	{
-		employee->set_reserved_hours(ui.calendar_shift->selectedDate());
+		//employee->set_reserved_hours(ui.calendar_shift->selectedDate());
 		ui.label_taken->setText("Saved!");
 	}
 

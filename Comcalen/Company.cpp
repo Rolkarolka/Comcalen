@@ -111,8 +111,7 @@ Company::Company(string cname, string cID)
 
 Company::~Company()
 {
-	if (shift_table != nullptr)
-		delete[] this->shift_table;
+
 	employees.clear();
 	employers.clear();
 }
@@ -281,7 +280,7 @@ fstream& operator <<(fstream& file, Company& company)
 	file << company.employees.size() << "\t";
 	file << company.employers.size() << "\t";
 	file << company.calendar.size() << "\t";
-	file << company.size_shift_table << "\t";
+	file << company.shift_table.size() << "\t";
 	file << company.news.size() << "\t";
 
 	for (itr1 = company.employees.begin(); itr1 != company.employees.end(); ++itr1)
@@ -306,11 +305,13 @@ fstream& operator <<(fstream& file, Company& company)
 		file << itr3->second << "\t";
 	}
 
-	for (int i = 0; i < company.size_shift_table; i++)
-		file << company.shift_table[i] << '\t';
+	for (int i = 0; i < company.shift_table.size(); i++)
+		file << *company.shift_table[i] << "\t";
 
 	for (int i = 0; i < company.news.size(); i++)
-		file << company.news[i] << '\t';
+		file << company.news[i] << "\t";
+	
+
 	return file;
 }
 
@@ -318,7 +319,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 {
 	string token, ID, date;
 	bool date_taken = false;
-	int news_size, employees_size, employers_size, calendar_size;
+	int news_size, employees_size, employers_size, calendar_size, shifts_size;
 	int start_news = 8, start_employers = 8, start_shift_table = 8, start_calendar = 8;
 	char delimiter = '\t';
 	int num_word = 1, counter_shift = 0;
@@ -331,7 +332,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 		case 3: employees_size = stoi(token.c_str()); start_employers += employees_size; start_news += employees_size; start_shift_table += employees_size; start_calendar += employees_size;  break;
 		case 4: employers_size = stoi(token.c_str()); start_news += employers_size; start_shift_table += employers_size; start_calendar += employers_size; break;
 		case 5: calendar_size = stoi(token.c_str()); start_shift_table += calendar_size*2; start_news += calendar_size*2; break;
-		case 6: company.size_shift_table = stoi(token.c_str()); company.shift_table = new string[company.size_shift_table]; start_news += company.size_shift_table; break;
+		case 6: company.size_shift_table = stoi(token.c_str());  start_news += company.size_shift_table; break;
 		case 7: news_size = stoi(token.c_str()); break;
 		}
 		if (num_word > 7 && num_word < start_employers)
@@ -355,7 +356,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			company.employers.insert(pair<string, Employer*>(ID, employer));
 		}
 
-		if (num_word >= start_calendar && num_word < start_shift_table)
+		if (num_word >= start_calendar && num_word < start_shift_table )
 		{
 			if (date_taken == false)
 			{
@@ -370,12 +371,13 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			}
 		}
 
-		if (num_word >= start_shift_table && num_word < start_news && company.size_shift_table != 0)
+		if (num_word >= start_shift_table - 1 && num_word < start_news-1 && company.size_shift_table != 0)
 		{
-			company.shift_table[counter_shift] = token.c_str();
-			counter_shift++;
+			Shift* shift = new Shift();
+			tokenStream >> *shift;
+			company.shift_table.push_back(shift);
 		}
-		if (num_word >= start_news && token != ""  && news_size != 0)
+		if (num_word >= start_news - 1  && token != ""  && news_size != 0)
 		{
 			string news = token.c_str();
 			if (news != "")

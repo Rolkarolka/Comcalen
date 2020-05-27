@@ -73,6 +73,9 @@
     <ClCompile Include="ChangeEmployee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shift.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Comcalen.h">
@@ -157,6 +160,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Employer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shift.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

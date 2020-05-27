@@ -26,6 +26,8 @@ private:
 	string employer_surname;
 	void set_lines();
 
+	friend fstream& operator <<(fstream& file, Shift& employee);
+
 private slots:
 	void add_employee_pressed();
 	void add_employee_to_company();

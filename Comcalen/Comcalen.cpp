@@ -93,10 +93,7 @@ void Comcalen::show_news_pressed()
 
 void Comcalen::manage_shift_pressed()
 {
-	QString all_ID = ui.ID_line->text();
-	string ID = all_ID.toStdString();
-	Employer* employer = user_company->get_employer(ID);
-	ManageShift ms_window(employer->company);
+	ManageShift ms_window(user_company);
 	ms_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&ms_window, SIGNAL(rejected()), this, SLOT(show()));

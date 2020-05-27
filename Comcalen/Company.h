@@ -7,7 +7,8 @@
 #include "Employee.h"
 #include "Employer.h"
 #include <memory>
-
+#include "Shift.h"
+#include "ManageShift.h"
 using namespace std;
 
 class Company
@@ -28,7 +29,6 @@ private:
 
 	vector<string> news = {};							/// contain information about changes
 	int size_shift_table = 0;						
-	string* shift_table = nullptr;					/// table containing the shift system
 	
 	map <string, Employee*> employees;				/// contains all employees of company
 	map <string, Employer*> employers;				/// contains all employers of company
@@ -41,7 +41,7 @@ private:
 
 
 public:
-
+	vector<Shift*> shift_table;					/// table containing the shift system
 	Company(string cID) { company_ID = cID; };
 	Company() {};
 	Company(string cname, string cID);
@@ -88,6 +88,7 @@ public:
 	friend bool Employer::delete_news(int index);
 	friend void Employee::set_reserved_hours(QDate date);
 	friend bool Employee::shift_taken(QDate date);
+	//friend void ManageShift::add_clicked();
 
 
 	void present_company();										// for tests

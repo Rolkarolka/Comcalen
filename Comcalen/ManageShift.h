@@ -3,6 +3,10 @@
 #include <QDialog>
 #include "ui_ManageShift.h"
 #include "Company.h"
+#include "Shift.h"
+#include <QTableWidgetItem>
+#include <iterator>
+#include <QTableWidget>
 
 class ManageShift : public QDialog
 {
@@ -15,6 +19,14 @@ public:
 private:
 	Ui::ManageShift ui;
 	Company* company;
+	int no_employees;
+	QString beginning;
+	QString end;
+
+	void add_set_lines();
+	void delete_set_lines();
+
+
 private slots:
 	void add_clicked();
 	void delete_clicked();
