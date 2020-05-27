@@ -35,11 +35,16 @@ ManageShift::ManageShift(Company* com, QDialog *parent)
 		}
 		
 	}
+	#ifdef _DEBUG
+		qDebug() << "ManageShift class created.\n";
+	#endif
 }
 
 ManageShift::~ManageShift()
 {
-
+#ifdef _DEBUG
+	qDebug() << "ManageShift class removed.\n";
+#endif
 }
 
 void ManageShift::add_clicked()

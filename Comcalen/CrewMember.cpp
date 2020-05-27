@@ -46,21 +46,30 @@ CrewMember::CrewMember(string ename, string esurname, string id, string ecompany
 	set_surname(esurname);
 	set_ID(id);
 	set_company(ecompany);
+#ifdef _DEBUG
+	qDebug() << "CrewMember class created.\n";
+#endif
 }
 
 CrewMember::CrewMember()
 {
+#ifdef _DEBUG
+	qDebug() << "CrewMember class created.\n";
+#endif
 
 }
 
 CrewMember::~CrewMember()
 {
-	
+#ifdef _DEBUG
+	qDebug() << "CrewMember class removed.\n";
+#endif
+
 }
 
 CrewMember::CrewMember(const CrewMember& crewM)
 {
-	cout << "Copying crew members is not allowed.";
+	qDebug() << "Copying crew members is not allowed.";
 }
 
 

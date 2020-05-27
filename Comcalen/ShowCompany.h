@@ -3,6 +3,7 @@
 #include <QDialog>
 #include "ui_ShowCompany.h"
 #include <QVBoxLayout>
+#include <QDebug>
 #include <QPushButton>
 
 class ShowCompany : public QDialog

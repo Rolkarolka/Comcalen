@@ -7,6 +7,7 @@
 #include <QTableWidgetItem>
 #include <iterator>
 #include <QTableWidget>
+#include <QDebug>
 
 class ManageShift : public QDialog
 {

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <QDebug>
 #include <QDialog>
 #include "ui_ChangeEmployee.h"
 #include "Employee.h"

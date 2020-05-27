@@ -6,21 +6,33 @@ AddCompany::AddCompany(CompanyDatabase* company_database, QDialog *parent)
 {
 	cdatabase= company_database;
 	company_ID = cdatabase->get_new_ID();
+	new_company = new Company();
 	new_company->set_ID(company_ID);
 	ui.setupUi(this);
 	connect(ui.add_employee_button, SIGNAL(released()), this, SLOT(add_employee_pressed()));
 	connect(ui.add_employee, SIGNAL(released()), this, SLOT(add_employee_to_company()));
 	connect(ui.create_company, SIGNAL(released()), this, SLOT(create_company_pressed()));
 	connect(ui.return_2, SIGNAL(released()), this, SLOT(return_to_creating()));
-	connect(ui.return_main_w, SIGNAL(released()), this, SLOT(reject()));
+	connect(ui.return_main_w, SIGNAL(released()), this, SLOT(is_reject()));
 	ui.adding_employee->setVisible(false);
+#ifdef _DEBUG
+	qDebug() << "AddCompany class created.\n";
+#endif
 }
 
 AddCompany::~AddCompany()
 {
+#ifdef _DEBUG
+	qDebug() << "Add company class removed.\n";
+#endif
+
 }
 
-
+void AddCompany::is_reject()
+{
+	delete new_company;
+	reject();
+}
 
 void AddCompany::create_company_pressed()
 {

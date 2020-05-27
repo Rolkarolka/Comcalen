@@ -16,10 +16,17 @@ ChangeEmployee::ChangeEmployee(Employee* new_employee, QDialog *parent)
 	string salary = to_string(employee->get_salary());
 	ui.label_salary->setText(QString::fromStdString(salary));
 	connect(ui.save_button, SIGNAL(released()), this, SLOT(save_button_pressed()));
+#ifdef _DEBUG
+	qDebug() << "ChangeEmployee class created.\n";
+#endif
 }
 
 ChangeEmployee::~ChangeEmployee()
 {
+#ifdef _DEBUG
+	qDebug() << "Change Employee class removed.\n";
+#endif
+
 }
 
 Employee* ChangeEmployee::get_employee()

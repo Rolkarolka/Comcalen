@@ -52,8 +52,6 @@ bool Employer::delete_news(int index)
 		return false;
 }
 
-
-
 void Employer::show_calendar()
 {
 
@@ -123,20 +121,30 @@ Employer::Employer(string ename, string esurname, string id, string ecompany, Co
 	: CrewMember(ename, esurname, id, ecompany)
 {
 	company = compan;
+#ifdef _DEBUG
+	qDebug() << "Employer class created..\n";
+#endif
 }
 
 Employer::Employer()
 {
-
+#ifdef _DEBUG
+	qDebug() << "Employer class created.\n";
+#endif
 }
 
 Employer::Employer(const Employer& empl)
 {
-	cout << "Copying employers is not allowed.";
+#ifdef _DEBUG
+	qDebug() << "Copying employers is not allowed.";
+#endif
 }
 
 Employer::~Employer()
 {
+#ifdef _DEBUG
+	 qDebug() << "Employer class removed.\n";
+#endif
 }
 
 

@@ -4,6 +4,7 @@
 #include "ui_EmployerCalendar.h"
 #include <string>
 #include "Company.h"
+#include <QDebug>
 
 
 class EmployerCalendar : public QDialog

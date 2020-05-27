@@ -4,6 +4,7 @@
 #include "ui_ManageDatabase.h"
 #include "Company.h"
 #include "ChangeEmployee.h"
+#include <QDebug>
 
 class ManageDatabase : public QDialog
 {

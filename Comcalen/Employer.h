@@ -2,6 +2,7 @@
 #include "CrewMember.h"
 //#include "Company.h"
 #include <string>
+#include <QDebug>
 #include <iostream>
 
 

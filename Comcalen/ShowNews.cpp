@@ -23,6 +23,9 @@ ShowNews::ShowNews(Employer *current_employer, int news_size, QDialog *parent)
     ui.table->setHorizontalHeaderLabels(QStringList() << "News");
     ui.table->horizontalHeader()->setStretchLastSection(true);
     connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
+#ifdef _DEBUG
+    qDebug() << "ShowNews class created.\n";
+#endif
 }
 
 void ShowNews::remove_news(int row, int column)
@@ -34,4 +37,7 @@ void ShowNews::remove_news(int row, int column)
 
 ShowNews::~ShowNews()
 {
+#ifdef _DEBUG
+    qDebug() << "ShowNews class removed.\n";
+#endif
 }

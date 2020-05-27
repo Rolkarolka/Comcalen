@@ -3,6 +3,7 @@
 #include "ui_EmployeeCalendar.h"
 #include "Employee.h"
 #include <QTextCharFormat>
+#include <QDebug>
 #include <QtWidgets/QMainWindow>
 
 

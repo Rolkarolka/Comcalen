@@ -7,6 +7,9 @@ EmployeeCalendar::EmployeeCalendar(Employee* em, QDialog *parent)
 	ui.setupUi(this);
 	connect(ui.return_from_ec, SIGNAL(released()), this, SLOT(reject()));
 	taken_days();
+#ifdef _DEBUG
+	qDebug() << "EmployeeCalendar class created .\n";
+#endif
 }
 
 void EmployeeCalendar::taken_days()
@@ -42,4 +45,9 @@ void EmployeeCalendar::taken_days()
 
 EmployeeCalendar::~EmployeeCalendar()
 {
+#ifdef _DEBUG
+	qDebug() << "EmployeeCalendar class removed .\n";
+#endif
+
 }
+

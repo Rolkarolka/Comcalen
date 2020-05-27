@@ -48,8 +48,6 @@ vector <QDate> Employee::get_reserved_hours()
 	return reserved_hours;
 }
 
-
-
 void Employee::show_calendar()
 {
 
@@ -71,21 +69,29 @@ Employee::Employee(string ename, string esurname, string id, string ecompany, do
 	set_salary(esalary);
 	set_hours_limit(hlimit);
 	company = compan;
+#ifdef _DEBUG
+	qDebug() << "Employee class created.\n";
+#endif
 }
 
 Employee::Employee()
 {
-
+#ifdef _DEBUG
+	qDebug() << "Employee class created.\n";
+#endif
 }
 
 Employee::~Employee()
 {
+#ifdef _DEBUG
+	qDebug() << "Employee class removed.\n";
+#endif
 
 }
 
 Employee::Employee(const Employee& empl)
 {
-	cout << "Copying employees is not allowed.";
+	qDebug() << "Copying employees is not allowed.";
 }
 
 fstream& operator <<(fstream& file, Employee& employee)
