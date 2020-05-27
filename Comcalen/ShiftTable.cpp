@@ -11,11 +11,17 @@ ShiftTable::ShiftTable(Employee* em,  QDialog *parent)
 	connect(ui.return_menu, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.calendar_shift, SIGNAL(released()), this, SLOT(calendar_clicked()));
 	connect(ui.ok_button, SIGNAL(released()), this, SLOT(OK_clicked()));
+#ifdef _DEBUG
+	qDebug() << "ShiftTable class created.\n";
+#endif
 
 }
 
 ShiftTable::~ShiftTable()
 {
+#ifdef _DEBUG
+	qDebug() << "ShiftTable class removed.\n";
+#endif
 }
 
 void ShiftTable::paint_calendar()

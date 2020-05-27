@@ -22,6 +22,9 @@ Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
 
 	ui.employee_menu->setVisible(false);
 	ui.employer_menu->setVisible(false);
+#ifdef _DEBUG
+	qDebug() << "Comcalen class created.\n";
+#endif
 }
 
 void Comcalen::show_company_pressed()
@@ -95,8 +98,7 @@ void Comcalen::manage_shift_pressed()
 {
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
-	Employer* employer = user_company->get_employer(ID);
-	ManageShift ms_window(employer->company);
+	ManageShift ms_window(user_company);
 	ms_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&ms_window, SIGNAL(rejected()), this, SLOT(show()));
@@ -188,6 +190,13 @@ void Comcalen::on_add_company_accepted()
 	ui.sibox->setVisible(false);
 	ui.employer_menu->setVisible(true);
 }
+Comcalen::~Comcalen()
+{
+#ifdef _DEBUG
+	qDebug() << "Comcalen class removed.\n";
+#endif
+}
+
 
 Comcalen::Comcalen(QWidget* parent)
 	: QMainWindow(parent)
@@ -200,4 +209,7 @@ Comcalen::Comcalen(QWidget* parent)
 	connect(ui.employer_calendar_button, SIGNAL(released()), this, SLOT(employer_calendar_pressed()));
 	ui.employee_menu->setVisible(false);
 	ui.employer_menu->setVisible(false);
+#ifdef _DEBUG
+	qDebug() << "Comcalen class created.\n";
+#endif
 }

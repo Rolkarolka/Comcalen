@@ -38,11 +38,26 @@ CompanyDatabase::CompanyDatabase(string name)
 {
     set_filename(name);
     open_file();
+#ifdef _DEBUG
+    qDebug() << "Company Database class created.\n";
+#endif
 }
 CompanyDatabase::~CompanyDatabase()
 {
     save_file();
+
+    map <string, Company*>::iterator itr;
+
+    for (itr = database.begin(); itr != database.end(); ++itr)
+    {
+        itr->second->~Company();
+    }
+
     database.clear();
+    #ifdef _DEBUG
+        qDebug() << "Company Database class removed.\n";
+    #endif
+
 }
 
 string CompanyDatabase::add_company(Company& company, string ID)

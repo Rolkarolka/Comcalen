@@ -4,6 +4,7 @@
 #include "ui_ShowNews.h"
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QDebug>
 #include <QTableWidget>
 #include <vector>
 #include "Employer.h"

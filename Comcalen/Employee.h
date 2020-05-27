@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Employer.h"
 #include <QDate>
+#include <QDebug>
 
 using namespace std;
 
@@ -46,7 +47,5 @@ public:
 	
 	friend void Employer::change_salary();
 	friend void Employer::change_hours_limit();
-
-
 
 };

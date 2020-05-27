@@ -1,1 +1,2 @@
-41	Cookie	10	2	1	1	0	1	41//41	Oskar	Wiktor	41//41	Cookie	100	10	[		]	41//6500	Marianna	Gromadzka	41//6500	Cookie	13	123	[													]	41\\6334	Karolina	Romanowska	41\\6334	Cookie		Marianna Gromadzka	Marianna Gromadzka took shift on Thu May 14 2020	
+41	Bulka	10	1	1	0	0	0	41//6500	Marianka	Gromadzka	41//6500	Bulka	3	3	[	]	41\\6334	Karolina	Romanowska	41\\6334	Bulka	
+467	Bulka	10	1	1	0	0	0	467//9169	Zuzia	Mapecia	467//9169	Bulka	4	5	[	]	467\\6500	Karolina	Romanowska	467\\6500	Bulka	

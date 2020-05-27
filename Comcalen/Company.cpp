@@ -25,6 +25,15 @@ void Company::change_employee_attri()
 
 }
 
+
+Company::Company(string cID) 
+{ 
+	company_ID = cID;
+#ifdef _DEBUG
+	qDebug() << "Company class created.\n";
+#endif
+};
+
 void Company::set_ID(string ID)
 {
 	company_ID = ID;
@@ -95,6 +104,7 @@ bool Company::delete_employee(string ID)
 		if (get<1>(i) == ID)
 		{
 			database_of_ID.erase(database_of_ID.begin() + index);
+			employees.find(string(ID))->second->~Employee();
 			employees.erase(string(ID));
 			return true;
 		}
@@ -107,14 +117,41 @@ Company::Company(string cname, string cID)
 {
 	company_name = cname;
 	company_ID = cID;
+#ifdef _DEBUG
+	qDebug() << "Company class created.\n";
+#endif
+}
+
+Company::Company()
+{
+#ifdef _DEBUG
+	qDebug() << "Company class created.\n";
+#endif
 }
 
 Company::~Company()
 {
 	if (shift_table != nullptr)
 		delete[] this->shift_table;
+
+	map <string, Employer*>::iterator itr;
+
+	for (itr = employers.begin(); itr != employers.end(); ++itr)
+	{
+		itr->second->~Employer();
+	}
+
+	map <string, Employee*>::iterator itr2;
+
+	for (itr2 = employees.begin(); itr2 != employees.end(); ++itr2)
+	{
+		itr2->second->~Employee();
+	}
 	employees.clear();
 	employers.clear();
+#ifdef _DEBUG
+	qDebug() << "Company class removed.\n";
+#endif
 }
 
 int Company::get_payday()
@@ -184,6 +221,7 @@ bool Company::delete_employer(string ID)
 		if (get<1>(i) == ID)
 		{
 			database_of_ID.erase(database_of_ID.begin() + index);
+			employers.find(string(ID))->second->~Employer();
 			employers.erase(string(ID));
 			return true;
 		}
@@ -207,6 +245,9 @@ Company::Company(string cname, string employer_name, string employer_surname)
 {
 	company_name = cname;
 	add_employer(employer_name, employer_surname);
+#ifdef _DEBUG
+	qDebug() << "Company class created.\n";
+#endif
 }
 
 bool Company::delete_employer(string name, string surname)
@@ -386,28 +427,6 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 	return company;
 
 }
-
-//void Company::operator +=(Employee* employee)
-//{
-//	string ID = set_employee_ID();
-//	employees.insert(pair<string, Employee>(ID, *employee));
-//}
-//
-//void Company::operator -=(Employee* employee)
-//{
-//	employees.erase(string(employee->get_ID()));
-//}
-//
-//void Company::operator +=(Employer* employer)
-//{
-//	string ID = set_employer_ID();
-//	employers.insert(pair<string, Employer>(ID, *employer));
-//}
-//
-//void Company::operator -=(Employer* employer)
-//{
-//	employers.erase(string(employer->get_ID()));
-//}
 
 int Company::get_number_of_staff()
 {

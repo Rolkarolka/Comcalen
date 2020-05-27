@@ -1,3 +1,4 @@
+#include <QDebug>
 #ifndef company_h
 #define company_h
 #include <iostream>
@@ -42,11 +43,12 @@ private:
 
 public:
 
-	Company(string cID) { company_ID = cID; };
-	Company() {};
+	Company(string cID);
+	Company();
 	Company(string cname, string cID);
 	~Company();
 	Company(string cname, string employer_name, string employer_surname);
+
 	string get_company_name();
 	int get_payday();
 	Employer* get_employer(string ID);
@@ -96,11 +98,6 @@ public:
 	int get_number_of_managment();
 	int get_number_of_staff();
 
-	//void operator +=(Employee* employee);
-	//void operator -=(Employee* employee);
-
-	//void operator +=(Employer* employer);
-	//void operator -=(Employer* employer);
 
 };
 #endif

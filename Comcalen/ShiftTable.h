@@ -1,5 +1,5 @@
 #pragma once
-
+#include <QDebug>
 #include <QDialog>
 #include <QtWidgets/QMainWindow>
 #include "ui_ShiftTable.h"

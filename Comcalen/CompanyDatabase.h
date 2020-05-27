@@ -2,6 +2,7 @@
 #define companydatabase_h
 #include <iostream>
 #include <fstream>
+#include <QDebug>
 #include <sstream>
 #include <stdlib.h>
 #include <map>

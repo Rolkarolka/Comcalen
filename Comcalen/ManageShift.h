@@ -3,6 +3,7 @@
 #include <QDialog>
 #include "ui_ManageShift.h"
 #include "Company.h"
+#include <QDebug>
 
 class ManageShift : public QDialog
 {

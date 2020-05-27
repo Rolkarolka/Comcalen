@@ -1,5 +1,5 @@
 #pragma once
-
+#include <QDebug>
 //#include <QWidget>
 #include <QDialog>
 #include "ui_AddCompany.h"
@@ -17,7 +17,7 @@ public:
 
 private:
 	CompanyDatabase* cdatabase;
-	Company* new_company = new Company();
+	Company* new_company;
 	string company_ID;
 	Employer* employer = nullptr;
 	Ui::AddCompany ui;
@@ -31,4 +31,5 @@ private slots:
 	void add_employee_to_company();
 	void create_company_pressed();
 	void return_to_creating();
+	void is_reject();
 };

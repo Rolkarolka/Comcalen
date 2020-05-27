@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QDialog>
+#include <QDebug>
 #include "ui_Comcalen.h"
 #include "EmployeeCalendar.h"
 #include "EmployerCalendar.h"
@@ -27,6 +28,7 @@ private:
 public:
 	Comcalen(QWidget *parent = Q_NULLPTR);
 	Comcalen(CompanyDatabase* cdatabase, QWidget* parent = Q_NULLPTR);
+	~Comcalen();
 
 private:
 	Ui::ComcalenClass ui;

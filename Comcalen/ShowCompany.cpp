@@ -19,8 +19,14 @@ ShowCompany::ShowCompany(Company* company, QDialog *parent)
         }
     }
     ui.scrollContents->setLayout(layout);
+#ifdef _DEBUG
+    qDebug() << "ShowCompany class created.\n";
+#endif
 }
 
 ShowCompany::~ShowCompany()
 {
+#ifdef _DEBUG
+    qDebug() << "ShowCompany class removed.\n";
+#endif
 }

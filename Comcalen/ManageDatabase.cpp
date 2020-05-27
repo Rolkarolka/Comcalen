@@ -12,10 +12,16 @@ ManageDatabase::ManageDatabase(Company* new_company, QDialog *parent)
 	connect(ui.add_employer_button, SIGNAL(released()), this, SLOT(add_employer_pressed()));
 	connect(ui.del_employee_button, SIGNAL(released()), this, SLOT(del_employee_r_pressed()));
 	connect(ui.change_employee_button, SIGNAL(released()), this, SLOT(change_employee_pressed()));
+#ifdef _DEBUG
+	qDebug() << "ManageDatabase class created.\n";
+#endif
 }
 
 ManageDatabase::~ManageDatabase()
 {
+#ifdef _DEBUG
+	qDebug() << "ManageDatabase class removed.\n";
+#endif
 }
 
 void ManageDatabase::add_employee_pressed()
