@@ -20,11 +20,6 @@ void Company::set_shift_table()
 {
 
 }
-void Company::change_employee_attri()
-{
-
-}
-
 
 Company::Company(string cID) 
 { 

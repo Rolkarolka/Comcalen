@@ -105,15 +105,3 @@ void ManageDatabase::change_employee_pressed()
 	else
 		QMessageBox::warning(this, "Warning!", "You need to enter all good information. to add employee");
 }
-
-//void ManageDatabase::del_employer_pressed()
-//{
-//	QString edit_line_1 = ui.del_surname_r->text();
-//	string  line_1 = edit_line_1.toStdString();
-//	QString edit_line_2 = ui.del_name_r->text();
-//	string  line_2 = edit_line_2.toStdString();
-//
-//	company->delete_employer(line_2, line_1);
-//	ui.del_name_r->clear();
-//	ui.del_surname_r->clear();
-//}

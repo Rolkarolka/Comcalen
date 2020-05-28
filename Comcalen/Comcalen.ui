@@ -195,6 +195,31 @@
       <string/>
      </property>
     </widget>
+    <widget class="QLabel" name="hi_label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>90</y>
+       <width>691</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="employer_menu">
     <property name="geometry">
@@ -312,17 +337,29 @@
       <string>Show Company Database</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="hello_label">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>40</x>
        <y>80</y>
-       <width>391</width>
+       <width>681</width>
        <height>71</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Copperplate Gothic Bold</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

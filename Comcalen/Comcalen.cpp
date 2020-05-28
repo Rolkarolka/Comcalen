@@ -164,6 +164,8 @@ void Comcalen::login_pressed()
 			{
 				ui.sibox->setVisible(false);
 				ui.employee_menu->setVisible(true);
+				string hi_text = "Welcome " + crew_member->get_name() + " " + crew_member->get_surname() + "!";
+				ui.hi_label->setText(QString::fromStdString(hi_text));
 			}
 		}
 		else if (disparity == "\\")
@@ -175,6 +177,8 @@ void Comcalen::login_pressed()
 			{
 				ui.sibox->setVisible(false);
 				ui.employer_menu->setVisible(true);
+				string hi_text = "Welcome " + crew_member->get_name() + " " + crew_member->get_surname() + "!";
+				ui.hello_label->setText(QString::fromStdString(hi_text));
 			}
 		}
 	}
@@ -187,6 +191,8 @@ void Comcalen::on_add_company_accepted()
 {
 	show();
 	ui.employee_menu->setVisible(false);
+	string hi_text = "Welcome " + crew_member->get_name() + " " + crew_member->get_surname() + "!";
+	ui.hello_label->setText(QString::fromStdString(hi_text));
 	ui.sibox->setVisible(false);
 	ui.employer_menu->setVisible(true);
 }
