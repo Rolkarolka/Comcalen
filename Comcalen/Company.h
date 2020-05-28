@@ -51,6 +51,9 @@ public:
 
 	string get_company_name();
 	int get_payday();
+	bool delete_data_in_database_of_ID(string ID);
+	bool add_data_in_database_of_ID(string ID, string name, string surname);
+	bool change_data_in_database_of_ID(string ID, string new_name, string new_surname, string name, string surname);
 	Employer* get_employer(string ID);
 	Employee* get_employee(string ID);
 	string get_company_ID();
@@ -87,7 +90,7 @@ public:
 	friend bool Employer::delete_news(int index);
 	friend void Employee::set_reserved_hours(QDate date);
 	friend bool Employee::shift_taken(QDate date);
-
+	friend bool Employer::change_employee_name_surname_ID(string name, string surname, string new_name, string new_surname, string ID);
 
 	void present_company();										// for tests
 	string get_ID_having_name_and_surname(string name, string surname);

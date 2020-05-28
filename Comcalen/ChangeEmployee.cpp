@@ -2,10 +2,11 @@
 #include <QMessageBox>
 
 
-ChangeEmployee::ChangeEmployee(Employee* new_employee, QDialog *parent)
+ChangeEmployee::ChangeEmployee(Employer* new_employer,  Employee* new_employee, QDialog* parent)
 	: QDialog(parent)
 {
 	employee = new_employee;
+	employer = new_employer;
 	ui.setupUi(this);
 	string name = employee->get_name();
 	ui.label_name->setText(QString::fromStdString(name));
@@ -48,9 +49,16 @@ void ChangeEmployee::save_button_pressed()
 	string  line_3 = edit_line_3.toStdString();
 
 	if (line_3 != "")
+	{
+		string ID = employee->get_ID();
+		employer->change_employee_name_surname_ID(employee->get_name(), employee->get_surname(), line_3, employee->get_surname(), employee->get_ID());
 		employee->set_name(line_3);
+	}
 	if (line_2 != "")
+	{
+		employer->change_employee_name_surname_ID(employee->get_name(), employee->get_surname(), employee->get_name(), line_2, employee->get_ID());
 		employee->set_surname(line_2);
+	}
 	if (ok_1)
 		employee->set_hours_limit(line_1);
 	if (ok_2)

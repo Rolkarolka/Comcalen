@@ -2,11 +2,12 @@
 #include <iostream>
 #include <QMessageBox>
 using namespace std;
-ManageDatabase::ManageDatabase(Company* new_company, QDialog *parent)
+ManageDatabase::ManageDatabase(Employer* crew_member, Company* new_company, QDialog *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
 	company = new_company;
+	employer = crew_member;
 	connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.add_employee_button, SIGNAL(released()), this, SLOT(add_employee_pressed()));
 	connect(ui.add_employer_button, SIGNAL(released()), this, SLOT(add_employer_pressed()));
@@ -47,7 +48,7 @@ void ManageDatabase::add_employee_pressed()
 		ui.label_7->setText(QString::fromStdString(ID));
 	}
 	else
-		QMessageBox::warning(this, "Warning!", "You need to enter all good information. to add employee");
+		QMessageBox::warning(this, "Warning!", "You need to enter all good information to add employee");
 
 }
 
@@ -92,7 +93,7 @@ void ManageDatabase::change_employee_pressed()
 		Employee* employee = company->get_employee(ID);
 		if (employee)
 		{
-			ChangeEmployee che_window(company->get_employee(ID));
+			ChangeEmployee che_window(employer, company->get_employee(ID));
 			connect(&che_window, SIGNAL(rejected()), this, SLOT(show()));
 			che_window.exec();
 			ui.change_name_e->clear();
@@ -103,5 +104,5 @@ void ManageDatabase::change_employee_pressed()
 			QMessageBox::warning(this, "Warning!", "Employee does not exist");
 	}
 	else
-		QMessageBox::warning(this, "Warning!", "You need to enter all good information. to add employee");
+		QMessageBox::warning(this, "Warning!", "You need to enter all good information to add employee");
 }

@@ -107,7 +107,9 @@ void Comcalen::manage_shift_pressed()
 
 void Comcalen::manage_database_pressed()
 {
-	ManageDatabase md_window(user_company);
+	Employer* p;
+	p = dynamic_cast<Employer*>(crew_member);
+	ManageDatabase md_window(p, user_company);
 	md_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&md_window, SIGNAL(rejected()), this, SLOT(show()));

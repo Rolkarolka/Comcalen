@@ -58,6 +58,7 @@ void Employee::show_news()
 
 }
 
+
 void Employee::present()
 {
 	cout << name << " " << surname << "\nID: " << ID << "\nSalary:" << salary << "\nHours limit: " << hours_limit << endl;

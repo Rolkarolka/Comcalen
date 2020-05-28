@@ -133,6 +133,14 @@ Employer::Employer()
 #endif
 }
 
+bool Employer::change_employee_name_surname_ID(string name, string surname, string new_name, string new_surname, string ID)
+{
+	bool changed = company->change_data_in_database_of_ID(ID, new_name, new_surname, name, surname);
+	if (changed == true)
+		return true;
+	return false;
+}
+
 Employer::Employer(const Employer& empl)
 {
 #ifdef _DEBUG

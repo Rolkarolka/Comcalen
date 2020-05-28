@@ -30,6 +30,7 @@ public:
 	void present() override; // prints information about employer
 	void set_company(Company* employer_company);
 	bool delete_news(int index);
+	bool change_employee_name_surname_ID(string name, string surname, string new_name, string new_surname, string ID);
 
 	Employer(string ename, string esurname, string id, string ecompany, Company* compan);
 	Employer();

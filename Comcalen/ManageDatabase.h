@@ -11,11 +11,12 @@ class ManageDatabase : public QDialog
 	Q_OBJECT
 
 public:
-	ManageDatabase(Company* company, QDialog *parent = Q_NULLPTR);
+	ManageDatabase(Employer* crew_member, Company* company, QDialog *parent = Q_NULLPTR);
 	~ManageDatabase();
 
 private:
 	Ui::ManageDatabase ui;
+	Employer* employer;
 	Company* company;
 
 private slots:

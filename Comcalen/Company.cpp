@@ -70,6 +70,45 @@ string Company::add_employee(string name, string surname, double salary, int hou
 	return ID;
 }
 
+bool Company::delete_data_in_database_of_ID(string ID)
+{
+	int index = 0;
+	for (const auto& i : database_of_ID)
+	{
+		if (get<1>(i) == ID)
+		{
+			database_of_ID.erase(database_of_ID.begin() + index);
+			return true;
+		}
+		index++;
+	}
+	return false;
+}
+
+bool Company::add_data_in_database_of_ID(string ID, string name, string surname)
+{
+	string check_ID = get_ID_having_name_and_surname(name, surname);
+	if (check_ID == "")
+	{
+		string names = surname + " " + name;
+		database_of_ID.push_back({ names, ID });
+		return true;
+	}
+	return false;
+}
+
+bool Company::change_data_in_database_of_ID(string ID, string new_name, string new_surname, string name, string surname)
+{
+	string check_ID = get_ID_having_name_and_surname(name, surname);
+	if (check_ID != "")
+	{
+		delete_data_in_database_of_ID(ID);
+		add_data_in_database_of_ID(ID, new_name, new_surname);
+		return true;
+	}
+	return false;
+}
+
 string Company::set_employee_ID()
 {
 	string temp_ID;
