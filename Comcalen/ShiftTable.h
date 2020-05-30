@@ -7,21 +7,37 @@
 #include "Employee.h"
 #include <QDate>
 #include <QTextCharFormat>
+#include "Company.h"
+
+
 
 class ShiftTable : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
+
+
 
 public:
-	ShiftTable(Employee* employee,  QDialog *parent = Q_NULLPTR);
-	~ShiftTable();
+    ShiftTable(Employee* employee, Company* company, QDialog* parent = Q_NULLPTR);
+    ~ShiftTable();
+
+
 
 private:
-	Employee* employee;
-	Ui::ShiftTable ui;
-	void paint_calendar();
+    Company* company;
+    Employee* employee;
+    Ui::ShiftTable ui;
+    void paint_calendar();
+
+
 
 private slots:
-	void calendar_clicked();
-	void OK_clicked();
+    void calendar_clicked();
+    void OK_clicked();
 };
+
+
+
+
+
+	

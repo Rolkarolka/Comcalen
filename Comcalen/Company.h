@@ -33,7 +33,7 @@ private:
 	
 	map <string, Employee*> employees;				/// contains all employees of company
 	map <string, Employer*> employers;				/// contains all employers of company
-	map <QDate, string> calendar;					/// contains informations about calendar
+	map <QDate, vector<Shift*>> calendar;					/// contains informations about calendar
 
 	int payday = 10;								/// information about payday, to remind employer about this
 	void set_name(string name);
@@ -42,6 +42,7 @@ private:
 
 
 public:
+
 	vector<Shift*> shift_table;					/// table containing the shift system
 	Company(string cID);
 	Company();
@@ -54,10 +55,11 @@ public:
 	Employer* get_employer(string ID);
 	Employee* get_employee(string ID);
 	string get_company_ID();
-	map<QDate, string> get_calendar();
+	map<QDate, vector<Shift*>> get_calendar();
 	vector<tuple<string, string>> get_log_info();
 	int no_people_per_shift = 1;
 	bool CrewMember_exist(string ID);
+	vector<QString> avaible_shifts(QDate date);
 
 	void change_employee_attri();					// potrzeba? Chyba niezbyt
 
@@ -88,8 +90,8 @@ public:
 	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
 	friend bool Employer::delete_news(int index);
-	friend void Employee::set_reserved_hours(QDate date);
-	friend bool Employee::shift_taken(QDate date);
+	friend void Employee::set_reserved_hours(QDate date, QString hours);
+	friend bool Employee::shift_avaible(QDate date, QString hours);
 	//friend void ManageShift::add_clicked();
 
 

@@ -11,7 +11,7 @@ string Company::get_company_ID()
 	return company_ID;
 }
 
-map <QDate, string> Company::get_calendar()
+map <QDate, vector<Shift*>> Company::get_calendar()
 {
 	return calendar;
 }
@@ -312,6 +312,39 @@ bool Company::delete_news(int index)
 	return false;
 }
 
+vector<QString> Company::avaible_shifts(QDate date)
+{
+	map <QDate, vector<Shift*>>::iterator itr;
+	vector<QString> a_shifts;
+	bool check = true;
+	for (itr = calendar.begin(); itr != calendar.end(); ++itr)
+	{
+		if (itr->first == date)
+		{
+			for (int i = 0; i < itr->second.size(); i++)
+			{
+				for (int j = 0; j < itr->second[i]->employees.size(); i++)
+				{
+					if (itr->second[i]->employees[j] == "Avaible")
+					{
+						a_shifts.push_back(itr->second[i]->hours);
+					}
+				}
+			}
+			check = false;
+		}
+	}
+	if (check)
+	{
+		for (int i = 0; i < shift_table.size(); i++)
+		{
+			a_shifts.push_back(shift_table[i]->hours);
+		}
+	}
+	return a_shifts;
+}
+
+
 fstream& operator <<(fstream& file, Company& company)
 {
 	file << "\t" << company.company_name << "\t" << company.payday << "\t";
@@ -336,12 +369,13 @@ fstream& operator <<(fstream& file, Company& company)
 		file << *itr2->second << "\t";
 	}
 
-	map <QDate, string>::iterator itr3;
+	map <QDate, vector<Shift*>>::iterator itr3;
 
 	for (itr3 = company.calendar.begin(); itr3 != company.calendar.end(); ++itr3)
 	{
 		file << itr3->first.toString().toStdString() << "\t";
-		file << itr3->second << "\t";
+		for (int i = 0; i < itr3->second.size(); i++)
+			file << *itr3->second[i] << "\t";
 	}
 
 	for (int i = 0; i < company.shift_table.size(); i++)
@@ -404,9 +438,15 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			}
 			else
 			{
-				string employee = token.c_str();
-				company.calendar.insert(pair<QDate, string>(QDate::fromString(QString::fromStdString(date)), employee));
+				vector<Shift*> shifts;
+				for (int i = 0; i < company.size_shift_table; i++)
+				{
+					Shift* shift = new Shift();
+					tokenStream >> *shift;
+					shifts.push_back(shift);
+				}
 				date_taken = false;
+				company.calendar.insert(pair<QDate, vector<Shift*>>(QDate::fromString(QString::fromStdString(date)), shifts));
 			}
 		}
 

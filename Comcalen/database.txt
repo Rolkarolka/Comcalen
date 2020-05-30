@@ -1,1 +1,2 @@
-41	Cookie	10	1	1	0	3	0	41//6500	Marianna	Gromadzka	41//6500	Cookie	12	123	[	]	41\\6334	Karolina	Romanowska	41\\6334	Cookie	8:00 - 10:00	2	[	Avaible	Avaible	]		10:00 - 12:00	4	[	Avaible	Avaible	Avaible	Avaible	]		12:00 - 14:00	6	[	Avaible	Avaible	Avaible	Avaible	Avaible	Avaible	]		
+41	Cookie	10	1	1	0	2	0	41//6500	Marianna	Gromadzka	41//6500	Cookie	12	213	[	]	41\\6334	Karolina	Romanowska	41\\6334	Cookie	8:00 - 15:00	3	[	Avaible	Avaible	Avaible	]		15:00 - 22:00	2	[	Avaible	Avaible	]		
+467	Dupa	10	1	1	0	0	0	467//9169	Kupson	Kupski	467//9169	Dupa	5	2132	[	]	467\\6500	Dupson	Dupski	467\\6500	Dupa	

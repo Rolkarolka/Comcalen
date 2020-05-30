@@ -22,9 +22,11 @@ EmployerCalendar::~EmployerCalendar()
 
 void EmployerCalendar::calendar_clicked()
 {
+	
 	QString date = ui.calendar_employer->selectedDate().toString("dd.MM.yyyy");
 	ui.day_label->setText(date);
-	string stdate = date.toStdString();
+	
+	/*string stdate = date.toStdString();
 	string employee = company->get_calendar()[ui.calendar_employer->selectedDate()];
-	ui.employee_label->setText(QString::fromStdString(employee));
+	ui.employee_label->setText(QString::fromStdString(employee));*/
 }

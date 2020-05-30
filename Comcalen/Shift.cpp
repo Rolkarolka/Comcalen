@@ -73,6 +73,5 @@ Shift& operator >>(istringstream& tokenStream, Shift& shift)
 			}
 		}
 		num_word++;
-
 	}
 }

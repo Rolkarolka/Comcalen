@@ -1,8 +1,9 @@
 #include "EmployeeCalendar.h"
 
-EmployeeCalendar::EmployeeCalendar(Employee* em, QDialog *parent)
+EmployeeCalendar::EmployeeCalendar(Employee* em, Company* com, QDialog *parent)
 	: QDialog(parent)
 {
+	company = com;
 	employee = em;
 	ui.setupUi(this);
 	connect(ui.return_from_ec, SIGNAL(released()), this, SLOT(reject()));
@@ -24,9 +25,11 @@ void EmployeeCalendar::taken_days()
 	today.setForeground((QBrush(Qt::green)));
 
 	QDate date;
-	for (int i = 0; i < employee->get_reserved_hours().size(); i++)
+	map <QDate, QString>::iterator itr;
+	for (itr = employee->get_reserved_hours().begin(); itr != employee->get_reserved_hours().end(); ++itr)
 	{
-		date = employee->get_reserved_hours()[i];
+
+		date = itr->first;
 		int week_day = date.dayOfWeek();
 		if (date == QDate::currentDate())
 		{
@@ -40,6 +43,7 @@ void EmployeeCalendar::taken_days()
 		{
 			ui.calendar_employee->setDateTextFormat(date, taken_days);
 		}
+		ui.label->setText(itr->second);
 	}
 }
 
