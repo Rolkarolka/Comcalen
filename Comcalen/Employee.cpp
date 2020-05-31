@@ -40,6 +40,7 @@ void Employee::set_reserved_hours(QDate date, QString h)
 							if (itr->second[i]->employees[k] == "Avaible")
 							{
 								itr->second[i]->employees[k] == ID;
+								reserved_hours.insert(pair<QDate, QString>(date, h));
 							}
 						}
 					}
@@ -51,16 +52,21 @@ void Employee::set_reserved_hours(QDate date, QString h)
 		{
 			vector<Shift*> shifts;
 			int no_emp;
-			QString h;
+			QString ho;
 			for (int i = 0; i < company->shift_table.size(); i++)
 			{
 				no_emp = company->shift_table[i]->no_employees;
-				h = company->shift_table[i]->hours;
-				Shift* p = new Shift(no_emp, h);
+				ho = company->shift_table[i]->hours;
+				Shift* p = new Shift(no_emp, ho);
+				if (ho == h)
+				{
+					p->employees[0] = ID;
+					reserved_hours.insert(pair<QDate, QString>(date, h));
+				}
 				shifts.push_back(p);
 			}
 			company->calendar.insert(pair<QDate, vector<Shift*>>(date, shifts));
-			set_reserved_hours(date, h);
+
 		}
 	}
 }

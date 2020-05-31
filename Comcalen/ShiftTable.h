@@ -34,6 +34,7 @@ private:
 private slots:
     void calendar_clicked();
     void OK_clicked();
+    void add_shift(int, int);
 };
 
 
