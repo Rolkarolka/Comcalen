@@ -76,7 +76,7 @@ public:
 
 	void add_news(string new_news);						//! called if there are changes in the company
 	bool delete_news(int index);
-
+	void delete_shift(int idex);
 	void set_ID(string new_ID);
 	void set_payday(int day);
 	void set_shift_table();

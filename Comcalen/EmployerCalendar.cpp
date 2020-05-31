@@ -51,8 +51,5 @@ void EmployerCalendar::show_emplo(int, int)
 			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(emplo[row]).arg(row).arg(0));
 			ui.employees->setItem(row, 0, newItem);
 		}
-	else
-	{
-
-	}
+	
 }

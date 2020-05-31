@@ -68,6 +68,8 @@ void Employee::set_reserved_hours(QDate date, QString h)
 			company->calendar.insert(pair<QDate, vector<Shift*>>(date, shifts));
 
 		}
+		string news = name + surname + " took shift on " + date.toString("dd-MM-yyyy").toStdString() + " " +  h.toStdString();
+		company->add_news(news);
 	}
 }
 

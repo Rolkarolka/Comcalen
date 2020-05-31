@@ -372,24 +372,6 @@
      <string>Return</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ok_button">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>460</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Copperplate Gothic Bold</family>
-     </font>
-    </property>
-    <property name="text">
-     <string>OK</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_taken">
     <property name="geometry">
      <rect>

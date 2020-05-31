@@ -25,11 +25,10 @@ private:
 	QString end;
 
 	void add_set_lines();
-	void delete_set_lines();
 
 
 private slots:
 	void add_clicked();
-	void delete_clicked();
+	void delete_shift(int, int);
 
 };

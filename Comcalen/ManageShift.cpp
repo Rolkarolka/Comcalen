@@ -22,7 +22,7 @@ ManageShift::ManageShift(Company* com, QDialog *parent)
 	ui.setupUi(this);
 	connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.add_button, SIGNAL(released()), this, SLOT(add_clicked()));
-	connect(ui.delete_button, SIGNAL(released()), this, SLOT(delete_clicked()));
+	connect(ui.existing_shifts, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(delete_shift(int, int)));
 	ui.existing_shifts->setRowCount(company->shift_table.size());
 	ui.existing_shifts->setColumnCount(1);
 	for (int row = 0; row < company->shift_table.size(); row++)
@@ -55,10 +55,7 @@ void ManageShift::add_clicked()
 	company->shift_table.push_back(day);
 	ui.saved_label->setText("Saved!");
 }
-void ManageShift::delete_clicked()
-{
-	delete_set_lines();
-}
+
 void ManageShift::add_set_lines()
 {
 	QString line_1 = ui.begin_add->text();
@@ -75,14 +72,9 @@ void ManageShift::add_set_lines()
 		no_employees = line_3;
 }
 
-void ManageShift::delete_set_lines()
+void ManageShift::delete_shift(int row, int column)
 {
-	QString line_1 = ui.begin_del->text();
-	QString line_2 = ui.end_del->text();
+	ui.existing_shifts->removeRow(row);
 
-	if (line_1 != "")
-		beginning = line_1;
-	if (line_2 != "")
-		end = line_2;
-
+	company->delete_shift(row);
 }

@@ -349,6 +349,16 @@ bool Company::delete_news(int index)
 	return false;
 }
 
+void Company::delete_shift(int index)
+{
+	if (index < shift_table.size())
+	{
+		delete shift_table[index];
+		shift_table.erase(shift_table.begin() + index);
+
+	}
+}
+
 vector<QString> Company::avaible_shifts(QDate date)
 {
 	map <QDate, vector<Shift*>>::iterator itr;

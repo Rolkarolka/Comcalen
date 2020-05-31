@@ -15,7 +15,6 @@ ShiftTable::ShiftTable(Employee* em, Company* com, QDialog* parent)
     paint_calendar();
     connect(ui.return_menu, SIGNAL(released()), this, SLOT(reject()));
     connect(ui.calendar, SIGNAL(selectionChanged()), this, SLOT(calendar_clicked()));
-    connect(ui.ok_button, SIGNAL(released()), this, SLOT(OK_clicked()));
     connect(ui.avaible_list, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(add_shift(int, int)));
 
 #ifdef _DEBUG
@@ -85,24 +84,7 @@ void ShiftTable::calendar_clicked()
 
 
 
-void ShiftTable::OK_clicked()
-{
-    /*QString date = ui.calendar_shift->selectedDate().toString("dd.MM.yyyy");
-    if (employee->shift_taken(ui.calendar_shift->selectedDate()) || ui.calendar_shift->selectedDate() < QDate::currentDate())
-    {
-        QMessageBox::warning(this, "Shift", "This shift is not avaible!");
-    }
 
-
-
-    else
-    {
-        employee->set_reserved_hours(ui.calendar_shift->selectedDate());
-        ui.label_taken->setText("Saved!");
-    }
-
-    */
-}
 
 void ShiftTable::add_shift(int row, int column)
 {
