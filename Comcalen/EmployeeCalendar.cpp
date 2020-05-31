@@ -7,6 +7,7 @@ EmployeeCalendar::EmployeeCalendar(Employee* em, Company* com, QDialog *parent)
 	employee = em;
 	ui.setupUi(this);
 	connect(ui.return_from_ec, SIGNAL(released()), this, SLOT(reject()));
+	connect(ui.calendar_employee, SIGNAL(selectionChanged()), this, SLOT(show_hours()));
 	taken_days();
 #ifdef _DEBUG
 	qDebug() << "EmployeeCalendar class created .\n";
@@ -26,7 +27,7 @@ void EmployeeCalendar::taken_days()
 
 	QDate date;
 	map <QDate, QString>::iterator itr;
-	for (itr = employee->get_reserved_hours().begin(); itr != employee->get_reserved_hours().end(); ++itr)
+	for (itr = employee->reserved_hours.begin(); itr != employee->reserved_hours.end(); ++itr)
 	{
 
 		date = itr->first;
@@ -43,7 +44,7 @@ void EmployeeCalendar::taken_days()
 		{
 			ui.calendar_employee->setDateTextFormat(date, taken_days);
 		}
-		ui.label->setText(itr->second);
+		
 	}
 }
 
@@ -55,3 +56,24 @@ EmployeeCalendar::~EmployeeCalendar()
 
 }
 
+void EmployeeCalendar::show_hours()
+{
+	map <QDate, QString>::iterator itr;
+	bool check = true;
+	for (itr = employee->reserved_hours.begin(); itr != employee->reserved_hours.end(); ++itr)
+	{
+
+		QDate date = itr->first;
+		if (date == ui.calendar_employee->selectedDate())
+		{
+			ui.label->setText(itr->second);
+			check = false;
+		}
+	}
+	if (check)
+	{
+		ui.label->setText("");
+
+	}
+		
+}

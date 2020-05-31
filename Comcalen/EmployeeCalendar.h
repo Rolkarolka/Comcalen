@@ -22,4 +22,7 @@ private:
 	Employee* employee;
 	Ui::EmployeeCalendar ui;
 	void taken_days();
+
+private slots:
+	void show_hours();
 };

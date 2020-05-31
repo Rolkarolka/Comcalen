@@ -164,14 +164,16 @@ Employee& operator >>(istringstream& tokenStream, Employee& employee)
 		if (num_word >= 4 && token != "]" && !check)
 		{
 			date = QDate::fromString(QString::fromStdString(token));
+			check = true;
+			
 		}
-		if (num_word >= 4 && token != "]" && check)
+		else if (num_word >= 4 && token != "]" && check)
 		{
 			employee.reserved_hours.insert(pair<QDate, QString>(date, QString::fromStdString(token)));
 			check = false;
 		}
 
-		if (token == "]")
+		else if (num_word >= 4 && token == "]")
 			return employee;
 		num_word++;
 

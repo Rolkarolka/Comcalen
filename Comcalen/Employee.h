@@ -20,9 +20,10 @@ class Employee : public CrewMember
 	*/
 	double salary = 0; 
 	int hours_limit = 0; /// number of hours that employee can reserve in next month
-	map <QDate, QString> reserved_hours;
 
 public:
+	map <QDate, QString> reserved_hours;
+
 	bool shift_avaible(QDate date, QString);
 	Company* company;
 	double get_salary();
@@ -47,5 +48,7 @@ public:
 	
 	friend void Employer::change_salary();
 	friend void Employer::change_hours_limit();
+	//friend void EmployeeCalendar::taken_days();
+
 
 };
