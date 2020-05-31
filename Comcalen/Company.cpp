@@ -323,11 +323,12 @@ vector<QString> Company::avaible_shifts(QDate date)
 		{
 			for (int i = 0; i < itr->second.size(); i++)
 			{
-				for (int j = 0; j < itr->second[i]->employees.size(); i++)
+				for (int j = 0; j < itr->second[i]->employees.size(); j++)
 				{
 					if (itr->second[i]->employees[j] == "Avaible")
 					{
 						a_shifts.push_back(itr->second[i]->hours);
+						break;
 					}
 				}
 			}
@@ -429,7 +430,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			company.employers.insert(pair<string, Employer*>(ID, employer));
 		}
 
-		if (num_word >= start_calendar && num_word < start_shift_table )
+		if (num_word >= start_calendar && num_word < start_shift_table)
 		{
 			if (date_taken == false)
 			{
@@ -444,13 +445,15 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 					Shift* shift = new Shift();
 					tokenStream >> *shift;
 					shifts.push_back(shift);
+
+
 				}
 				date_taken = false;
 				company.calendar.insert(pair<QDate, vector<Shift*>>(QDate::fromString(QString::fromStdString(date)), shifts));
 			}
 		}
 
-		if (num_word >= start_shift_table - 1 && num_word < start_news-1 && company.size_shift_table != 0)
+		if (num_word >= start_shift_table  && num_word < start_news && company.size_shift_table != 0)
 		{
 			Shift* shift = new Shift();
 			tokenStream >> *shift;

@@ -28,13 +28,13 @@ void Shift::add_shift(string employee_id)
 
 fstream& operator <<(fstream& file, Shift& shift)
 {																		
-	file << shift.hours.toStdString() << "\t" << shift.no_employees <<"\t";
+	file << "\t" << shift.hours.toStdString() << "\t" << shift.no_employees <<"\t";
 	file << "[" << "\t";
 	for (int i = 0; i < shift.employees.size(); i++)
 	{
 		file << shift.employees[i] << "\t";
 	}
-	file << "]\t";
+	file << "]";
 	return file;
 }
 
@@ -46,16 +46,19 @@ Shift& operator >>(istringstream& tokenStream, Shift& shift)
 	vector <string> temp;
 	while (getline(tokenStream, token, delimiter))
 	{
-		
+		if (token == "")
+		{
+			continue;
+		}
 		if (num_word == 1)
 		{
 			shift.hours = QString::fromStdString(token);
 		}
-		if (num_word == 2)
+		else if (num_word == 2)
 		{
 			shift.no_employees = stoi(token);
 		}
-		if (num_word > 2)
+		else if (num_word > 2)
 		{
 			if (token == "[")
 			{
@@ -72,6 +75,7 @@ Shift& operator >>(istringstream& tokenStream, Shift& shift)
 				temp.push_back(token);
 			}
 		}
+	
 		num_word++;
 	}
 }
