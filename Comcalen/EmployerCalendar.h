@@ -20,4 +20,5 @@ private:
 	Company* company;
 private slots:
 	void calendar_clicked();
+	void show_emplo(int, int);
 };

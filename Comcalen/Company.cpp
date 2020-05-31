@@ -25,6 +25,32 @@ void Company::change_employee_attri()
 
 }
 
+vector <string> Company::get_shifts_employees(QDate d, QString h)
+{
+	map <QDate, vector<Shift*>>::iterator itr;
+	vector<string> emplo;
+	for (itr = calendar.begin(); itr != calendar.end(); ++itr)
+	{
+		if (d == itr->first)
+		{
+			for (int i = 0; i < itr->second.size(); i++)
+			{
+				if (h == itr->second[i]->hours)
+				{
+					for (int j = 0; j < itr->second[i]->employees.size(); j++)
+					{
+						if (itr->second[i]->employees[j] != "Avaible")
+						{
+							emplo.push_back(get_name_surname_id(itr->second[i]->employees[j]));
+						}
+					}
+				}
+			}
+		}
+	}
+	return emplo;
+}
+
 
 Company::Company(string cID) 
 { 
@@ -59,6 +85,17 @@ string Company::get_ID_having_name_and_surname(string name, string surname)
 	}
 	return "";
 }
+
+string Company::get_name_surname_id(string id)
+{
+	for (const auto& i : database_of_ID)
+	{
+		if (get<1>(i) == id)
+			return get<0>(i);
+	}
+	return "";
+}
+
 
 void Company::set_name(string name)
 {

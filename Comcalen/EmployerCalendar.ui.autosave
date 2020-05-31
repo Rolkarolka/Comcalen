@@ -64,6 +64,11 @@
      <height>581</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QFrame{background:url(:/Comcalen/background.jpg)}url(:/Comcalen/background.jpg)</string>
    </property>
@@ -210,7 +215,7 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>60</y>
+      <y>110</y>
       <width>191</width>
       <height>151</height>
      </rect>
@@ -220,10 +225,54 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>250</y>
+      <y>330</y>
       <width>191</width>
       <height>151</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>556</x>
+      <y>50</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
+    <property name="text">
+     <string>Shifts:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>556</x>
+      <y>280</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
+    <property name="text">
+     <string>Employees:</string>
     </property>
    </widget>
   </widget>

@@ -42,7 +42,7 @@ private:
 
 
 public:
-
+	vector <string> get_shifts_employees(QDate d, QString h);
 	vector<Shift*> shift_table;					/// table containing the shift system
 	Company(string cID);
 	Company();
@@ -97,6 +97,7 @@ public:
 
 	void present_company();										// for tests
 	string get_ID_having_name_and_surname(string name, string surname);
+	string get_name_surname_id(string id);
 	int get_number_of_news();
 	int get_number_of_managment();
 	int get_number_of_staff();

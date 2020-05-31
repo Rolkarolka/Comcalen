@@ -73,7 +73,6 @@ void EmployeeCalendar::show_hours()
 	if (check)
 	{
 		ui.label->setText("");
-
 	}
 		
 }
