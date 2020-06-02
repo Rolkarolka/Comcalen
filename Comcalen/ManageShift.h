@@ -25,7 +25,7 @@ private:
 	QString end;
 
 	void add_set_lines();
-
+	void show_list();
 
 private slots:
 	void add_clicked();

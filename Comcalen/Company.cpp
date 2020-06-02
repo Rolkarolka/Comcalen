@@ -393,6 +393,28 @@ vector<QString> Company::avaible_shifts(QDate date)
 }
 
 
+void Company::update_calendar()
+{
+	map <QDate, vector<Shift*>>::iterator itr;
+	vector <QDate> to_del;
+	for (itr = calendar.begin(); itr != calendar.end(); ++itr)
+	{
+		if (itr->first < QDate::currentDate())
+		{
+			for (int i = 0; i < itr->second.size(); i++)
+			{
+				itr->second[i]->~Shift();
+				to_del.push_back(itr->first);
+			}
+		}
+	}
+	for (int i = 0; i < to_del.size(); i++)
+	{
+		calendar.erase(to_del[i]);
+	}
+}
+
+
 fstream& operator <<(fstream& file, Company& company)
 {
 	file << "\t" << company.company_name << "\t" << company.payday << "\t";

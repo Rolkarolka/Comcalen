@@ -58,24 +58,24 @@ Shift& operator >>(istringstream& tokenStream, Shift& shift)
 		{
 			shift.no_employees = stoi(token);
 		}
-		else if (num_word > 2)
+		if (num_word > 2 && num_word < 4 + shift.no_employees)
 		{
 			if (token == "[")
 			{
 				num_word++;
 				continue;
 			}
-			else if (token == "]")
-			{
-				shift.employees = temp;
-				return shift;
-			}
+			
 			else
 			{
 				temp.push_back(token);
 			}
 		}
-	
+		if (num_word == 4 + shift.no_employees)
+		{
+			shift.employees = temp;
+			return shift;
+		}
 		num_word++;
 	}
 }

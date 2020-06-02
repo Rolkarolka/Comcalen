@@ -23,18 +23,7 @@ ManageShift::ManageShift(Company* com, QDialog *parent)
 	connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.add_button, SIGNAL(released()), this, SLOT(add_clicked()));
 	connect(ui.existing_shifts, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(delete_shift(int, int)));
-	ui.existing_shifts->setRowCount(company->shift_table.size());
-	ui.existing_shifts->setColumnCount(1);
-	for (int row = 0; row < company->shift_table.size(); row++)
-	{
-		string news = company->shift_table[row]->hours.toStdString() + " - " + std::to_string(company->shift_table[row]->no_employees);
-		if (news != "")
-		{
-			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news).arg(row).arg(0));
-			ui.existing_shifts->setItem(row, 0, newItem);
-		}
-		
-	}
+	show_list();
 	#ifdef _DEBUG
 		qDebug() << "ManageShift class created.\n";
 	#endif
@@ -53,7 +42,7 @@ void ManageShift::add_clicked()
 	QString hours = beginning + " - " + end;
 	Shift* day = new Shift(no_employees, hours);
 	company->shift_table.push_back(day);
-	ui.saved_label->setText("Saved!");
+	show_list();
 }
 
 void ManageShift::add_set_lines()
@@ -77,4 +66,20 @@ void ManageShift::delete_shift(int row, int column)
 	ui.existing_shifts->removeRow(row);
 
 	company->delete_shift(row);
+}
+
+void ManageShift::show_list()
+{
+	ui.existing_shifts->setRowCount(company->shift_table.size());
+	ui.existing_shifts->setColumnCount(1);
+	for (int row = 0; row < company->shift_table.size(); row++)
+	{
+		string news = company->shift_table[row]->hours.toStdString() + " - " + std::to_string(company->shift_table[row]->no_employees);
+		if (news != "")
+		{
+			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news).arg(row).arg(0));
+			ui.existing_shifts->setItem(row, 0, newItem);
+		}
+
+	}
 }

@@ -63,6 +63,7 @@ public:
 
 	void change_employee_attri();					// potrzeba? Chyba niezbyt
 
+
 	string get_new_employer_ID();
 	string get_new_employee_ID();
 	string add_employee(string name,string surname, double salary, int hours_limit, Company* compan);  //! add employees to company and return ID for login
@@ -81,16 +82,18 @@ public:
 	void set_payday(int day);
 	void set_shift_table();
 	void set_company_name(string name);
+	void update_calendar();
 
 	friend fstream& operator <<(fstream& file, Company& company);
 	friend Company& operator >>(istringstream& tokenStream, Company& company);
+
 
 	friend void Employer::add_employee();
 	friend void Employer::remove_employee();
 	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
 	friend bool Employer::delete_news(int index);
-	friend void Employee::set_reserved_hours(QDate date, QString hours);
+	friend bool Employee::set_reserved_hours(QDate date, QString hours);
 	friend bool Employee::shift_avaible(QDate date, QString hours);
 	//friend void ManageShift::add_clicked();
 

@@ -3,9 +3,15 @@
 
 bool Employee::shift_avaible(QDate date, QString h)
 {
+	map <QDate, QString>::iterator itr;
+	for (itr = reserved_hours.begin(); itr != reserved_hours.end(); ++itr)
+	{
+
+	}
 	vector <QString> shifts = company->avaible_shifts(date);
 	for (int i = 0; i < shifts.size(); i++)
 	{
+
 		if (shifts[i] == h) return true;
 	}
 	return false;
@@ -21,9 +27,27 @@ void Employee::set_hours_limit(int ehlimit)
 	hours_limit = ehlimit;
 }
 
-void Employee::set_reserved_hours(QDate date, QString h)
+void Employee::update_reserved_h()
 {
-	if (shift_avaible(date, h))
+	map <QDate, QString>::iterator itr;
+	vector <QDate> to_del;
+	for (itr = reserved_hours.begin(); itr != reserved_hours.end(); ++itr)
+	{
+		if (itr->first < QDate::currentDate())
+		{
+			to_del.push_back(itr->first);
+		}
+	}
+	for (int i = 0; i < to_del.size(); i++)
+	{
+		reserved_hours.erase(to_del[i]);
+	}
+}
+
+
+bool Employee::set_reserved_hours(QDate date, QString h)
+{
+	if (shift_avaible(date, h) && !is_working_that_day(date))
 	{
 		bool check = true;
 		map <QDate, vector<Shift*>>::iterator itr;
@@ -68,9 +92,21 @@ void Employee::set_reserved_hours(QDate date, QString h)
 			company->calendar.insert(pair<QDate, vector<Shift*>>(date, shifts));
 
 		}
-		string news = name + surname + " took shift on " + date.toString("dd-MM-yyyy").toStdString() + " " +  h.toStdString();
+		string news = name +" " + surname + " took shift on " + date.toString("dd-MM-yyyy").toStdString() + " " +  h.toStdString();
 		company->add_news(news);
+		return true;
 	}
+	return false;
+}
+
+bool Employee::is_working_that_day(QDate date)
+{
+	map <QDate, QString>::iterator itr;
+	for (itr = reserved_hours.begin(); itr != reserved_hours.end(); ++itr)
+	{
+		if (date == itr->first) return true;
+	}
+	return false;
 }
 
 double Employee::get_salary()
@@ -134,7 +170,7 @@ Employee::Employee(const Employee& empl)
 }
 
 fstream& operator <<(fstream& file, Employee& employee)
-{																		// jak tu cos zmienisz to daj mi znac
+{		
 	file << reinterpret_cast<CrewMember&>(employee);
 	file << '\t' << employee.salary << '\t' << employee.hours_limit << "\t[\t";
 	map <QDate, QString>::iterator itr;

@@ -6,6 +6,7 @@ EmployeeCalendar::EmployeeCalendar(Employee* em, Company* com, QDialog *parent)
 	company = com;
 	employee = em;
 	ui.setupUi(this);
+	employee->update_reserved_h();
 	connect(ui.return_from_ec, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.calendar_employee, SIGNAL(selectionChanged()), this, SLOT(show_hours()));
 	taken_days();
