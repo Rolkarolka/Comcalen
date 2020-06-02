@@ -64,18 +64,23 @@ void ShiftTable::paint_calendar()
 
 void ShiftTable::calendar_clicked()
 {
-    ui.label_saved->setText("");
-    vector <QString> shifts = company->avaible_shifts(ui.calendar->selectedDate());
-    ui.avaible_list->setRowCount(shifts.size());
-    ui.avaible_list->setColumnCount(1);
-
-
-    for (int row = 0; row < shifts.size(); row++)
+    if (ui.calendar->selectedDate() > QDate::currentDate() && QDate::currentDate().month() + 2 >= ui.calendar->selectedDate().month() && QDate::currentDate().year() == ui.calendar->selectedDate().year())
     {
-        QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row].arg(row).arg(0));
-        ui.avaible_list->setItem(row, 0, newItem);
+        ui.label_saved->setText("");
+        vector <QString> shifts = company->avaible_shifts(ui.calendar->selectedDate());
+        ui.avaible_list->setRowCount(shifts.size());
+        ui.avaible_list->setColumnCount(1);
+        for (int row = 0; row < shifts.size(); row++)
+        {
+            QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row].arg(row).arg(0));
+            ui.avaible_list->setItem(row, 0, newItem);
+        }
     }
-
+    else
+    {
+        ui.avaible_list->setRowCount(0);
+        ui.avaible_list->setColumnCount(1);
+    }
 }
 
 
