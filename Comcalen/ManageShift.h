@@ -8,6 +8,7 @@
 #include <iterator>
 #include <QTableWidget>
 #include <QDebug>
+#include <QMessageBox>
 
 class ManageShift : public QDialog
 {
@@ -24,7 +25,7 @@ private:
 	QString beginning;
 	QString end;
 
-	void add_set_lines();
+	bool add_set_lines();
 	void show_list();
 
 private slots:

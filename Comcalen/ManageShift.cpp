@@ -1,19 +1,4 @@
 #include "ManageShift.h"
-#ifdef _WIN32
-#include <windows.h>
-
-void sleep(unsigned milliseconds)
-{
-	Sleep(milliseconds);
-}
-#else
-#include <unistd.h>
-
-void sleep(unsigned milliseconds)
-{
-	usleep(milliseconds * 1000); // takes microseconds
-}
-#endif
 
 ManageShift::ManageShift(Company* com, QDialog *parent)
 	: QDialog(parent)
@@ -38,27 +23,38 @@ ManageShift::~ManageShift()
 
 void ManageShift::add_clicked()
 {
-	add_set_lines();
-	QString hours = beginning + " - " + end;
-	Shift* day = new Shift(no_employees, hours);
-	company->shift_table.push_back(day);
-	show_list();
+	if (add_set_lines())
+	{
+		QString hours = beginning + " - " + end;
+		Shift* day = new Shift(no_employees, hours);
+		company->shift_table.push_back(day);
+		show_list();
+	}
 }
 
-void ManageShift::add_set_lines()
+bool ManageShift::add_set_lines()
 {
 	QString line_1 = ui.begin_add->text();
 	QString line_2 = ui.end_add->text();
 	QString edit_line_3 = ui.no_employees->text();
-	int line_3 = stoi(edit_line_3.toStdString());
-
+	int line_3;
+	bool check = true;
+	try
+	{
+		line_3 = stoi(edit_line_3.toStdString());
+	}
+	catch (invalid_argument& e)
+	{
+		QMessageBox::warning(this, "Value", "Wrong value!");
+		return false;
+	}
 
 	if (line_1 != "")
 		beginning = line_1;
 	if (line_2 != "")
 		end = line_2;
-	if (edit_line_3 != "")
-		no_employees = line_3;
+	no_employees = line_3;
+	return true;
 }
 
 void ManageShift::delete_shift(int row, int column)

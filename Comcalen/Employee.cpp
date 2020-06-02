@@ -58,7 +58,7 @@ bool Employee::set_reserved_hours(QDate date, QString h)
 						{
 							if (itr->second[i]->employees[k] == "Avaible")
 							{
-								itr->second[i]->employees[k] == ID;
+								itr->second[i]->employees[k] = ID;
 								reserved_hours.insert(pair<QDate, QString>(date, h));
 							}
 						}
