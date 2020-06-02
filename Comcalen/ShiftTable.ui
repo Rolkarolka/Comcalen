@@ -211,8 +211,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>581</width>
-      <height>531</height>
+      <width>571</width>
+      <height>511</height>
      </rect>
     </property>
     <property name="palette">
@@ -375,7 +375,7 @@
    <widget class="QTableWidget" name="avaible_list">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>600</x>
       <y>100</y>
       <width>141</width>
       <height>192</height>
@@ -393,9 +393,9 @@
    <widget class="QLabel" name="label_saved">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>590</x>
       <y>310</y>
-      <width>141</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>

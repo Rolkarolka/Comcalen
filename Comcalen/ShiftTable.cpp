@@ -33,7 +33,7 @@ ShiftTable::~ShiftTable()
 
 void ShiftTable::paint_calendar()
 {
-    QDate days = QDate::currentDate();
+    QDate days = QDate::currentDate().addDays(1);
     QTextCharFormat days_qtfc;
     QColor days_c;
     days_c.setRgb(155, 231, 198);
@@ -42,7 +42,7 @@ void ShiftTable::paint_calendar()
     int max_m = days.month() + 2;
     while (days.month() <= max_m)
     {
-        if (company->avaible_shifts(days).size() < 0 || employee->is_working_that_day(days))
+        if (company->avaible_shifts(days).size() == 0 || employee->is_working_that_day(days))
         {
             days_c.setRgb(172, 62, 83);
             days_qtfc.setBackground(QBrush(days_c));
@@ -64,7 +64,7 @@ void ShiftTable::paint_calendar()
 
 void ShiftTable::calendar_clicked()
 {
-    if (ui.calendar->selectedDate() > QDate::currentDate() && QDate::currentDate().month() + 2 >= ui.calendar->selectedDate().month() && QDate::currentDate().year() == ui.calendar->selectedDate().year())
+    if (ui.calendar->selectedDate() > QDate::currentDate() && QDate::currentDate().addDays(1).month() + 2 >= ui.calendar->selectedDate().addDays(1).month()  && !employee->is_working_that_day(ui.calendar->selectedDate()))
     {
         ui.label_saved->setText("");
         vector <QString> shifts = company->avaible_shifts(ui.calendar->selectedDate());
@@ -89,6 +89,16 @@ void ShiftTable::calendar_clicked()
 
 void ShiftTable::add_shift(int row, int column)
 {
-    if (employee->set_reserved_hours(ui.calendar->selectedDate(), ui.avaible_list->currentItem()->text())) ui.label_saved->setText("Saved!");
-    else ui.label_saved->setText("This shift is no avaible.");
+    if (employee->set_reserved_hours(ui.calendar->selectedDate(), ui.avaible_list->currentItem()->text()))
+    {
+        ui.label_saved->setText("Saved!");
+        QDate days = ui.calendar->selectedDate();
+        QTextCharFormat days_qtfc;
+        QColor days_c;
+        days_c.setRgb(172, 62, 83);
+        days_qtfc.setBackground(QBrush(days_c));
+        ui.calendar->setDateTextFormat(days, days_qtfc);
+
+    }
+    else ui.label_saved->setText("This shift is not avaible.");
 }

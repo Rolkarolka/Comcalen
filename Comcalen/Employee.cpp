@@ -3,15 +3,10 @@
 
 bool Employee::shift_avaible(QDate date, QString h)
 {
-	map <QDate, QString>::iterator itr;
-	for (itr = reserved_hours.begin(); itr != reserved_hours.end(); ++itr)
-	{
-
-	}
+	
 	vector <QString> shifts = company->avaible_shifts(date);
 	for (int i = 0; i < shifts.size(); i++)
 	{
-
 		if (shifts[i] == h) return true;
 	}
 	return false;
@@ -59,7 +54,7 @@ bool Employee::set_reserved_hours(QDate date, QString h)
 				{
 					if (itr->second[i]->hours == h)
 					{
-						for (int k = 0; k < itr->second[i]->employees.size(); i++)
+						for (int k = 0; k < itr->second[i]->employees.size(); k++)
 						{
 							if (itr->second[i]->employees[k] == "Avaible")
 							{
