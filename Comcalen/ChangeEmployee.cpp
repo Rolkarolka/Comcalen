@@ -60,9 +60,19 @@ void ChangeEmployee::save_button_pressed()
 		employee->set_surname(line_2);
 	}
 	if (ok_1)
-		employee->set_hours_limit(line_1);
+	{
+		if (line_1 > 0)
+			employee->set_hours_limit(line_1);
+		else
+			QMessageBox::warning(this, "Login", "Incorrect value");
+	}
 	if (ok_2)
-		employee->set_salary(line_4);
+	{
+		if (line_4 > 0)
+			employee->set_salary(line_4);
+		else
+			QMessageBox::warning(this, "Login", "Incorrect value");
+	}
 
 	ui.change_hl_e->clear();
 	ui.change_name_e->clear();

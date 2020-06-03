@@ -32,11 +32,14 @@ public:
 	Comcalen(QWidget *parent = Q_NULLPTR);
 	Comcalen(CompanyDatabase* cdatabase, QWidget* parent = Q_NULLPTR);
 	~Comcalen();
+	bool get_if_company_exist();
+	string get_company_ID();
 
 private:
 	Ui::ComcalenClass ui;
 	CrewMember* crew_member;
 	Company* user_company;
+	bool company_exist = true;
 
 	int part_ID(string ID);
 	Employee* find_employee(Company* company, string ID); //! return user object
@@ -55,5 +58,6 @@ private slots:
 	void show_news_pressed();
 	void manage_shift_pressed();
 	void manage_database_pressed();
+	//void manage_database_reject();
 
 };

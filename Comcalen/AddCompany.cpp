@@ -111,13 +111,18 @@ void AddCompany::add_employee_to_company()
 
 	if (ok_1 && ok_2)
 	{
-		new_company->add_employee(line_3, line_2, line_4, line_1, new_company);
-		ui.add_company_box->setVisible(true);
-		ui.adding_employee->setVisible(false);
-		ui.employee_hl->clear();
-		ui.employee_salary->clear();
-		ui.employee_name->clear();
-		ui.employee_surname->clear();
+		if (line_1 > 0 && line_4 > 0)
+		{
+			new_company->add_employee(line_3, line_2, line_4, line_1, new_company);
+			ui.add_company_box->setVisible(true);
+			ui.adding_employee->setVisible(false);
+			ui.employee_hl->clear();
+			ui.employee_salary->clear();
+			ui.employee_name->clear();
+			ui.employee_surname->clear();
+		}
+		else
+			QMessageBox::warning(this, "Warning!", "Wrong value");
 	}
 	else
 		QMessageBox::warning(this, "Warning!", "You need to enter all information to add employee");
