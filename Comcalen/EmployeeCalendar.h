@@ -5,19 +5,27 @@
 #include <QTextCharFormat>
 #include <QDebug>
 #include <QtWidgets/QMainWindow>
-
+#include "Shift.h"
+#include "Company.h"
 
 class EmployeeCalendar : public QDialog
 {
+	/**
+	* @class EmployeeCalendar inheriting from QDialog, show caledar for employee
+	*/
 	Q_OBJECT
 
 
 public:
-	EmployeeCalendar(Employee* employee, QDialog *parent = Q_NULLPTR);
+	EmployeeCalendar(Employee* employee, Company* com, QDialog *parent = Q_NULLPTR);
 	~EmployeeCalendar();
 
 private:
+	Company* company;
 	Employee* employee;
 	Ui::EmployeeCalendar ui;
-	void taken_days();
+	void taken_days(); //! paints calendar
+
+private slots:
+	void show_hours(); //! when calendar is clicked, show hours in which employee has shift
 };

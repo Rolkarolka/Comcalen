@@ -41,7 +41,7 @@ void Comcalen::employee_add_shift_pressed()
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
 	Employee* employee = user_company->get_employee(ID);
-	ShiftTable st_window(employee);
+	ShiftTable st_window(employee, user_company);
 	st_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&st_window, SIGNAL(rejected()), this, SLOT(show()));
@@ -52,7 +52,7 @@ void Comcalen::employee_calendar_pressed()
 	QString all_ID = ui.ID_line->text();
 	string ID = all_ID.toStdString();
 	Employee* employee = user_company->get_employee(ID);
-	EmployeeCalendar ec_window(employee);
+	EmployeeCalendar ec_window(employee, user_company);
 	ec_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
 	connect(&ec_window, SIGNAL(rejected()), this, SLOT(show()));
@@ -96,8 +96,6 @@ void Comcalen::show_news_pressed()
 
 void Comcalen::manage_shift_pressed()
 {
-	QString all_ID = ui.ID_line->text();
-	string ID = all_ID.toStdString();
 	ManageShift ms_window(user_company);
 	ms_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
@@ -204,6 +202,8 @@ Comcalen::~Comcalen()
 	qDebug() << "Comcalen class removed.\n";
 #endif
 }
+
+
 
 
 Comcalen::Comcalen(QWidget* parent)

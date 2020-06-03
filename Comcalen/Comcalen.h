@@ -20,6 +20,9 @@
 
 class Comcalen : public QMainWindow
 {
+	/**
+	* @class Comcalen inheriting from QDialog, main of QT program
+	*/
 	Q_OBJECT
 
 private:
@@ -39,6 +42,7 @@ private:
 	Employee* find_employee(Company* company, string ID); //! return user object
 	Employer* find_employer(Company* company, string ID); //! return user object
 	Company* find_company_by_ID(string ID);	//! return company from which user is
+	void on_add_company_accepted(); //! change view
 	
 
 private slots:
@@ -46,7 +50,6 @@ private slots:
 	void signup_pressed();
 	void employee_calendar_pressed();
 	void employer_calendar_pressed();
-	void on_add_company_accepted();
 	void employee_add_shift_pressed();
 	void show_company_pressed();
 	void show_news_pressed();

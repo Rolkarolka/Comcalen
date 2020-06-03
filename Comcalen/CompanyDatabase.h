@@ -14,6 +14,9 @@ using namespace std;
 
 class CompanyDatabase
 {
+	/**
+	* @class CompanyDatabase which operates on database of companies
+	*/
 private:
 	string filename;
 	map <string, Company*> database;

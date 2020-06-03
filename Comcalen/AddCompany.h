@@ -7,6 +7,9 @@
 
 class AddCompany : public QDialog
 {
+	/**
+	* @class AddCompany inheriting from QDialog
+	*/
 	Q_OBJECT
 
 public:
@@ -25,6 +28,8 @@ private:
 	string employer_name;
 	string employer_surname;
 	void set_lines();
+
+	friend fstream& operator <<(fstream& file, Shift& employee);
 
 private slots:
 	void add_employee_pressed();

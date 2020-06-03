@@ -206,13 +206,13 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QCalendarWidget" name="calendar_shift">
+   <widget class="QCalendarWidget" name="calendar">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>611</width>
-      <height>561</height>
+      <width>571</width>
+      <height>511</height>
      </rect>
     </property>
     <property name="palette">
@@ -372,13 +372,13 @@
      <string>Return</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ok_button">
+   <widget class="QTableWidget" name="avaible_list">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>460</y>
-      <width>111</width>
-      <height>41</height>
+      <x>600</x>
+      <y>100</y>
+      <width>141</width>
+      <height>192</height>
      </rect>
     </property>
     <property name="font">
@@ -386,18 +386,27 @@
       <family>Copperplate Gothic Bold</family>
      </font>
     </property>
-    <property name="text">
-     <string>OK</string>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_taken">
+   <widget class="QLabel" name="label_saved">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>140</y>
-      <width>101</width>
-      <height>51</height>
+      <x>590</x>
+      <y>310</y>
+      <width>161</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">background:transparent;</string>

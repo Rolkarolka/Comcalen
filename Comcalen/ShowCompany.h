@@ -8,6 +8,9 @@
 
 class ShowCompany : public QDialog
 {
+	/**
+	* @class ShowCompany inheriting from QDialog, which show Company database
+	*/
 	Q_OBJECT
 
 public:

@@ -8,7 +8,8 @@
 #include "Employee.h"
 #include "Employer.h"
 #include <memory>
-
+#include "Shift.h"
+#include "ManageShift.h"
 using namespace std;
 
 class Company
@@ -29,11 +30,10 @@ private:
 
 	vector<string> news = {};							/// contain information about changes
 	int size_shift_table = 0;						
-	string* shift_table = nullptr;					/// table containing the shift system
 	
 	map <string, Employee*> employees;				/// contains all employees of company
 	map <string, Employer*> employers;				/// contains all employers of company
-	map <QDate, string> calendar;					/// contains informations about calendar
+	map <QDate, vector<Shift*>> calendar;					/// contains informations about calendar
 
 	int payday = 10;								/// information about payday, to remind employer about this
 	void set_name(string name);
@@ -42,7 +42,8 @@ private:
 
 
 public:
-
+	vector <string> get_shifts_employees(QDate d, QString h);
+	vector<Shift*> shift_table;					/// table containing the shift system
 	Company(string cID);
 	Company();
 	Company(string cname, string cID);
@@ -57,9 +58,11 @@ public:
 	Employer* get_employer(string ID);
 	Employee* get_employee(string ID);
 	string get_company_ID();
-	map<QDate, string> get_calendar();
+	map<QDate, vector<Shift*>> get_calendar();
 	vector<tuple<string, string>> get_log_info();
 	bool CrewMember_exist(string ID);
+	vector<QString> avaible_shifts(QDate date);
+
 
 	string get_new_employer_ID();
 	string get_new_employee_ID();
@@ -67,36 +70,37 @@ public:
 	bool delete_employee(string ID);
 	bool delete_employee(string name, string surname);
 
-	string add_employer(Employer& employer);
+	string add_employer(Employer& employer);					//! add employees to company and return ID for login
 	string add_employer(string name, string surnam);			//! add employers to company and return ID for login
 	bool delete_employer(string ID);
 	bool delete_employer(string name, string surname);
 
 	void add_news(string new_news);						//! called if there are changes in the company
 	bool delete_news(int index);
-
+	void delete_shift(int idex);
 	void set_ID(string new_ID);
 	void set_payday(int day);
-	void set_shift_table();
 	void set_company_name(string name);
+	void update_calendar();
 
 	friend fstream& operator <<(fstream& file, Company& company);
 	friend Company& operator >>(istringstream& tokenStream, Company& company);
 
+
 	friend void Employer::add_employee();
 	friend void Employer::remove_employee();
-	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
 	friend bool Employer::delete_news(int index);
-	friend void Employee::set_reserved_hours(QDate date);
-	friend bool Employee::shift_taken(QDate date);
-	friend bool Employer::change_employee_name_surname_ID(string name, string surname, string new_name, string new_surname, string ID);
+	friend bool Employee::set_reserved_hours(QDate date, QString hours);
+	friend bool Employee::shift_avaible(QDate date, QString hours);
+
 
 	void present_company();										// for tests
-	string get_ID_having_name_and_surname(string name, string surname);
-	int get_number_of_news();
-	int get_number_of_managment();
-	int get_number_of_staff();
+	string get_ID_having_name_and_surname(string name, string surname);	// for tests
+	string get_name_surname_id(string id);	// for tests
+	int get_number_of_news();		// for tests
+	int get_number_of_managment();	// for tests
+	int get_number_of_staff();		// for tests
 
 
 };

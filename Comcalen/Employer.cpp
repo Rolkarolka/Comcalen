@@ -52,11 +52,6 @@ bool Employer::delete_news(int index)
 		return false;
 }
 
-void Employer::show_calendar()
-{
-
-}
-
 string Employer::show_news(int index)
 {
 	if (index < company->news.size())
@@ -65,10 +60,7 @@ string Employer::show_news(int index)
 		return "";
 }
 
-void Employer::set_shift_hours()
-{
 
-}
 void Employer::change_salary()
 {
 	string id;
