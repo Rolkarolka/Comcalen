@@ -235,28 +235,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>110</y>
-      <width>231</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Copperplate Gothic Bold</family>
-      <pointsize>13</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;</string>
-    </property>
-    <property name="text">
-     <string>Exisiting shifts:</string>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="existing_shifts">
     <property name="geometry">
      <rect>

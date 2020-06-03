@@ -1,6 +1,5 @@
 #pragma once
 #include "CrewMember.h"
-//#include "Company.h"
 #include <string>
 #include <QDebug>
 #include <iostream>
@@ -20,16 +19,14 @@ class Employer : public CrewMember
 	
 public:
 	Company* company = nullptr;
-	void add_employee(); // user enters employee atributes and then calls function add_employee in class Company
-	void remove_employee(); // user enters employee's ID and then calls  function  delete_employee in class Company
-	void show_calendar(); 
-	string show_news(int index); // prints content from vector news company
-	void set_shift_hours();
-	void change_salary(); // employer enters employee's ID and new salary then calls for function set_salary in class Employee
-	void change_hours_limit();
-	void present() override; // prints information about employer
+	void add_employee(); //! user enters employee atributes and then calls function add_employee in class Company
+	void remove_employee(); //! user enters employee's ID and then calls  function  delete_employee in class Company
+	string show_news(int index); //! prints content from vector news company
+	void change_salary(); //! employer enters employee's ID and new salary then calls for function set_salary in class Employee
+	void change_hours_limit(); //! employer enters employee's ID and new hours and calls for function set_hours_limit in class Employee 
+	void present() override; //! prints information about employer
 	void set_company(Company* employer_company);
-	bool delete_news(int index);
+	bool delete_news(int index); //! deletes item with given index from vector news
 
 	Employer(string ename, string esurname, string id, string ecompany, Company* compan);
 	Employer();

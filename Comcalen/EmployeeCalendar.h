@@ -21,8 +21,8 @@ private:
 	Company* company;
 	Employee* employee;
 	Ui::EmployeeCalendar ui;
-	void taken_days();
+	void taken_days(); //! paints calendar
 
 private slots:
-	void show_hours();
+	void show_hours(); //! when calendar is clicked, show hours in which employee has shift
 };

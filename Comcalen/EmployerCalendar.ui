@@ -215,64 +215,26 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>110</y>
+      <y>70</y>
       <width>191</width>
       <height>151</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="employees">
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>330</y>
+      <y>280</y>
       <width>191</width>
       <height>151</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>556</x>
-      <y>50</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Copperplate Gothic Bold</family>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:transparent;</string>
-    </property>
-    <property name="text">
-     <string>Shifts:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>556</x>
-      <y>280</y>
-      <width>151</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Copperplate Gothic Bold</family>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;</string>
-    </property>
-    <property name="text">
-     <string>Employees:</string>
     </property>
    </widget>
   </widget>
