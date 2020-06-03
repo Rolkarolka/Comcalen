@@ -54,6 +54,11 @@ bool ManageShift::add_set_lines()
 	if (line_2 != "")
 		end = line_2;
 	no_employees = line_3;
+	if (no_employees < 1)
+	{
+		QMessageBox::warning(this, "Value", "Wrong value!");
+		return false;
+	}
 	return true;
 }
 

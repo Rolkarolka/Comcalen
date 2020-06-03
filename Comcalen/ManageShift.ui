@@ -247,6 +247,9 @@
     <property name="styleSheet">
      <string notr="true">backgroud:transparent;</string>
     </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">

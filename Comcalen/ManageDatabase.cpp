@@ -60,11 +60,19 @@ void ManageDatabase::del_employee_r_pressed()
 	QString edit_line_2 = ui.del_name_e->text();
 	string  line_2 = edit_line_2.toStdString();
 
-	company->delete_employee(line_2, line_1);
-	company->delete_employer(line_2, line_1);
-	ui.del_name_e->clear();
-	ui.del_surname_e->clear();
-	ui.label_2->setText("Done!");
+	if (line_1 != "" && line_2 != "")
+	{
+		bool done_1 = company->delete_employee(line_2, line_1);
+		bool done_2 = company->delete_employer(line_2, line_1);
+		ui.del_name_e->clear();
+		ui.del_surname_e->clear();
+		if (done_1 == true || done_2 == true)
+			ui.label_2->setText("Done!");
+		else
+			QMessageBox::warning(this, "Warning!", "Employee doesn't exist!");
+	}
+	else
+		QMessageBox::warning(this, "Warning!", "You need to add all informations");
 }
 
 void ManageDatabase::add_employer_pressed()
@@ -73,11 +81,15 @@ void ManageDatabase::add_employer_pressed()
 	string  line_1 = edit_line_1.toStdString();
 	QString edit_line_2 = ui.add_name_r->text();
 	string  line_2 = edit_line_2.toStdString();
-
-	string ID = company->add_employer(line_2, line_1);
-	ui.add_name_r->clear();
-	ui.add_surname_r->clear();
-	ui.label_8->setText(QString::fromStdString(ID));
+	if (line_1 != "" && line_2 != "")
+	{
+		string ID = company->add_employer(line_2, line_1);
+		ui.add_name_r->clear();
+		ui.add_surname_r->clear();
+		ui.label_8->setText(QString::fromStdString(ID));
+	}
+	else
+		QMessageBox::warning(this, "Warning!", "You need to enter all good information to add employer");
 }
 
 void ManageDatabase::change_employee_pressed()
