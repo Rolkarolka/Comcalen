@@ -9,16 +9,24 @@ Shift::Shift(int no_emp, QString h)
 	{
 		employees.push_back("Avaible");
 	}
+#ifdef _DEBUG
+	qDebug() << "Shift class created.\n";
+#endif
 
 }
 
 Shift::Shift() 
 {
+#ifdef _DEBUG
+	qDebug() << "Shift class created.\n";
+#endif
 }
 
 Shift::~Shift()
 {
-
+#ifdef _DEBUG
+	qDebug() << "Shift class deleted.\n";
+#endif
 }
 
 void Shift::add_shift(string employee_id)

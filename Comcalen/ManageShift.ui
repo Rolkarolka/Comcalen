@@ -238,14 +238,36 @@
    <widget class="QTableWidget" name="existing_shifts">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>400</x>
       <y>160</y>
-      <width>281</width>
+      <width>321</width>
       <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">backgroud:transparent;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>110</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
+    <property name="text">
+     <string>To delete a shift, click on it twice</string>
     </property>
    </widget>
   </widget>

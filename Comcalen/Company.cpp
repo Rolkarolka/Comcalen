@@ -198,6 +198,21 @@ Company::Company()
 
 Company::~Company()
 {
+	map <QDate, vector<Shift*>>::iterator itr3;
+
+	for (itr3 = calendar.begin(); itr3 != calendar.end(); ++itr3)
+	{
+		for (int i = itr3->second.size() - 1; i >= 0; i--)
+		{
+			itr3->second[i]->~Shift();
+		}
+	}
+
+	for (int i = shift_table.size() - 1; i >= 0; i--)
+	{
+		shift_table[i]->~Shift();
+	}
+	
 	map <string, Employer*>::iterator itr;
 
 	for (itr = employers.begin(); itr != employers.end(); ++itr)
