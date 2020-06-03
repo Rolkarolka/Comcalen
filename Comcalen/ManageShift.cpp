@@ -68,6 +68,8 @@ void ManageShift::show_list()
 {
 	ui.existing_shifts->setRowCount(company->shift_table.size());
 	ui.existing_shifts->setColumnCount(1);
+	ui.existing_shifts->setHorizontalHeaderLabels(QStringList() << "Existing shifts:");
+	ui.existing_shifts->horizontalHeader()->setStretchLastSection(true);
 	for (int row = 0; row < company->shift_table.size(); row++)
 	{
 		string news = company->shift_table[row]->hours.toStdString() + " - " + std::to_string(company->shift_table[row]->no_employees);
