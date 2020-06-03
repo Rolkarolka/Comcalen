@@ -52,6 +52,10 @@ void ManageDatabase::add_employee_pressed()
 
 }
 
+bool ManageDatabase::get_delete_company()
+{
+	return delete_company;
+}
 
 void ManageDatabase::del_employee_r_pressed()
 {
@@ -62,14 +66,37 @@ void ManageDatabase::del_employee_r_pressed()
 
 	if (line_1 != "" && line_2 != "")
 	{
-		bool done_1 = company->delete_employee(line_2, line_1);
-		bool done_2 = company->delete_employer(line_2, line_1);
-		ui.del_name_e->clear();
-		ui.del_surname_e->clear();
-		if (done_1 == true || done_2 == true)
-			ui.label_2->setText("Done!");
+
+		if (line_1 == employer->get_surname() && line_2 == employer->get_name())
+		{
+			DeleteYourself dy_window(company->get_number_of_managment());
+			dy_window.setWindowTitle(QString::fromStdString("Comcalen"));
+			dy_window.exec();
+			delete_company = dy_window.get_delete_company();
+			bool delete_employer = dy_window.get_delete_employer();
+			if (delete_employer == true)
+			{
+				company->delete_employer(line_2, line_1);
+				reject();
+			}
+			else
+			{
+				show();
+				ui.del_name_e->clear();
+				ui.del_surname_e->clear();
+			}
+		}
 		else
-			QMessageBox::warning(this, "Warning!", "Employee doesn't exist!");
+		{
+			bool done_1 = company->delete_employee(line_2, line_1);
+			bool done_2 = company->delete_employer(line_2, line_1);
+			ui.del_name_e->clear();
+			ui.del_surname_e->clear();
+			if (done_1 == true || done_2 == true)
+				ui.label_2->setText("Done!");
+			else
+				QMessageBox::warning(this, "Warning!", "Employee doesn't exist!");
+		}
 	}
 	else
 		QMessageBox::warning(this, "Warning!", "You need to add all informations");
