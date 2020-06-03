@@ -5,6 +5,9 @@
 #include "Employee.h"
 class ChangeEmployee : public QDialog
 {
+	/**
+	* @class ChangeEmployee inheriting from QDialog, change employee atributes
+	*/
 	Q_OBJECT
 
 public:
@@ -16,5 +19,5 @@ private:
 	Ui::ChangeEmployee ui;
 	Employee* employee;
 private slots:
-	void save_button_pressed();
+	void save_button_pressed(); //! save changes
 };

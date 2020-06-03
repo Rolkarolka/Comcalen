@@ -5,6 +5,9 @@
 #include <iostream>
 class Shift
 {
+	/**
+	* @class Shift which contain shifts on specific day
+	*/
 	void add_shift(string employee_id);
 
 public:

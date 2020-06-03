@@ -9,6 +9,9 @@
 
 class EmployerCalendar : public QDialog
 {
+	/**
+	* @class EmployerCalendar inheriting from QDialog, which show calendar for employer
+	*/
 	Q_OBJECT
 
 public:

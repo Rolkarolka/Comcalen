@@ -8,6 +8,9 @@
 
 class ManageDatabase : public QDialog
 {
+	/**
+	* @class ManageDatabase inheriting from QDialog
+	*/
 	Q_OBJECT
 
 public:
@@ -20,7 +23,7 @@ private:
 
 private slots:
 	void add_employee_pressed();
-	void del_employee_r_pressed();
+	void del_employee_r_pressed(); //! delete employee/employer
 	void add_employer_pressed();
-	void change_employee_pressed();
+	void change_employee_pressed(); //! change attributes of employee
 };

@@ -57,11 +57,8 @@ public:
 	string get_company_ID();
 	map<QDate, vector<Shift*>> get_calendar();
 	vector<tuple<string, string>> get_log_info();
-	int no_people_per_shift = 1;
 	bool CrewMember_exist(string ID);
 	vector<QString> avaible_shifts(QDate date);
-
-	void change_employee_attri();					// potrzeba? Chyba niezbyt
 
 
 	string get_new_employer_ID();
@@ -70,7 +67,7 @@ public:
 	bool delete_employee(string ID);
 	bool delete_employee(string name, string surname);
 
-	string add_employer(Employer& employer);
+	string add_employer(Employer& employer);					//! add employees to company and return ID for login
 	string add_employer(string name, string surnam);			//! add employers to company and return ID for login
 	bool delete_employer(string ID);
 	bool delete_employer(string name, string surname);
@@ -80,7 +77,6 @@ public:
 	void delete_shift(int idex);
 	void set_ID(string new_ID);
 	void set_payday(int day);
-	void set_shift_table();
 	void set_company_name(string name);
 	void update_calendar();
 
@@ -97,11 +93,11 @@ public:
 
 
 	void present_company();										// for tests
-	string get_ID_having_name_and_surname(string name, string surname);
-	string get_name_surname_id(string id);
-	int get_number_of_news();
-	int get_number_of_managment();
-	int get_number_of_staff();
+	string get_ID_having_name_and_surname(string name, string surname);	// for tests
+	string get_name_surname_id(string id);	// for tests
+	int get_number_of_news();		// for tests
+	int get_number_of_managment();	// for tests
+	int get_number_of_staff();		// for tests
 
 
 };

@@ -16,15 +16,6 @@ map <QDate, vector<Shift*>> Company::get_calendar()
 	return calendar;
 }
 
-void Company::set_shift_table()
-{
-
-}
-void Company::change_employee_attri()
-{
-
-}
-
 vector <string> Company::get_shifts_employees(QDate d, QString h)
 {
 	map <QDate, vector<Shift*>>::iterator itr;

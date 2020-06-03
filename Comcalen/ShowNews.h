@@ -11,6 +11,9 @@
 using namespace std;
 class ShowNews : public QDialog
 {
+	/**
+	* @class ShowNews inheriting from QDialog
+	*/
 	Q_OBJECT
 
 public:
@@ -21,5 +24,5 @@ private:
 	Employer* employer;
 	Ui::ShowNews ui;
 private slots:
-	void remove_news(int row, int column);
+	void remove_news(int row, int column); //! remove news with double clik
 };

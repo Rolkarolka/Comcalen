@@ -12,6 +12,9 @@
 
 class ManageShift : public QDialog
 {
+	/**
+	* @class ManageShift inheriting from QDialog, for Employer to manage company shifts
+	*/
 	Q_OBJECT
 
 public:
@@ -25,7 +28,7 @@ private:
 	QString beginning;
 	QString end;
 
-	bool add_set_lines(); //! prepares values ??entered by the user so that a new shift can be created
+	bool add_set_lines(); //! prepares values entered by the user so that a new shift can be created
 	void show_list(); //! shows list of existing shifts
 
 private slots:

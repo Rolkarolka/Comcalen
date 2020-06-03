@@ -13,6 +13,9 @@
 
 class ShiftTable : public QDialog
 {
+    /**
+    * @class ShiftTable inheriting from QDialog
+    */
     Q_OBJECT
 
 

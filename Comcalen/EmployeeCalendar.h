@@ -10,6 +10,9 @@
 
 class EmployeeCalendar : public QDialog
 {
+	/**
+	* @class EmployeeCalendar inheriting from QDialog, show caledar for employee
+	*/
 	Q_OBJECT
 
 

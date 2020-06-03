@@ -202,6 +202,7 @@ Employee& operator >>(istringstream& tokenStream, Employee& employee)
 		num_word++;
 
 	}
+	throw invalid_argument("Cannot read employee atributes from file.");
 }
 
 void Employee::set_company(Company* employee_company)
