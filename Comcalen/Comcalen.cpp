@@ -66,11 +66,13 @@ void Comcalen::signup_pressed()
 	connect(&add_company_window, SIGNAL(accepted()), this, SLOT(on_add_company_accepted()));
 	connect(&add_company_window, SIGNAL(rejected()), this, SLOT(show()));
 	hide();
-	int accepted = add_company_window.exec();
-	if (accepted == 1)
+	//int accepted = add_company_window.exec();
+	if (add_company_window.exec() == 1)
 	{
 		user_company = add_company_window.get_company();
 		crew_member = add_company_window.get_employer();
+		string hi_text = "Welcome " + crew_member->get_name() + " " + crew_member->get_surname() + "!";
+		ui.hello_label->setText(QString::fromStdString(hi_text));
 		database->get_filename();
 	}
 }
@@ -191,8 +193,6 @@ void Comcalen::on_add_company_accepted()
 {
 	show();
 	ui.employee_menu->setVisible(false);
-	string hi_text = "Welcome " + crew_member->get_name() + " " + crew_member->get_surname() + "!";
-	ui.hello_label->setText(QString::fromStdString(hi_text));
 	ui.sibox->setVisible(false);
 	ui.employer_menu->setVisible(true);
 }

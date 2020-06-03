@@ -42,12 +42,12 @@ private:
 	Employee* find_employee(Company* company, string ID); //! return user object
 	Employer* find_employer(Company* company, string ID); //! return user object
 	Company* find_company_by_ID(string ID);	//! return company from which user is
-	void on_add_company_accepted(); //! change view
 	
 
 private slots:
 	void login_pressed();
 	void signup_pressed();
+	void on_add_company_accepted(); //! change view
 	void employee_calendar_pressed();
 	void employer_calendar_pressed();
 	void employee_add_shift_pressed();

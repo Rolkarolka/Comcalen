@@ -120,7 +120,7 @@ void AddCompany::add_employee_to_company()
 		ui.employee_surname->clear();
 	}
 	else
-		QMessageBox::warning(this, "Warning!", "You need to enter all information. to add employee");
+		QMessageBox::warning(this, "Warning!", "You need to enter all information to add employee");
 }
 
 void AddCompany::set_lines()
