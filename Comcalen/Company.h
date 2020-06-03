@@ -50,6 +50,7 @@ public:
 	~Company();
 	Company(string cname, string employer_name, string employer_surname);
 
+
 	string get_company_name();
 	int get_payday();
 	bool delete_data_in_database_of_ID(string ID);
@@ -93,6 +94,8 @@ public:
 	friend bool Employer::delete_news(int index);
 	friend bool Employee::set_reserved_hours(QDate date, QString hours);
 	friend bool Employee::shift_avaible(QDate date, QString hours);
+	friend bool Employer::change_employee_name_surname_ID(string name, string surname, string new_name, string new_surname, string ID);
+
 
 
 	void present_company();										// for tests
