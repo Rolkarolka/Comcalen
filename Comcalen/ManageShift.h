@@ -25,11 +25,11 @@ private:
 	QString beginning;
 	QString end;
 
-	bool add_set_lines();
-	void show_list();
+	bool add_set_lines(); //! prepares values ??entered by the user so that a new shift can be created
+	void show_list(); //! shows list of existing shifts
 
 private slots:
-	void add_clicked();
-	void delete_shift(int, int);
+	void add_clicked(); //! creates new shift
+	void delete_shift(int, int); //! deletes existing shift
 
 };

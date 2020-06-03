@@ -1,6 +1,6 @@
 #include "Employee.h"
 #include "Company.h"
-
+#include "ChangeEmployee.h"
 bool Employee::shift_avaible(QDate date, QString h)
 {
 	
@@ -118,15 +118,6 @@ map <QDate, QString> Employee::get_reserved_hours()
 	return reserved_hours;
 }
 
-void Employee::show_calendar()
-{
-
-}
-
-void Employee::show_news()
-{
-
-}
 
 void Employee::present()
 {

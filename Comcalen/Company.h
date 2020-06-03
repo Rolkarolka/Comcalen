@@ -90,12 +90,10 @@ public:
 
 	friend void Employer::add_employee();
 	friend void Employer::remove_employee();
-	friend void Employer::set_shift_hours();
 	friend string Employer::show_news(int index);
 	friend bool Employer::delete_news(int index);
 	friend bool Employee::set_reserved_hours(QDate date, QString hours);
 	friend bool Employee::shift_avaible(QDate date, QString hours);
-	//friend void ManageShift::add_clicked();
 
 
 	void present_company();										// for tests

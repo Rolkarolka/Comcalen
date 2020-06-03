@@ -19,6 +19,6 @@ private:
 	Ui::EmployerCalendar ui;
 	Company* company;
 private slots:
-	void calendar_clicked();
-	void show_emplo(int, int);
+	void calendar_clicked(); //! when calecndar is clicked shows shifts that employer can click to see who is working then 
+	void show_emplo(int, int); //! show list of employees working on given day and shift
 };

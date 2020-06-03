@@ -27,13 +27,13 @@ private:
     Company* company;
     Employee* employee;
     Ui::ShiftTable ui;
-    void paint_calendar();
+    void paint_calendar(); //! paints callendar green if shift is avaible for employee on given day, red if not
 
 
 
 private slots:
-    void calendar_clicked();
-    void add_shift(int, int);
+    void calendar_clicked(); //! show which shifts are avaible for employee in given day
+    void add_shift(int, int); //! calls for function set_reserved_hours from class Employee, and prints information about whether adding shift was succesfull or not
 };
 
 
