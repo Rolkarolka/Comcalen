@@ -24,20 +24,18 @@ EmployerCalendar::~EmployerCalendar()
 
 void EmployerCalendar::calendar_clicked()
 {
-	vector <QString> shifts;
-	for (int i = 0; i < company->shift_table.size(); i++)
-	{
-		shifts.push_back(company->shift_table[i]->hours);
-	}
+	ui.employees->setRowCount(0);
+	ui.employees->setColumnCount(1);
+	
+	vector<QString> shifts = company->get_hours_employer(ui.calendar_employer->selectedDate());
 	ui.hours->setRowCount(shifts.size());
 	ui.hours->setColumnCount(1);
 	ui.hours->setHorizontalHeaderLabels(QStringList() << "Shifts:");
 	ui.hours->horizontalHeader()->setStretchLastSection(true);
 
-
 	for (int row = 0; row < shifts.size(); row++)
 	{
-		QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row].arg(row).arg(0));
+		QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row]);
 		ui.hours->setItem(row, 0, newItem);
 	}
 }
@@ -52,7 +50,7 @@ void EmployerCalendar::show_emplo(int, int)
 	if (emplo.size() > 0)
 		for (int row = 0; row < emplo.size(); row++)
 		{
-			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(emplo[row]).arg(row).arg(0));
+			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(emplo[row]));
 			ui.employees->setItem(row, 0, newItem);
 		}
 	

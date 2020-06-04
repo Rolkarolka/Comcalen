@@ -6,6 +6,9 @@
 
 class DeleteYourself : public QDialog
 {
+	/**
+	* @class DeleteYourself inheriting from QDialog, evocated while acctual user want to delete company or himself
+	*/
 	Q_OBJECT
 
 public:

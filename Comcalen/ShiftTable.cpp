@@ -72,7 +72,7 @@ void ShiftTable::calendar_clicked()
         ui.avaible_list->setColumnCount(1);
         for (int row = 0; row < shifts.size(); row++)
         {
-            QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row].arg(row).arg(0));
+            QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row]);
             ui.avaible_list->setItem(row, 0, newItem);
         }
     }
