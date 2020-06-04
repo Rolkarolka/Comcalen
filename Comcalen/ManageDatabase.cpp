@@ -40,12 +40,17 @@ void ManageDatabase::add_employee_pressed()
 
 	if (ok_1 && ok_2)
 	{
-		string ID = company->add_employee(line_3, line_2, line_4, line_1, company);
-		ui.add_hl_e->clear();
-		ui.add_name_e->clear();
-		ui.add_surname_e->clear();
-		ui.add_salary_e->clear();
-		ui.label_7->setText(QString::fromStdString(ID));
+		if (line_1 > 0 && line_4 > 0)
+		{
+			string ID = company->add_employee(line_3, line_2, line_4, line_1, company);
+			ui.add_hl_e->clear();
+			ui.add_name_e->clear();
+			ui.add_surname_e->clear();
+			ui.add_salary_e->clear();
+			ui.label_7->setText(QString::fromStdString(ID));
+		}
+		else
+			QMessageBox::warning(this, "Warning!", "Wrong value");
 	}
 	else
 		QMessageBox::warning(this, "Warning!", "You need to enter all good information to add employee");

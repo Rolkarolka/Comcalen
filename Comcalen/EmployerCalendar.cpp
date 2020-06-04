@@ -37,7 +37,7 @@ void EmployerCalendar::calendar_clicked()
 
 	for (int row = 0; row < shifts.size(); row++)
 	{
-		QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row].arg(row).arg(0));
+		QTableWidgetItem* newItem = new QTableWidgetItem(shifts[row]);
 		ui.hours->setItem(row, 0, newItem);
 	}
 }
@@ -52,8 +52,7 @@ void EmployerCalendar::show_emplo(int, int)
 	if (emplo.size() > 0)
 		for (int row = 0; row < emplo.size(); row++)
 		{
-			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(emplo[row]).arg(row).arg(0));
+			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(emplo[row]));
 			ui.employees->setItem(row, 0, newItem);
-		}
-	
+		}	
 }

@@ -15,7 +15,7 @@ ShowNews::ShowNews(Employer *current_employer, int news_size, QDialog *parent)
         string news = current_employer->show_news(row);
         if (news != "")
         {
-            QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news).arg(row).arg(0));
+            QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news));
             ui.table->setItem(row, 0, newItem);
         }
     }
