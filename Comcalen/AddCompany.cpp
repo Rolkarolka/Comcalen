@@ -4,6 +4,7 @@
 AddCompany::AddCompany(CompanyDatabase* company_database, QDialog *parent)
 	: QDialog(parent)
 {
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	cdatabase= company_database;
 	company_ID = cdatabase->get_new_ID();
 	new_company = new Company();

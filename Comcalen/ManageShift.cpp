@@ -5,6 +5,7 @@ ManageShift::ManageShift(Company* com, QDialog *parent)
 {
 	company = com;
 	ui.setupUi(this);
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.add_button, SIGNAL(released()), this, SLOT(add_clicked()));
 	connect(ui.existing_shifts, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(delete_shift(int, int)));

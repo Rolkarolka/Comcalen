@@ -4,6 +4,7 @@ DeleteYourself::DeleteYourself(int mnum, QDialog *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	managment_num = mnum;
 	if (mnum == 1)
 		ui.totally_yes->setVisible(false);

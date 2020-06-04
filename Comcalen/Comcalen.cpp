@@ -8,6 +8,7 @@ Comcalen::Comcalen(CompanyDatabase* cdatabase, QWidget* parent)
 {
 	database = cdatabase;
 	ui.setupUi(this);
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	connect(ui.login_button, SIGNAL(released()), this, SLOT(login_pressed()));
 	connect(ui.signin_button, SIGNAL(released()), this, SLOT(signup_pressed()));
 	connect(ui.employee_calendar_button, SIGNAL(released()), this, SLOT(employee_calendar_pressed()));

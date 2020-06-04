@@ -5,7 +5,7 @@ ShowNews::ShowNews(Employer *current_employer, int news_size, QDialog *parent)
 {
 	ui.setupUi(this);
     employer = current_employer;
-
+    setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     ui.table->setRowCount(news_size);
     ui.table->setColumnCount(1);
 

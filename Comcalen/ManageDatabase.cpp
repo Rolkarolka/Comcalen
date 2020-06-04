@@ -6,6 +6,7 @@ ManageDatabase::ManageDatabase(Employer* crew_member, Company* new_company, QDia
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	company = new_company;
 	employer = crew_member;
 	connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));

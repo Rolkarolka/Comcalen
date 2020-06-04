@@ -5,6 +5,7 @@ EmployerCalendar::EmployerCalendar(Company* com, QDialog *parent)
 {
 	company = com;
 	ui.setupUi(this);
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	connect(ui.return_employer_c, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.calendar_employer, SIGNAL(selectionChanged()), this, SLOT(calendar_clicked()));
 	connect(ui.hours, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(show_emplo(int, int)));

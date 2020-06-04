@@ -4,6 +4,7 @@ ShowCompany::ShowCompany(Company* ncompany, QDialog *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+    setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     company = ncompany;
     connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
     QVBoxLayout* layout = new QVBoxLayout;

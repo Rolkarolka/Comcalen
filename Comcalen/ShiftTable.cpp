@@ -10,6 +10,7 @@ ShiftTable::ShiftTable(Employee* em, Company* com, QDialog* parent)
     employee = em;
     company->update_calendar();
     ui.setupUi(this);
+    setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     paint_calendar();
     connect(ui.return_menu, SIGNAL(released()), this, SLOT(reject()));
     connect(ui.calendar, SIGNAL(selectionChanged()), this, SLOT(calendar_clicked()));

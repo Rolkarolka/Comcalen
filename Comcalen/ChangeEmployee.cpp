@@ -8,6 +8,7 @@ ChangeEmployee::ChangeEmployee(Employer* new_employer,  Employee* new_employee, 
 	employee = new_employee;
 	employer = new_employer;
 	ui.setupUi(this);
+	setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	string name = employee->get_name();
 	ui.label_name->setText(QString::fromStdString(name));
 	string surname = employee->get_surname();
