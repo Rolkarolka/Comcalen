@@ -25,9 +25,8 @@ void ManageShift::add_clicked()
 {
 	if (add_set_lines())
 	{
-		QString hours = beginning + " - " + end;
-		Shift* day = new Shift(no_employees, hours);
-		company->shift_table.push_back(day);
+		QString hours = beginning + " " + end;
+		company->add_shift(no_employees, hours);
 		show_list();
 	}
 }

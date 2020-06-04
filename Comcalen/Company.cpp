@@ -228,6 +228,7 @@ Company::~Company()
 	}
 	employees.clear();
 	employers.clear();
+	calendar.clear();
 #ifdef _DEBUG
 	qDebug() << "Company class removed.\n";
 #endif
@@ -459,6 +460,46 @@ void Company::update_calendar()
 	}
 }
 
+vector<QString> Company::get_hours_employer(QDate date)
+{
+
+	vector <QString> shifts;
+	bool check = true;
+	map <QDate, vector<Shift*>>::iterator itr;
+	for (itr = calendar.begin(); itr != calendar.end(); ++itr)
+	{
+		if (itr->first == date)
+		{
+			check = false;
+			for (int i = 0; i < itr->second.size(); i++)
+			{
+				shifts.push_back(itr->second[i]->hours);
+			}
+		}
+	}
+	if (check)
+	{
+		for (int i = 0; i < shift_table.size(); i++)
+		{
+			shifts.push_back(shift_table[i]->hours);
+		}
+	}
+	return shifts;
+}
+
+void Company::add_shift(int no_emplo, QString hours)
+{
+	Shift* day = new Shift(no_emplo, hours);
+	shift_table.push_back(day);
+	map <QDate, vector<Shift*>>::iterator a;
+	for (a = calendar.begin(); a != calendar.end(); ++a)
+	{
+		a->second.push_back(day);
+	}
+
+}
+
+
 
 fstream& operator <<(fstream& file, Company& company)
 {
@@ -488,7 +529,7 @@ fstream& operator <<(fstream& file, Company& company)
 
 	for (itr3 = company.calendar.begin(); itr3 != company.calendar.end(); ++itr3)
 	{
-		file << itr3->first.toString().toStdString() << "\t";
+		file << itr3->second.size() << "\t" << itr3->first.toString().toStdString() << "\t";
 		for (int i = 0; i < itr3->second.size(); i++)
 			file << *itr3->second[i] << "\t";
 	}
@@ -507,6 +548,8 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 {
 	string token, ID, date;
 	bool date_taken = false;
+	bool size_shifts = false;
+	int size_sh = 0;
 	int news_size, employees_size, employers_size, calendar_size, shifts_size;
 	int start_news = 8, start_employers = 8, start_shift_table = 8, start_calendar = 8;
 	char delimiter = '\t';
@@ -519,7 +562,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 		case 2: company.payday = stoi(token.c_str()); break;
 		case 3: employees_size = stoi(token.c_str()); start_employers += employees_size; start_news += employees_size; start_shift_table += employees_size; start_calendar += employees_size;  break;
 		case 4: employers_size = stoi(token.c_str()); start_news += employers_size; start_shift_table += employers_size; start_calendar += employers_size; break;
-		case 5: calendar_size = stoi(token.c_str()); start_shift_table += calendar_size*2; start_news += calendar_size*2; break;
+		case 5: calendar_size = stoi(token.c_str()); start_shift_table += calendar_size*3; start_news += calendar_size*3; break;
 		case 6: company.size_shift_table = stoi(token.c_str());  start_news += company.size_shift_table; break;
 		case 7: news_size = stoi(token.c_str()); break;
 		}
@@ -546,7 +589,12 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 
 		if (num_word >= start_calendar && num_word < start_shift_table)
 		{
-			if (date_taken == false)
+			if (!size_shifts)
+			{
+				size_sh = stoi(token);
+				size_shifts = true;
+			}
+			else if (!date_taken)
 			{
 				date = token.c_str();
 				date_taken = true;
@@ -554,13 +602,14 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			else
 			{
 				vector<Shift*> shifts;
-				for (int i = 0; i < company.size_shift_table; i++)
+				for (int i = 0; i < size_sh; i++)
 				{
 					Shift* shift = new Shift();
 					tokenStream >> *shift;
 					shifts.push_back(shift);
 				}
 				date_taken = false;
+				size_shifts = false;
 				company.calendar.insert(pair<QDate, vector<Shift*>>(QDate::fromString(QString::fromStdString(date)), shifts));
 			}
 		}
@@ -571,7 +620,7 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 			tokenStream >> *shift;
 			company.shift_table.push_back(shift);
 		}
-		if (num_word >= start_news - 1  && token != ""  && news_size != 0)
+		if (num_word >= start_news && token != ""  && news_size != 0)
 		{
 			string news = token.c_str();
 			if (news != "")

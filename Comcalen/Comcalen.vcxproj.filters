@@ -76,6 +76,9 @@
     <ClCompile Include="Shift.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DeleteYourself.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Comcalen.h">
@@ -108,6 +111,9 @@
     <QtMoc Include="ChangeEmployee.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="DeleteYourself.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Comcalen.ui">
@@ -138,6 +144,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ChangeEmployee.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DeleteYourself.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
