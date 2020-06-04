@@ -23,6 +23,7 @@ private:
 	Employer* employer;
 	Company* company;
 	bool delete_company = false;
+	char part_ID(string ID);
 
 private slots:
 	void add_employee_pressed();

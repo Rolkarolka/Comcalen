@@ -93,19 +93,35 @@ void ManageDatabase::del_employee_r_pressed()
 		}
 		else
 		{
-			bool done_1 = company->delete_employee(line_2, line_1);
-			bool done_2 = company->delete_employer(line_2, line_1);
+			string ID = company->get_ID_having_name_and_surname(line_2, line_1);
+			char delimiter = part_ID(ID);
+			bool done_2 = false, done_1 = false;
+			if (delimiter == '\\')
+				done_2 = company->delete_employer(line_2, line_1);
+			else if (delimiter == '/')
+				done_1 = company->delete_employee(line_2, line_1);
 			ui.del_name_e->clear();
 			ui.del_surname_e->clear();
 			if (done_1 == true || done_2 == true)
 				ui.label_2->setText("Done!");
 			else
-				QMessageBox::warning(this, "Warning!", "Employee doesn't exist!");
+				QMessageBox::warning(this, "Warning!", "CrewMember doesn't exist!");
 		}
 	}
 	else
 		QMessageBox::warning(this, "Warning!", "You need to add all informations");
 }
+
+char ManageDatabase::part_ID(string ID)
+{
+	for (int i = 0; i < ID.length(); i++)
+	{
+		if (ID[i] == '\\' || ID[i] == '/')
+			return ID[i];
+	}
+	return ' ';
+}
+
 
 void ManageDatabase::add_employer_pressed()
 {
