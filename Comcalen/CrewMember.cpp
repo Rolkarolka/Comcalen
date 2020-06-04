@@ -99,4 +99,5 @@ CrewMember& operator >>(istringstream& tokenStream, CrewMember& crewM)
 			return crewM;
 		num_word++;
 	}
+	throw invalid_argument("Cannot read CrewMember from file");
 }

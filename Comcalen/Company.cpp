@@ -559,8 +559,6 @@ Company& operator >>(istringstream& tokenStream, Company& company)
 					Shift* shift = new Shift();
 					tokenStream >> *shift;
 					shifts.push_back(shift);
-
-
 				}
 				date_taken = false;
 				company.calendar.insert(pair<QDate, vector<Shift*>>(QDate::fromString(QString::fromStdString(date)), shifts));

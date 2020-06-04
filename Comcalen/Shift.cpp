@@ -86,4 +86,5 @@ Shift& operator >>(istringstream& tokenStream, Shift& shift)
 		}
 		num_word++;
 	}
+	throw invalid_argument("Cannot read Shift from file");
 }

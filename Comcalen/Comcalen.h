@@ -59,4 +59,5 @@ private slots:
 	void manage_shift_pressed();
 	void manage_database_pressed();
 
+
 };

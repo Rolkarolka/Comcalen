@@ -6,7 +6,7 @@ ShowCompany::ShowCompany(Company* ncompany, QDialog *parent)
 	ui.setupUi(this);
     company = ncompany;
     connect(ui.return_mw, SIGNAL(released()), this, SLOT(reject()));
-    QVBoxLayout* layout = new QVBoxLayout(this);
+    QVBoxLayout* layout = new QVBoxLayout;
     connect(ui.save_file, SIGNAL(clicked()), this, SLOT(save_button_pressed()));
     vector<tuple<string, string>> log_info = company->get_log_info();
     company_members = company->get_number_of_staff() + company->get_number_of_managment();

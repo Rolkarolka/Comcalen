@@ -80,7 +80,7 @@ void ManageShift::show_list()
 		string news = company->shift_table[row]->hours.toStdString() + " - " + std::to_string(company->shift_table[row]->no_employees);
 		if (news != "")
 		{
-			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news).arg(row).arg(0));
+			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news));
 			ui.existing_shifts->setItem(row, 0, newItem);
 		}
 	}
