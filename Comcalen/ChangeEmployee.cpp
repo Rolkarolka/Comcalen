@@ -16,6 +16,7 @@ ChangeEmployee::ChangeEmployee(Employer* new_employer,  Employee* new_employee, 
 	ui.label_hl->setText(QString::fromStdString(hl));
 	string salary = to_string(employee->get_salary());
 	ui.label_salary->setText(QString::fromStdString(salary));
+	connect(ui.return_button, SIGNAL(released()), this, SLOT(reject()));
 	connect(ui.save_button, SIGNAL(released()), this, SLOT(save_button_pressed()));
 #ifdef _DEBUG
 	qDebug() << "ChangeEmployee class created.\n";
@@ -64,19 +65,31 @@ void ChangeEmployee::save_button_pressed()
 		if (line_1 > 0)
 			employee->set_hours_limit(line_1);
 		else
-			QMessageBox::warning(this, "Login", "Incorrect value");
+		{
+			QMessageBox::warning(this, "Warning", "Incorrect value");
+			ui.change_hl_e->clear();
+			return;
+		}
 	}
 	if (ok_2)
 	{
 		if (line_4 > 0)
 			employee->set_salary(line_4);
 		else
-			QMessageBox::warning(this, "Login", "Incorrect value");
+		{
+			QMessageBox::warning(this, "Warning", "Incorrect value");
+			ui.change_salary_e->clear();
+			return;
+		}
 	}
-
-	ui.change_hl_e->clear();
+	if (!ok_1 && !ok_2 && line_3 == "" && line_2 == "")
+	{
+		QMessageBox::warning(this, "Warning", "Cannot save changes");
+		return;
+	}
 	ui.change_name_e->clear();
-	ui.change_surname_e->clear();
+	ui.change_hl_e->clear();
 	ui.change_salary_e->clear();
+	ui.change_surname_e->clear();
 	accept();
 	}

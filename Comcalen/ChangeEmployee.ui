@@ -214,7 +214,7 @@
      <rect>
       <x>40</x>
       <y>210</y>
-      <width>331</width>
+      <width>311</width>
       <height>31</height>
      </rect>
     </property>
@@ -225,6 +225,24 @@
     </property>
     <property name="text">
      <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="return_button">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>250</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Copperplate Gothic Bold</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Return</string>
     </property>
    </widget>
   </widget>

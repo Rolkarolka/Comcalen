@@ -155,10 +155,11 @@ void ManageDatabase::change_employee_pressed()
 		{
 			ChangeEmployee che_window(employer, company->get_employee(ID));
 			connect(&che_window, SIGNAL(rejected()), this, SLOT(show()));
-			che_window.exec();
+			int accepted = che_window.exec();
 			ui.change_name_e->clear();
 			ui.change_surname_e->clear();
-			ui.label->setText("Done!");
+			if (accepted == 1)
+				ui.label->setText("Done!");
 		}
 		else
 			QMessageBox::warning(this, "Warning!", "Employee does not exist");
