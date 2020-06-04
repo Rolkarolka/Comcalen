@@ -112,10 +112,8 @@ void Comcalen::manage_database_pressed()
 	ManageDatabase md_window(p, user_company);
 	md_window.setWindowTitle(QString::fromStdString("Comcalen"));
 	hide();
-	/*connect(&md_window, SIGNAL(rejected()), this, SLOT(manage_database_reject());*/
 	md_window.exec();
 	bool delete_company = md_window.get_delete_company();
-	//bool delete_employer = md_window.get_delete_employer();
 	if (delete_company == false && crew_member->get_name() != "")
 		show();
 	else if (delete_company == true)

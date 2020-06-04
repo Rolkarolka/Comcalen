@@ -19,4 +19,9 @@ public:
 
 private:
 	Ui::ShowCompany ui;
+	Company* company;
+	int company_members;
+
+private slots:
+	void save_button_pressed();
 };

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['add_5femployee_39',['add_employee',['../class_company.html#a940512a6946fd108c1de4513385f228c',1,'Company']]],
+  ['change_5femployee_5fname_5fsurname_5fid_40',['change_employee_name_surname_ID',['../class_company.html#a3956fea10c3c05646f0bb29919fb5503',1,'Company']]],
+  ['change_5fhours_5flimit_41',['change_hours_limit',['../class_employee.html#a209d65121d57bf5d996681d91ac1c950',1,'Employee']]],
+  ['change_5fsalary_42',['change_salary',['../class_employee.html#a21dcbd26f18ff1c70213431c3aa4c9df',1,'Employee']]],
+  ['delete_5fnews_43',['delete_news',['../class_company.html#a35c889bbe30f835030fc65e7083aa1d7',1,'Company']]],
+  ['employee_44',['Employee',['../class_employee.html',1,'Employee'],['../class_employee.html#aaf342b206c87518712313350d7ab4308',1,'Employee::Employee(string ename, string esurname, string id, string ecompany, double esalary, int ehlimit, Company *compan)'],['../class_employee.html#a003c7bd08c40924e381eb0750cbb906f',1,'Employee::Employee()'],['../class_employee.html#a9f5d0f964c8103bfe1ab7acfb7b7fe4a',1,'Employee::Employee(const Employee &amp;empl)']]],
+  ['employee_2ecpp_45',['Employee.cpp',['../_employee_8cpp.html',1,'']]],
+  ['employee_2eh_46',['Employee.h',['../_employee_8h.html',1,'']]],
+  ['employeecalendar_47',['EmployeeCalendar',['../class_employee_calendar.html',1,'EmployeeCalendar'],['../class_employee_calendar.html#a336b2eb5990c9445dfc9fb08ef19af06',1,'EmployeeCalendar::EmployeeCalendar()']]],
+  ['employeecalendar_2ecpp_48',['EmployeeCalendar.cpp',['../_employee_calendar_8cpp.html',1,'']]],
+  ['employeecalendar_2eh_49',['EmployeeCalendar.h',['../_employee_calendar_8h.html',1,'']]],
+  ['employees_50',['employees',['../class_shift.html#aebfc07a9db92949655bda8b94d27f2a7',1,'Shift']]],
+  ['employer_51',['Employer',['../class_employer.html',1,'Employer'],['../class_employer.html#a88f73fb9d81b34f699bd349e00f2c0ac',1,'Employer::Employer(string ename, string esurname, string id, string ecompany, Company *compan)'],['../class_employer.html#aca238d0685deb5db0d82f7ec38222b13',1,'Employer::Employer()'],['../class_employer.html#adfe435451e34d12783d067e1fbd25e07',1,'Employer::Employer(const Employer &amp;empl)']]],
+  ['employer_2ecpp_52',['Employer.cpp',['../_employer_8cpp.html',1,'']]],
+  ['employer_2eh_53',['Employer.h',['../_employer_8h.html',1,'']]],
+  ['employercalendar_54',['EmployerCalendar',['../class_employer_calendar.html',1,'EmployerCalendar'],['../class_employer_calendar.html#a90a4ad4b0fe160cd658185a925709882',1,'EmployerCalendar::EmployerCalendar()']]],
+  ['employercalendar_2ecpp_55',['EmployerCalendar.cpp',['../_employer_calendar_8cpp.html',1,'']]],
+  ['employercalendar_2eh_56',['EmployerCalendar.h',['../_employer_calendar_8h.html',1,'']]],
+  ['remove_5femployee_57',['remove_employee',['../class_company.html#adbaff2c3b01354ef2993280aad21f7f2',1,'Company']]],
+  ['set_5freserved_5fhours_58',['set_reserved_hours',['../class_company.html#a618d9a67ddb451c9c964c774e6f190e2',1,'Company']]],
+  ['shift_5favaible_59',['shift_avaible',['../class_company.html#adc0dfb124d015d177c39d624a31a66b3',1,'Company']]],
+  ['show_5fnews_60',['show_news',['../class_company.html#a13454e2ec4e39a7d7a3e7ca59717fa46',1,'Company']]]
+];

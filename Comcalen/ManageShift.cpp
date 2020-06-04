@@ -83,6 +83,5 @@ void ManageShift::show_list()
 			QTableWidgetItem* newItem = new QTableWidgetItem(QString::fromStdString(news).arg(row).arg(0));
 			ui.existing_shifts->setItem(row, 0, newItem);
 		}
-
 	}
 }
