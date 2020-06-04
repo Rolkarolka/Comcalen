@@ -43,6 +43,4 @@ public:
 	friend fstream& operator <<(fstream& file, CrewMember& crewM); //! saves attributes (name, surname, ID, company) to fstream
 	friend CrewMember& operator >>(istringstream& tokenStream, CrewMember& crewM); //! sets attributes (name, surname, ID, company) from file
 
-
-
 };

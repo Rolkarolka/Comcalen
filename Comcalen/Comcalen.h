@@ -58,6 +58,4 @@ private slots:
 	void show_news_pressed();
 	void manage_shift_pressed();
 	void manage_database_pressed();
-
-
 };

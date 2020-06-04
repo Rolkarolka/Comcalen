@@ -97,15 +97,11 @@ public:
 	friend bool Employee::shift_avaible(QDate date, QString hours);
 	friend bool Employer::change_employee_name_surname_ID(string name, string surname, string new_name, string new_surname, string ID);
 
-
-
 	void present_company();										// for tests
 	string get_ID_having_name_and_surname(string name, string surname);	// for tests
 	string get_name_surname_id(string id);	// for tests
 	int get_number_of_news();		// for tests
 	int get_number_of_managment();	// for tests
 	int get_number_of_staff();		// for tests
-
-
 };
 #endif
