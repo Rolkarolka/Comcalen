@@ -60,8 +60,10 @@ bool Employee::set_reserved_hours(QDate date, QString h)
 							{
 								itr->second[i]->employees[k] = ID;
 								reserved_hours.insert(pair<QDate, QString>(date, h));
+								break;
 							}
 						}
+						
 					}
 				}
 				check = false;

@@ -42,6 +42,7 @@ private:
 
 
 public:
+	vector<QString> get_hours_employer(QDate date);
 	vector <string> get_shifts_employees(QDate d, QString h);
 	vector<Shift*> shift_table;					/// table containing the shift system
 	Company(string cID);
@@ -50,7 +51,7 @@ public:
 	~Company();
 	Company(string cname, string employer_name, string employer_surname);
 
-
+	void add_shift(int no_emplo, QString h);
 	string get_company_name();
 	int get_payday();
 	bool delete_data_in_database_of_ID(string ID);
