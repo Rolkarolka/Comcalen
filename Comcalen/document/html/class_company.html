@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Comcalen
    </div>
+   <div id="projectbrief">Aplikacja do zarządzania dyżurami w firmie.</div>
   </td>
  </tr>
  </tbody>
@@ -75,8 +76,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a15629f914bc83cdc04c202138ed4707a"><td class="memItemLeft" align="right" valign="top">vector&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#a15629f914bc83cdc04c202138ed4707a">get_hours_employer</a> (QDate date)</td></tr>
+<tr class="memdesc:a15629f914bc83cdc04c202138ed4707a"><td class="mdescLeft">&#160;</td><td class="mdescRight">lock operator  <a href="class_company.html#a15629f914bc83cdc04c202138ed4707a">More...</a><br /></td></tr>
+<tr class="separator:a15629f914bc83cdc04c202138ed4707a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ac2a1ade5e58ddc436c8bffdd92b4c7"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#a0ac2a1ade5e58ddc436c8bffdd92b4c7">get_shifts_employees</a> (QDate d, QString h)</td></tr>
-<tr class="memdesc:a0ac2a1ade5e58ddc436c8bffdd92b4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">lock operator  <a href="class_company.html#a0ac2a1ade5e58ddc436c8bffdd92b4c7">More...</a><br /></td></tr>
 <tr class="separator:a0ac2a1ade5e58ddc436c8bffdd92b4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda8dd18f43d375e357d50dfb19898cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#abda8dd18f43d375e357d50dfb19898cc">Company</a> (string cID)</td></tr>
 <tr class="memdesc:abda8dd18f43d375e357d50dfb19898cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">table containing the shift system  <a href="class_company.html#abda8dd18f43d375e357d50dfb19898cc">More...</a><br /></td></tr>
@@ -89,6 +92,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a61c2a9ec178e683310583ef15635b53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7e07c760c6f36dc7b61c2e08a8dcb17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#ae7e07c760c6f36dc7b61c2e08a8dcb17">Company</a> (string cname, string employer_name, string employer_surname)</td></tr>
 <tr class="separator:ae7e07c760c6f36dc7b61c2e08a8dcb17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363526c107489d69393f4a24b5900f64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#a363526c107489d69393f4a24b5900f64">add_shift</a> (int no_emplo, QString h)</td></tr>
+<tr class="separator:a363526c107489d69393f4a24b5900f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3d9788e184bf9580c8559e2000e5f3c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#aa3d9788e184bf9580c8559e2000e5f3c">get_company_name</a> ()</td></tr>
 <tr class="separator:aa3d9788e184bf9580c8559e2000e5f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45435132ea3ff07d181aabecdcf8e8f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_company.html#a45435132ea3ff07d181aabecdcf8e8f9">get_payday</a> ()</td></tr>
@@ -454,6 +459,34 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a363526c107489d69393f4a24b5900f64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363526c107489d69393f4a24b5900f64">&#9670;&nbsp;</a></span>add_shift()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Company::add_shift </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>no_emplo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2a031dd49f7a1557fbbfd30569febff9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a031dd49f7a1557fbbfd30569febff9">&#9670;&nbsp;</a></span>avaible_shifts()</h2>
 
@@ -775,6 +808,26 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a15629f914bc83cdc04c202138ed4707a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15629f914bc83cdc04c202138ed4707a">&#9670;&nbsp;</a></span>get_hours_employer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; QString &gt; Company::get_hours_employer </td>
+          <td>(</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>lock operator </p>
+
+</div>
+</div>
 <a id="acbd5ecd960c5431cb9212b008335d97c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbd5ecd960c5431cb9212b008335d97c">&#9670;&nbsp;</a></span>get_ID_having_name_and_surname()</h2>
 
@@ -965,8 +1018,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>lock operator </p>
 
 </div>
 </div>

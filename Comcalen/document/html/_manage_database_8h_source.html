@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Comcalen
    </div>
+   <div id="projectbrief">Aplikacja do zarządzania dyżurami w firmie.</div>
   </td>
  </tr>
  </tbody>
@@ -86,23 +87,24 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Ui::ManageDatabase ui;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_employer.html">Employer</a>* employer;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_company.html">Company</a>* company;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> delete_company;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> add_employee_pressed();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> del_employee_r_pressed(); </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> add_employer_pressed();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> change_employee_pressed(); </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> delete_company = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">char</span> part_ID(<span class="keywordtype">string</span> ID);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> add_employee_pressed();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> del_employee_r_pressed(); </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> add_employer_pressed();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> change_employee_pressed(); </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_company_html"><div class="ttname"><a href="class_company.html">Company</a></div><div class="ttdef"><b>Definition:</b> Company.h:16</div></div>
 <div class="ttc" id="a_change_employee_8h_html"><div class="ttname"><a href="_change_employee_8h.html">ChangeEmployee.h</a></div></div>
 <div class="ttc" id="a_company_8h_html"><div class="ttname"><a href="_company_8h.html">Company.h</a></div></div>
 <div class="ttc" id="aclass_manage_database_html_a67ea2454412a3ccef95805d94d6dfc80"><div class="ttname"><a href="class_manage_database.html#a67ea2454412a3ccef95805d94d6dfc80">ManageDatabase::ManageDatabase</a></div><div class="ttdeci">ManageDatabase(Employer *crew_member, Company *company, QDialog *parent=Q_NULLPTR)</div><div class="ttdef"><b>Definition:</b> ManageDatabase.cpp:5</div></div>
 <div class="ttc" id="aclass_employer_html"><div class="ttname"><a href="class_employer.html">Employer</a></div><div class="ttdef"><b>Definition:</b> Employer.h:11</div></div>
-<div class="ttc" id="aclass_manage_database_html_ac74f7b6e788c325b49dc0e38a4d91de1"><div class="ttname"><a href="class_manage_database.html#ac74f7b6e788c325b49dc0e38a4d91de1">ManageDatabase::get_delete_company</a></div><div class="ttdeci">bool get_delete_company()</div><div class="ttdef"><b>Definition:</b> ManageDatabase.cpp:55</div></div>
+<div class="ttc" id="aclass_manage_database_html_ac74f7b6e788c325b49dc0e38a4d91de1"><div class="ttname"><a href="class_manage_database.html#ac74f7b6e788c325b49dc0e38a4d91de1">ManageDatabase::get_delete_company</a></div><div class="ttdeci">bool get_delete_company()</div><div class="ttdef"><b>Definition:</b> ManageDatabase.cpp:61</div></div>
 <div class="ttc" id="a_delete_yourself_8h_html"><div class="ttname"><a href="_delete_yourself_8h.html">DeleteYourself.h</a></div></div>
-<div class="ttc" id="aclass_manage_database_html_ac5d39c59db6eb4a25866065b041a4344"><div class="ttname"><a href="class_manage_database.html#ac5d39c59db6eb4a25866065b041a4344">ManageDatabase::~ManageDatabase</a></div><div class="ttdeci">~ManageDatabase()</div><div class="ttdef"><b>Definition:</b> ManageDatabase.cpp:21</div></div>
+<div class="ttc" id="aclass_manage_database_html_ac5d39c59db6eb4a25866065b041a4344"><div class="ttname"><a href="class_manage_database.html#ac5d39c59db6eb4a25866065b041a4344">ManageDatabase::~ManageDatabase</a></div><div class="ttdeci">~ManageDatabase()</div><div class="ttdef"><b>Definition:</b> ManageDatabase.cpp:22</div></div>
 <div class="ttc" id="aclass_manage_database_html"><div class="ttname"><a href="class_manage_database.html">ManageDatabase</a></div><div class="ttdef"><b>Definition:</b> ManageDatabase.h:11</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
