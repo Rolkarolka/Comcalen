@@ -1,6 +1,5 @@
 #pragma once
 #include <QDebug>
-//#include <QWidget>
 #include <QDialog>
 #include "ui_AddCompany.h"
 #include "CompanyDatabase.h"
